@@ -1,0 +1,58 @@
+DOCUMENTATION
+Diagrammes USE CASE
+Website: Vente de matériel, vêtements et produits orientés à la musculation
+
+=========
+
+En tant que vistieur je peux:
+- M'inscrire
+- M'identifier
+- Voir la liste des produits proposés (nom/prix/descriptif/photo) 
+	- Soit rechercher un produit par rapport à un mot clé
+	- Soit rechercher un produit par rapport aux catégories
+		- Matériel
+		- Vêtements
+		- Produits
+
+
+En tant qu'utilisateur je peux:
+- Me déconnecter 
+- Voir la liste des produits proposés 
+	- Soit rechercher un produit par rapport à un mot clé
+	- Soit rechercher un produit par rapport aux catégories
+		- Matériel
+		- Vêtements
+		- Produits
+- Visualiser mon panier actuel (se vide après un logout)
+- Ajouter des articles à mon panier
+- Visualiser mon profil
+- Visualiser mes commandes 
+- Modifier mon profil (mot de passe, adresse mail) 
+
+En tant qu'administrateur je peux:
+Me déconnecter
+Ajouter une catégorie 
+Renommer une catégorie 
+Supprimer une catégorie 
+- Voir la liste des produits proposés
+	- Soit rechercher un produit par rapport à un mot clé
+	- Soit rechercher un produit par rapport aux catégories
+		- Matériel
+		- Vêtements
+		- Produits
+Ajouter un article
+Modifier un article
+Supprimer un article
+Visualiser mon profil 
+Visualiser profil des utilisateurs
+Modifier mon profil 
+Supprimer un profil (a voir si c'est possible si l'utilisateure est connecté)
+Voir le listing des commandes (+ graphique stats, voir Consignes projet)
+
+======
+
+Extra : 
+- Se pencher sur les moyens de paiements
+- Ajouter des réductions à l'utilisateur après un certain nombre de commandes (prix total)
+- Laisser un commentaire sur le site
+- Recevoir un mail quand un nouvel article est ajouté
