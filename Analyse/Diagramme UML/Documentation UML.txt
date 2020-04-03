@@ -1,0 +1,74 @@
+Table 1: Utilisateur
+id (pk, int, autoincrement)
+username (varchar, unique, not null)
+password (varchar, not null)
+adresse_mail (varchar, not null)
+role_id (fk, int)
+adress_id (fk, int)
+date_creation (date, not null)
+last_connection (date, not null)
+
+=> Role_id pour lier à la table Role(id).
+=> adress_id à la table Adresse(id)
+
+===================
+
+Table 2: Role
+id (pk, int, autoincrement)
+role (varchar, unique, not null)
+
+====================
+
+Table 3: Adresse
+id (pk, int, autoincrement)
+country (varchar, not null)
+city (varchar, not null)
+zip (varchar, not null) // si int, on peut avoir des surprises dans un cas ou par ex on a "0213". Peut aussi correspondre à un département
+house_number (int, not null)
+
+=====================
+
+Table 4 : Article
+id (pk, int, autoincrement)
+title (varchar)
+price (float)
+categorie_id (fk, int)
+
+=> Categorie_id pour lier à la table Categorie(id)
+
+======================
+
+Table 5 : Categorie
+id (pk, int, autoincrement)
+name (varchar, not null)
+
+=======================
+
+Table 6 : Commande
+id(pk, int, autoincrement)
+user_id (fk, int)
+
+=> user_id pour lier à la table Utilisateur(id)
+
+========================
+
+Table 7 : CommandeArticle
+id (pk, int, autoincrement)
+book_id (fk, int)
+item_id (fk, int)
+price (float)
+
+=> book_id pour lier à la table Commande(id)
+=> item_id pour lier à la table Article(id)
+
+
+=========================
+
+
+//Si plus tard besoin de gérer le status d'une commande: 
+
+Table Status
+id(pk, int, auto_increment)
+name (varchar)
+
+=> Selon le status le panier est rechargé lors de la connection d'un utilisateur)
