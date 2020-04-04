@@ -56,3 +56,5 @@ Extra :
 - Ajouter des réductions à l'utilisateur après un certain nombre de commandes (prix total)
 - Laisser un commentaire sur le site
 - Recevoir un mail quand un nouvel article est ajouté
+- Ajouter des sous-catégories
+- Possibilité de choisir la quantité d'un article
