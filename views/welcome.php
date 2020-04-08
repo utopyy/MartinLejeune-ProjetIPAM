@@ -1,4 +1,5 @@
 <?php ob_start() ?>
+	<body>
 	<!-- start banner Area -->
 	<section class="banner-area">
 		<div class="container">
@@ -18,7 +19,7 @@
 							</div>
 							<div class="col-lg-7">
 								<div class="banner-img">
-									<img class="img-fluid" src="public/img/banner-img.png" alt="">
+									<img class="img-fluid" src="/public/img/banner-img.png" alt="">
 								</div>
 							</div>
 						</div>			
@@ -34,7 +35,7 @@
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="single-features">
 						<div class="f-icon">
-							<img src="public/img/f-icon1.png" alt="">
+							<img src="/public/img/f-icon1.png" alt="">
 						</div>
 						<h6>Livraison Gratuite</h6>
 						<p>Livraison gratuite sur toutes nos commandes</p>
@@ -44,7 +45,7 @@
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="single-features">
 						<div class="f-icon">
-							<img src="public/img/f-icon2.png" alt="">
+							<img src="/public/img/f-icon2.png" alt="">
 						</div>
 						<h6>Politique de Retour</h6>
 						<p>Article endommage? Nous vous le remboursons</p>
@@ -54,7 +55,7 @@
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="single-features">
 						<div class="f-icon">
-							<img src="public/img/f-icon3.png" alt="">
+							<img src="/public/img/f-icon3.png" alt="">
 						</div>
 						<h6>Support</h6>
 						<p>Notre support est joignable h24, 7j/7</p>
@@ -64,7 +65,7 @@
 				<div class="col-lg-3 col-md-6 col-sm-6">
 					<div class="single-features">
 						<div class="f-icon">
-							<img src="public/img/f-icon4.png" alt="">
+							<img src="/public/img/f-icon4.png" alt="">
 						</div>
 						<h6>Paiement securise</h6>
 						<p>Nous garantissons des transactions securisees</p>
@@ -74,6 +75,7 @@
 		</div>
 	</section>
 	<!-- end features Area -->
+</body>
 <?php
 $title="Welcome";
 $content=ob_get_clean();

@@ -32,19 +32,19 @@ Table 4 : Article
 id (pk, int, autoincrement)
 title (varchar)
 price (float)
-categorie_id (fk, int)
+category_id (fk, int)
 
-=> Categorie_id pour lier à la table Categorie(id)
+=> Categorie_id pour lier à la table Sub_category(id)
 
 ======================
 
-Table 5 : Categorie
+Table 5 : Category
 id (pk, int, autoincrement)
 name (varchar, not null)
 
 =======================
 
-Table 6 : Commande
+Table 6 : Book
 id(pk, int, autoincrement)
 user_id (fk, int)
 
@@ -52,18 +52,24 @@ user_id (fk, int)
 
 ========================
 
-Table 7 : CommandeArticle
+Table 7 : bookArticle
 id (pk, int, autoincrement)
 book_id (fk, int)
 item_id (fk, int)
 price (float)
 
-=> book_id pour lier à la table Commande(id)
+=> book_id pour lier à la table Book(id)
 => item_id pour lier à la table Article(id)
 
 
 =========================
 
+Table 8 : Sub_category
+id (pk, int, ai)
+name (varchar)
+id_category (id)
+
+=> id_category pour lier à la table Category(id)
 
 //Si plus tard besoin de gérer le status d'une commande: 
 
