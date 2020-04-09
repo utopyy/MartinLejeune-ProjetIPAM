@@ -27,21 +27,31 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner">
 						<h3>S'enregistrer</h3>
-						<form class="row login_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+						<form class="row login_form" action="/controllers/signup.php" method="post" id="contactForm">
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="name" name="name" placeholder="Login" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+								<input type="text" class="form-control" id="username" name="username" placeholder="Login" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Login'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="email" class="form-control" id="name" name="name" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+								<input type="text" class="form-control" id="firstname" name="firstname" placeholder="Prénom" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prénom'">
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="lastname" name="lastname" placeholder="Nom" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nom'">
+							</div>
+							<div class="col-md-12 form-group">
+								<label for="birthdate">Date d'anniversaire: </label>
+								<input type="date" class="form-control" id="birthdate" name="birthdate">
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="email" class="form-control" id="mail" name="mail" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
 							</div>	
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="name" name="name" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+								<input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mot de passe'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="password" class="form-control" id="name" name="name" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+								<input type="password" class="form-control" id="confirm_password" name="confirm_password" placeholder="Confirmation mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirmation mot de passe'">
 							</div>
 							<div class="col-md-12 form-group">
-								<button type="submit" value="submit" class="primary-btn">S'enregistrer</button>
+								<button type="submit" name="form_insert" value="submit" class="primary-btn">S'enregistrer</button>
 							</div>						
 						</form>
 					</div>

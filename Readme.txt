@@ -1,0 +1,1 @@
+Pour configurer la DB: models>db.php : Modifier les attributs de la classe
