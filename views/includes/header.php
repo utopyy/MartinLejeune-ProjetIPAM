@@ -15,13 +15,13 @@
 						<ul class="nav navbar-nav menu_nav ml-auto">
 							<li class="nav-item"><a class="nav-link" href="/views/welcome.php">Accueil</a></li>
 							<li class="nav-item"><a class="nav-link" href="/views/shop.php">Shop</a></li>
-							<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+							<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
 							<li class="nav-item submenu dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Connexion</a>
 								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="login.html">Se connecter</a></li>
-									<li class="nav-item"><a class="nav-link" href="signup.html">S'enregistrer</a></li>
+									<li class="nav-item"><a class="nav-link" href="/views/login.php">Se connecter</a></li>
+									<li class="nav-item"><a class="nav-link" href="/views/signup.php">S'enregistrer</a></li>
 								</ul>
 							</li>
 						</ul>

@@ -7,7 +7,7 @@
 				<div class="col-first">
 					<h1>Magasin WayProt</h1>
 					<nav class="d-flex align-items-center">
-						<a href="/views/welcome.php">Home<span class="lnr lnr-arrow-right"></span></a>
+						<a href="/views/welcome.php">Accueil<span class="lnr lnr-arrow-right"></span></a>
 						<a href="#">Shop</a>
 					</nav>
 				</div>
