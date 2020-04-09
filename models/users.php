@@ -21,7 +21,7 @@ function createUser($username, $firstname, $lastname, $birthdate, $mail, $passwo
 	$response = getBdd()->prepare('INSERT INTO user(username, firstname, lastname, birthdate, mail, password, role_id, adress_id, date_creation, last_connection) VALUES (:username, :firstname, :lastname, :birthdate, :mail, :password, :role_id, :adress_id, :date_creation, :last_connection)');
 	$response->execute([':username' => $username, ':firstname' => $firstname, ':lastname' => $lastname, ':birthdate' => $birthdate, ':mail' => $mail, ':password' => password_hash($password, PASSWORD_DEFAULT), ':role_id' => '1', ':adress_id' => '1', ':date_creation' => $birthdate, ':last_connection' => $birthdate]);
 	$response->closeCursor();
-	header('Location: ../index.php');
+	header('Location: /views/welcome.php');
 	exit();
 }
 	

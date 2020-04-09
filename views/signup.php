@@ -27,7 +27,7 @@
 				<div class="col-lg-6">
 					<div class="login_form_inner">
 						<h3>S'enregistrer</h3>
-						<form class="row login_form" action="/controllers/signup.php" method="post" id="contactForm">
+						<form class="row login_form" action="../controllers/signup.php" method="POST" id="contactForm">
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="username" name="username" placeholder="Login" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Login'">
 							</div>

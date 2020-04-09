@@ -15,7 +15,7 @@ if(!empty($_POST)) {
                 $errorMessage = "Le login ".$_POST['username']." existe déjà...";
             }
             else {
-                createUser($_POST['username'], $_POST['firstname'], $_POST['lastname'], $_POST['birthade'], $_POST['mail'], $_POST['password']);
+                createUser($_POST['username'], $_POST['firstname'], $_POST['lastname'], $_POST['birthdate'], $_POST['mail'], $_POST['password']);
             }
         }
     }
@@ -24,8 +24,6 @@ if(!empty($_POST)) {
         //Ici on va prévenir l'utilisateur qu'il manque quelque chose
         $errorMessage = "Tu as oublié d'encoder quelque chose...";
     }
-}else{
-	 $errorMessage = "Problème avec POST?";
 }
 include '../views/signup.php';
 ?>
