@@ -38,12 +38,27 @@
 								<input type="text" class="form-control" id="lastname" name="lastname" placeholder="Nom" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nom'">
 							</div>
 							<div class="col-md-12 form-group">
-								<label for="birthdate">Date d'anniversaire: </label>
+								<label for="birthdate">Date de naissance: </label>
 								<input type="date" class="form-control" id="birthdate" name="birthdate">
 							</div>
 							<div class="col-md-12 form-group">
 								<input type="email" class="form-control" id="mail" name="mail" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="coutry" name="country" placeholder="Pays" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prénom'">
+							</div>
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="city" name="city" placeholder="Ville" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prénom'">
 							</div>	
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="zip" name="zip" placeholder="Code Postal" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prénom'">
+							</div>	
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="street" name="street" placeholder="Rue" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prénom'">
+							</div>	
+							<div class="col-md-12 form-group">
+								<input type="text" class="form-control" id="house_number" name="house_number" placeholder="Numéro de maison" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prénom'">
+							</div>								
 							<div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mot de passe'">
 							</div>

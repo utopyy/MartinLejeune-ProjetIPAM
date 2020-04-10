@@ -17,6 +17,12 @@
 	<script src="/public/js/jquery.sticky.js"></script>
 	<script src="/public/js/jquery.nice-select.min.js"></script>
 </head>
+<?php
+if(!empty($errorMessage)){
+    include('error.php');
+}
+
+?>
 	<!-- Start Header Area -->
 	<?php include 'header.php'?>
 	<!-- End Header Area -->

@@ -9,13 +9,16 @@ if(!empty($_POST)) {
             $errorMessage = "Votre mot de passe et votre mot de passe de confirmation ne correspondent pas...";
         }
         else {          
-            //vérifier que le login n'existe pas
+            //vérifier que le login ou l'adresse mail n'existe pas
             $user = getUserByLogin($_POST['username']);
+			$mail = getMailFromUser($_POST['mail']);
             if($user){
                 $errorMessage = "Le login ".$_POST['username']." existe déjà...";
             }
-            else {
-                createUser($_POST['username'], $_POST['firstname'], $_POST['lastname'], $_POST['birthdate'], $_POST['mail'], $_POST['password']);
+            else if($mail){
+				$errorMessage = "Le mail ".$_POST['mail']." existe déjà...";
+			}else{
+                createUser($_POST['username'], $_POST['firstname'], $_POST['lastname'], $_POST['birthdate'], $_POST['mail'], $_POST['password'], $_POST['country'], $_POST['city'], $_POST['zip'], $_POST['street'], $_POST['house_number']);
             }
         }
     }
