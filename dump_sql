@@ -27,15 +27,13 @@ CREATE TABLE `adress` (
   `zip` varchar(255) NOT NULL,
   `street` varchar(255) NOT NULL,
   `house_number` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `username` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `un_log` (`username`),
+  CONSTRAINT `adress_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Data for the table `adress` */
-
-insert  into `adress`(`id`,`country`,`city`,`zip`,`street`,`house_number`) values 
-(1,'Belgique','Nivelles','1400','Paquette','4'),
-(2,'France','Paris','30','Chinon','343'),
-(3,'Canada','Montreal','29','Calisse','21');
 
 /*Table structure for table `article` */
 
@@ -224,15 +222,13 @@ CREATE TABLE `user` (
   `mail` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role_id` int(255) NOT NULL,
-  `adress_id` int(11) NOT NULL,
   `date_creation` date NOT NULL,
   `last_connection` date NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `adress_id` (`adress_id`),
+  UNIQUE KEY `un_username` (`username`),
   KEY `role_id` (`role_id`),
-  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`adress_id`) REFERENCES `adress` (`id`),
   CONSTRAINT `user_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
 
