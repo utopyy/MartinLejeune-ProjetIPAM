@@ -7,34 +7,82 @@ function getNbCats($cat){
 	$response->execute([':cat' => $cat]);
 	$nbCat = $response->fetch();
 	$response->closeCursor();
-	return $nbCat;
+	return $nbCat[0];
 }
 
 // Calculer le nombre d'articles dans une sous catégorie
-function getNbArticlesBySubCat($subcat){
-	$response = getBdd()->prepare('SELECT COUNT(*) FROM sub_category AS s, category AS c WHERE s.id_category = c.id AND c.name LIKE :subcat');
+function getNbSubCats($subcat){
+	$response = getBdd()->prepare('SELECT COUNT(*) FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat');
 	$response->execute([':subcat' => $subcat]);
-	$nbArticles = $response->fecth();
+	$nbArticles = $response->fetch();
 	$response->closeCursor();
-	return $nbArticles;
+	return $nbArticles[0];
 }
-	
+
 // Charger les catégories de la BDD
 function getCats(){
-	$response = getBdd()->('SELECT `name` FROM category');
-	$response->execute();
-	$cats = $response->fecth();
+	$response = getBdd()->query('SELECT * FROM category');
+	$catName = array();
+	while ($donnees = $response->fetch()){	
+		array_push($catName,$donnees['name']);
+	}
 	$response->closeCursor();
-	return $cat;
+	return $catName;
 }
 
 // Charger les sous-catégories de la BBD
 function getSubCats($cat){
-	$response = getBdd()->('SELECT s.name FROM sub_category AS s, category AS c WHERE s.id_category = c.id AND c.name LIKE :cat');
-	$response->execute([':cat' => $cat]);
-	$subcats = $response->fecth();
+	$response = getBdd()->prepare('SELECT s.name FROM sub_category AS s, category AS c WHERE s.id_category = c.id AND c.name LIKE :name');
+	$response->execute([':name' => $cat]);
+	$subName = array();
+	while ($donnees = $response->fetch()){	
+		array_push($subName,$donnees['name']);
+	}
 	$response->closeCursor();
-	return $subcats;
+	return $subName;
 }
 
+function getArticleTitle($subcat){
+	$response = getBdd()->prepare('SELECT a.* FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat');
+	$response->execute([':subcat' => $subcat]);
+	$subCat = array();
+	while ($donnees = $response->fetch()){	
+		array_push($subCat,$donnees['title']);
+	}
+	$response->closeCursor();
+	return $subCat;
+}
+
+function getArticlePrice($subcat){
+	$response = getBdd()->prepare('SELECT a.* FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat');
+	$response->execute([':subcat' => $subcat]);
+	$subCat = array();
+	while ($donnees = $response->fetch()){	
+		array_push($subCat,$donnees['price']);
+	}
+	$response->closeCursor();
+	return $subCat;
+}
+
+function getArticleDesc($subcat){
+	$response = getBdd()->prepare('SELECT a.* FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat');
+	$response->execute([':subcat' => $subcat]);
+	$subCat = array();
+	while ($donnees = $response->fetch()){	
+		array_push($subCat,$donnees['description']);
+	}
+	$response->closeCursor();
+	return $subCat;
+}
+
+function getArticlePath($subcat){
+	$response = getBdd()->prepare('SELECT a.* FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat');
+	$response->execute([':subcat' => $subcat]);
+	$subCat = array();
+	while ($donnees = $response->fetch()){	
+		array_push($subCat,$donnees['photo_path']);
+	}
+	$response->closeCursor();
+	return $subCat;
+}
 ?>

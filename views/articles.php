@@ -1,18 +1,51 @@
-<?php ob_start() ?>
-    <div class="card-deck">
-    <?php foreach($cats as $cat):?>
-		  						<li class="main-nav-list"><a data-toggle="collapse" href="#fruitsVegetable" aria-expanded="false" aria-controls="fruitsVegetable"><span
-								 class="lnr lnr-arrow-right"></span><?=$cat?>
-								     <?php foreach($subcats as $subcat):?>
-								 <span class="number">($nbArticleCat)</span></a>
-							<ul class="collapse" id="fruitsVegetable" data-toggle="collapse" aria-expanded="false" aria-controls="fruitsVegetable">
-								<li class="main-nav-list child"><a href="#">$nomSUBCAT<span class="number">$nbArticlesSubCat</span></a></li>
-							</ul>
-						</li>
-<?php endforeach?>
-    <?php endforeach?>
 <?php
+require '../models/articles.php';
+$name = "Disques";
+$title = getArticleTitle($name);
+$price = getArticlePrice($name);
+$desc = getArticleDesc($name);
+$path = getArticlePath($name);
+$data = array();
+for($cpt=0;$cpt<count($title);$cpt++){
+	$temptab = ['title' => $title[$cpt],
+	'price' => $price[$cpt],
+	'desc' => $desc[$cpt],
+	'path' => $path[$cpt],];
+	array_push($data,$temptab);
+}
+foreach($data as $row){
+	echo($row['price']);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+require '../models/articles.php';
+$data = getCats();
+foreach($data as $row){
+	echo $row . "(";
+	echo getNbCats($row) . ")";
+	echo "<br/>";
+	$subCat = getSubCats($row);
+	foreach($subCat as $roww){
+		echo "- " . $roww . "(";
+		echo getNbSubCats($roww) . ")";
+		echo "<br/>";	
+	}
+}
+
 $title="Les articles";
 $content = ob_get_clean();
-include 'includes/template.php';
+include 'includes/template.php';*/
 ?>
