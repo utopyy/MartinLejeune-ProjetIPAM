@@ -14,7 +14,7 @@
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav ml-auto">
 							<li class="nav-item"><a class="nav-link" href="/views/welcome.php">Accueil</a></li>
-							<li class="nav-item"><a class="nav-link" href="/views/shop.php">Shop</a></li>
+							<li class="nav-item"><a class="nav-link" href="/views/shop.php?sub=Proteines">Shop</a></li>
 							<li class="nav-item"><a class="nav-link" href="/views/articles.php">Contact</a></li>
 							<li class="nav-item submenu dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"

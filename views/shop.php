@@ -13,7 +13,8 @@ $var = 0;
 					<h1>Magasin WayProt</h1>
 					<nav class="d-flex align-items-center">
 						<a href="/views/welcome.php">Accueil<span class="lnr lnr-arrow-right"></span></a>
-						<a href="#">Shop</a>
+						<a href="/views/shop.php?sub=Proteines">Shop<span class="lnr lnr-arrow-right"></span></a>
+						<a href="#"><?=$_GET['sub']?></a>
 					</nav>
 				</div>
 			</div>
@@ -46,8 +47,7 @@ $var = 0;
 			<div class="col-xl-9 col-lg-8 col-md-7">
 				<!-- Start Best Seller -->
 				<section class="lattest-product-area pb-40 category-list">
-					<div class="row">
-					
+					<div class="row">					
 					<?php 
 					if (!empty($_GET['sub'])):
 					$data = array();
@@ -72,7 +72,6 @@ $var = 0;
 									<h6><?=$row['title']?></h6>
 									<div class="price">
 										<h6><?=$row['price']?>€</h6>
-										<h6 class="l-through">210.00€</h6>
 									</div>
 									<div class="prd-bottom">
 										<a href="" class="social-info">
@@ -88,29 +87,6 @@ $var = 0;
 							</div>
 						</div>
 					<?php endforeach?>
-					<?php else: //ici on créé un affichage si aucune caté n'est sélectionnée?>
-						<div class="col-lg-4 col-md-6">
-							<div class="single-product">
-								<img class="img-fluid" src="<?=$row['path']?>" alt="">
-								<div class="product-details">
-									<h6><?=$row['title']?></h6>
-									<div class="price">
-										<h6><?=$row['price']?>€</h6>
-										<h6 class="l-through">210.00€</h6>
-									</div>
-									<div class="prd-bottom">
-										<a href="" class="social-info">
-											<span class="ti-bag"></span>
-											<p class="hover-text">Ajouter</p>
-										</a>
-										<a href="" class="social-info">
-											<span class="lnr lnr-move"></span>
-											<p class="hover-text">Détails</p>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
 					<?php endif?>
 					</div>
 				</section>
