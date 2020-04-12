@@ -1,8 +1,4 @@
 <?php ob_start() ?>
-<?php
-$var = 0;
-?>
-
 	<!-- Start Banner Area -->
 	<body id="category">
 	<section class="banner-area organic-breadcrumb">
@@ -11,9 +7,9 @@ $var = 0;
 				<div class="col-first">
 					<h1>Magasin WayProt</h1>
 					<nav class="d-flex align-items-center">
-						<a href="/views/welcome.php">Accueil<span class="lnr lnr-arrow-right"></span></a>
-						<a href="/views/shop.php?sub=Proteines">Shop<span class="lnr lnr-arrow-right"></span></a>
-						<a href="#"><?=$_GET['sub']?></a>
+						<a href="<?=ROOT_PATH?>">Accueil<span class="lnr lnr-arrow-right"></span></a>
+						<a href="<?=ROOT_PATH?>shop">Shop<span class="lnr lnr-arrow-right"></span></a>
+						<a href="#"><?=$titleCat?></a>
 					</nav>
 				</div>
 			</div>
@@ -26,6 +22,8 @@ $var = 0;
 				<div class="sidebar-categories">
 					<div class="head">Chercher une catégorie</div>
 					<ul class="main-categories">
+					
+					<?/* ici ============ trouver un moyen de ne pas utiliser de fonctions dans la view: surement tableau*/?>
 						<?php foreach($cats as $row):?>	
 						<li class="main-nav-list"><a data-toggle="collapse" href="#<?=$row?>"><span
 								 class="lnr lnr-arrow-right"></span><?=$row?>
@@ -35,11 +33,12 @@ $var = 0;
 								<?php $subcat = getSubCats($row);
 								foreach($subcat as $row2):?>
 								<?php $nbSub = getNbSubCats($row2);?>
-								<li class="main-nav-list child"><a href="/views/shop.php?sub=<?=$row2?>"><?=$row2?><span class="number">(<?=$nbSub?>)</span></a></li>
+								<li class="main-nav-list child"><a href="<?=ROOT_PATH?>shop?sub=<?=$row2?>"><?=$row2?><span class="number">(<?=$nbSub?>)</span></a></li>
 								<?php endforeach?>
 							</ul>
 						</li>
 						 <?php endforeach?>
+					<?/*====================================================================================*/?>
 					</ul>
 				</div>
 			</div>
@@ -48,25 +47,10 @@ $var = 0;
 				<section class="lattest-product-area pb-40 category-list">
 					<div class="row">					
 					<?php 
-					if (!empty($_GET['sub'])):
-					$data = array();
-					$name = $_GET['sub'];
-					$title = getArticleTitle($name);
-					$price = getArticlePrice($name);
-					$desc = getArticleDesc($name);
-					$path = getArticlePath($name);
-					$data = array();
-					for($cpt=0;$cpt<count($title);$cpt++){
-						$temptab = ['title' => $title[$cpt],
-						'price' => $price[$cpt],
-						'desc' => $desc[$cpt],
-						'path' => $path[$cpt],];
-						array_push($data,$temptab);
-					}
 					foreach($data as $row):?>
 						<div class="col-lg-4 col-md-6">
 							<div class="single-product">
-								<img class="img-fluid" src="<?=$row['path']?>" alt="">
+								<img class="img-fluid" src="<?=ROOT_PATH . $row['path']?>" alt="">
 								<div class="product-details">
 									<h6><?=$row['title']?></h6>
 									<div class="price">
@@ -86,7 +70,6 @@ $var = 0;
 							</div>
 						</div>
 					<?php endforeach?>
-					<?php endif?>
 					</div>
 				</section>
 				<!-- End Best Seller -->

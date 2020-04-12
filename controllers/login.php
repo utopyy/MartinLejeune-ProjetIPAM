@@ -11,7 +11,7 @@ function isValidUser($login, $password) {
 }
 
 if(!empty($_SESSION['id'])){
-    header("Location: ROOT");
+    header("Location: ".ROOT_PATH);
     exit();
 }
 
@@ -24,7 +24,7 @@ if(!empty($_POST)) {
             //Authentification OK
             $_SESSION['id'] = $user['id'];
             $_SESSION['message'] = "Bienvenue ".$user['login'];
-            header("Location: ../views/welcome.php");
+            header("Location: ".ROOT_PATH);
             exit();
         }
         else

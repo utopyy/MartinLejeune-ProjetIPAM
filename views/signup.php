@@ -7,7 +7,7 @@
 				<div class="col-first">
 					<h1>Enregistrement WayProt</h1>
 					<nav class="d-flex align-items-center">
-						<a href="/views/welcome.php">Accueil<span class="lnr lnr-arrow-right"></span></a>
+						<a href="<?=ROOT_PATH?><?=ROOT_PATH?>">Accueil<span class="lnr lnr-arrow-right"></span></a>
 						<a href="#">S'enregistrer</a>
 					</nav>
 				</div>
@@ -21,13 +21,13 @@
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="login_box_img">
-						<img class="img-fluid" src="/public/img/signup.jpg" alt="">
+						<img class="img-fluid" src="<?=ROOT_PATH?>public/img/signup.jpg" alt="">
 					</div>
 				</div>
 				<div class="col-lg-6">
 					<div class="login_form_inner">
 						<h3>S'enregistrer</h3>
-						<form class="row login_form" action="../controllers/signup.php" method="POST" id="contactForm">
+						<form class="row login_form" action="signup" method="POST" id="contactForm">
 							<div class="col-md-12 form-group">
 								<input type="text" class="form-control" id="username" name="username" placeholder="Login" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Login'">
 							</div>

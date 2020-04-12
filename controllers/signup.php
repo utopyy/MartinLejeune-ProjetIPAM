@@ -20,6 +20,8 @@ if(!empty($_POST)) {
 			}else{
                 createUser($_POST['username'], $_POST['firstname'], $_POST['lastname'], $_POST['birthdate'], $_POST['mail'], $_POST['password'], $_POST['country'], $_POST['city'], $_POST['zip'], $_POST['street'], $_POST['house_number']);
             }
+			header("Location: ".ROOT_PATH);
+			exit();
         }
     }
     else

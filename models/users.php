@@ -30,8 +30,6 @@ function createUser($username, $firstname, $lastname, $birthdate, $mail, $passwo
 	$response->execute([':username' => $username, ':firstname' => $firstname, ':lastname' => $lastname, ':birthdate' => $birthdate, ':mail' => $mail, ':password' => password_hash($password, PASSWORD_DEFAULT), ':role_id' => '1', ':date_creation' => date('Y-m-d'), ':last_connection' => date('Y-m-d')]);
 	createUserAdresse($country, $city, $zip, $street, $house_number, $username);
 	$response->closeCursor();
-	header('Location: /views/welcome.php');
-	exit();
 }
 
 function createUserAdresse($country, $city, $zip, $street, $house_number, $username){

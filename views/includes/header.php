@@ -15,7 +15,7 @@
 						<ul class="nav navbar-nav menu_nav ml-auto">
 							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>">Accueil</a></li>
 							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>shop">Shop</a></li>
-							<li class="nav-item"><a class="nav-link">Contact</a></li>
+							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>logout">Contact</a></li>
 							<li class="nav-item submenu dropdown">
 								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Connexion</a>
