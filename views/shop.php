@@ -1,6 +1,5 @@
 <?php ob_start() ?>
-<?php require '../models/articles.php';
-$cats = getCats(); // normalement ca doit venir du controller!!!!
+<?php
 $var = 0;
 ?>
 

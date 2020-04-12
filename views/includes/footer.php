@@ -43,14 +43,14 @@
 					<div class="single-footer-widget mail-chimp">
 						<h6 class="mb-20">Instragram</h6>
 						<ul class="instafeed d-flex flex-wrap">
-							<li><img src="/public/img/i1.jpg" alt=""></li>
-							<li><img src="/public/img/i2.jpg" alt=""></li>
-							<li><img src="/public/img/i3.jpg" alt=""></li>
-							<li><img src="/public/img/i4.jpg" alt=""></li>
-							<li><img src="/public/img/i5.jpg" alt=""></li>
-							<li><img src="/public/img/i6.jpg" alt=""></li>
-							<li><img src="/public/img/i7.jpg" alt=""></li>
-							<li><img src="/public/img/i8.jpg" alt=""></li>
+							<li><img src="<?=ROOT_PATH?>public/img/i1.jpg" alt=""></li>
+							<li><img src="<?=ROOT_PATH?>public/img/i2.jpg" alt=""></li>
+							<li><img src="<?=ROOT_PATH?>public/img/i3.jpg" alt=""></li>
+							<li><img src="<?=ROOT_PATH?>public/img/i4.jpg" alt=""></li>
+							<li><img src="<?=ROOT_PATH?>public/img/i5.jpg" alt=""></li>
+							<li><img src="<?=ROOT_PATH?>public/img/i6.jpg" alt=""></li>
+							<li><img src="<?=ROOT_PATH?>public/img/i7.jpg" alt=""></li>
+							<li><img src="<?=ROOT_PATH?>public/img/i8.jpg" alt=""></li>
 						</ul>
 					</div>
 				</div>
@@ -59,10 +59,10 @@
 						<h6>Suivez nous</h6>
 						<p>Nos réseaux sociaux</p>
 						<div class="footer-social d-flex align-items-center">
-							<a href="/views/welcome.php"><i class="fa fa-facebook"></i></a>
-							<a href="/views/welcome.php"><i class="fa fa-twitter"></i></a>
-							<a href="/views/welcome.php"><i class="fa fa-dribbble"></i></a>
-							<a href="/views/welcome.php"><i class="fa fa-behance"></i></a>
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
 						</div>
 					</div>
 				</div>

@@ -1,5 +1,6 @@
 <?php
-define('ROOT_PATH', "/");
+session_start();
+define('ROOT_PATH', "/ProjetWEB/");
 $request = str_replace(ROOT_PATH, "", $_SERVER['REQUEST_URI']);
 $segments = array_filter(explode('/', $request));
 if (!count($segments) or $segments[0] == 'index'){

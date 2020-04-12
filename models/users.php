@@ -1,5 +1,5 @@
 <?php
-require_once '../models/db.php';
+require_once 'models/db.php';
 
 function getUserById($id) {
     $reponse = getBdd()->prepare('SELECT * FROM USER WHERE id = :id');

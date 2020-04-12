@@ -1,5 +1,5 @@
 <?php
-require_once '../models/users.php';
+require_once 'models/users.php';
 
 if(!empty($_POST)) {
     if(!empty($_POST['username']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['birthdate']) && !empty($_POST['mail']) && !empty($_POST['password']) && !empty($_POST['confirm_password']))
@@ -28,5 +28,5 @@ if(!empty($_POST)) {
         $errorMessage = "Tu as oublié d'encoder quelque chose...";
     }
 }
-include '../views/signup.php';
+include 'views/signup.php';
 ?>

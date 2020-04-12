@@ -1,5 +1,5 @@
 <?php
-require_once '../models/db.php';
+require_once 'models/db.php';
 
 // Calculer le nombre d'articles dans une catégorie
 function getNbCats($cat){

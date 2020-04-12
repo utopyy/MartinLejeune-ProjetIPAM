@@ -1,5 +1,5 @@
 <?php
-require_once '../models/users.php';
+require_once 'models/users.php';
 
 function isValidUser($login, $password) {
     $user = getUserByLogin($login);
@@ -11,7 +11,7 @@ function isValidUser($login, $password) {
 }
 
 if(!empty($_SESSION['id'])){
-    header("Location: views/welcome.php");
+    header("Location: ROOT");
     exit();
 }
 
@@ -39,5 +39,5 @@ if(!empty($_POST)) {
         $errorMessage = "Tu as oublié d'encoder quelque chose...";
     }
 }
-include '../views/login.php';
+include 'views/login.php';
 ?>

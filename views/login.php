@@ -7,7 +7,7 @@
 				<div class="col-first">
 					<h1>Connexion WayProt</h1>
 					<nav class="d-flex align-items-center">
-						<a href="/views/welcome.php">Accueil<span class="lnr lnr-arrow-right"></span></a>
+						<a href="<?=ROOT_PATH?>views/welcome.php">Accueil<span class="lnr lnr-arrow-right"></span></a>
 						<a href="#">Se connecter</a>
 					</nav>
 				</div>
