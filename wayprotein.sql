@@ -31,9 +31,12 @@ CREATE TABLE `adress` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `un_log` (`username`),
   CONSTRAINT `adress_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
 
 /*Data for the table `adress` */
+
+insert  into `adress`(`id`,`country`,`city`,`zip`,`street`,`house_number`,`username`) values 
+(1,'Belgique','Nivelles','1400','BlablaRue','12','aaa');
 
 /*Table structure for table `article` */
 
@@ -152,13 +155,13 @@ CREATE TABLE `category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 /*Data for the table `category` */
 
 insert  into `category`(`id`,`name`) values 
 (1,'Materiel'),
-(2,'Vetements & Accesoires'),
+(2,'Vetements'),
 (3,'Nutrition');
 
 /*Table structure for table `role` */
@@ -175,7 +178,7 @@ CREATE TABLE `role` (
 
 insert  into `role`(`id`,`role`) values 
 (1,'Utilisateur'),
-(3,'Administrateur');
+(2,'Administrateur');
 
 /*Table structure for table `sub_category` */
 
@@ -188,7 +191,7 @@ CREATE TABLE `sub_category` (
   PRIMARY KEY (`id`),
   KEY `id_category` (`id_category`),
   CONSTRAINT `sub_category_ibfk_1` FOREIGN KEY (`id_category`) REFERENCES `category` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
 
 /*Data for the table `sub_category` */
 
@@ -196,18 +199,18 @@ insert  into `sub_category`(`id`,`name`,`id_category`) values
 (1,'Disques',1),
 (2,'Halteres',1),
 (3,'Medecine Ball',1),
-(4,'Acessoires',1),
+(4,'Accessoires',1),
 (5,'Bancs de musculation',1),
 (6,'Vestes et Gilets',2),
 (7,'Pulls',2),
-(8,'Joggins & Bas',2),
+(8,'Joggins et Bas',2),
 (9,'Shorts',2),
-(10,'T-Shirts & Hauts',2),
+(10,'T-Shirts et Hauts',2),
 (11,'Proteines',3),
-(12,'Aliments & Snacks',3),
+(12,'Aliments et Snacks',3),
 (13,'Créatine',3),
 (14,'Acides amines',3),
-(15,'Vitamines & Mineraux',3);
+(15,'Vitamines et Mineraux',3);
 
 /*Table structure for table `user` */
 
@@ -228,9 +231,12 @@ CREATE TABLE `user` (
   UNIQUE KEY `un_username` (`username`),
   KEY `role_id` (`role_id`),
   CONSTRAINT `user_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
+
+insert  into `user`(`id`,`username`,`firstname`,`lastname`,`birthdate`,`mail`,`password`,`role_id`,`date_creation`,`last_connection`) values 
+(1,'aaa','Jean','JJ','2020-04-07','jeanjj@gmail.com','$2y$10$UTZxyRzZWK5NL2y4RLcFWOWBwNOw57qaqgaQmwJEKvNWdfsockqWm',1,'2020-04-13','2020-04-13');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
