@@ -22,12 +22,7 @@ if(!empty($errorMessage)){
     include('error.php');
 }
 
-?>
-	<!-- Start Header Area -->
-	<?php include 'header.php'?>
-	<!-- End Header Area -->
-	<?php echo $content; ?>
-	<!-- start footer Area -->
-	<?php include 'footer.php'?>
-	<!-- End footer Area -->
+include 'header.php';
+echo $content;
+include 'footer.php'; ?>
 </html>

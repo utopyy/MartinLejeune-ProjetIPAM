@@ -1,5 +1,6 @@
 <?php ob_start() ?>
 	<body id="category">
+	<!-- Bannière de page, pas dans le template c'est voulu -->
 	<section class="banner-area organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -14,11 +15,11 @@
 			</div>
 		</div>
 	</section>
-	<!-- End Banner Area -->
-
+	<!-- Box articles -->
 	<div class="container">
 		<div class="row">
 			<div class="col-xl-3 col-lg-4 col-md-5">
+			<!-- Sidebar pour chercher les articles -->
 				<div class="sidebar-categories">
 					<div class="head">Chercher une catégorie</div>
 					<ul class="main-categories"
@@ -37,7 +38,7 @@
 				</div>
 			</div>
 			<div class="col-xl-9 col-lg-8 col-md-7">
-				<!-- Start Best Seller -->
+				<!-- Affichage des articles en fonction du choix de l'user -->
 				<section class="lattest-product-area pb-40 category-list">
 					<div class="row">					
 					<?php 
@@ -66,7 +67,6 @@
 					<?php endforeach?>
 					</div>
 				</section>
-				<!-- End Best Seller -->
 			</div>
 		</div>
 	</div>

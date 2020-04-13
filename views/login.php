@@ -1,6 +1,6 @@
 <?php ob_start() ?>
-	<!-- Start Banner Area -->
 	<body id="category">
+	<!-- Bannière de page, pas dans le template c'est voulu -->
 	<section class="banner-area organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -14,14 +14,13 @@
 			</div>
 		</div>
 	</section>
-	<!-- End Banner Area -->
-	<!--================Login Box Area =================-->
+	<!--================Box connexion =================-->
 	<section class="login_box_area section_gap">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="login_box_img">
-						<img class="img-fluid" src="<?=ROOT_PATH?>public/img/signup.jpg" alt="">
+						<img class="img-fluid" src="<?=ROOT_PATH?>public/img/login.jpg" alt="">
 						<div class="hover">
 							<h4>Nouveau sur le site?</h4>
 							<p>Nous vous souhaitons la bienvenue, merci de vous inscrire pour pouvoir procéder à des commandes!</p>
@@ -49,7 +48,6 @@
 			</div>
 		</div>
 	</section>
-	<!--================End Login Box Area =================-->
 </body>
 <?php
 $title = "Se connecter";
