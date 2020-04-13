@@ -22,7 +22,7 @@
 			<!-- Sidebar pour chercher les articles -->
 				<div class="sidebar-categories">
 					<div class="head">Chercher une catégorie</div>
-					<ul class="main-categories"
+					<ul class="main-categories">
 						<?php foreach($dataSub as $rowSub):?>	
 						<li class="main-nav-list"><a data-toggle="collapse" href="#<?=$rowSub['name']?>"><span
 								 class="lnr lnr-arrow-right"></span><?=$rowSub['name']?>

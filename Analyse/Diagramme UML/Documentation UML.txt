@@ -71,6 +71,7 @@ id_category (id)
 
 => id_category pour lier à la table Category(id)
 
+
 //Si plus tard besoin de gérer le status d'une commande: 
 
 Table Status

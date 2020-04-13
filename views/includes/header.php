@@ -15,14 +15,24 @@
 					<ul class="nav navbar-nav menu_nav ml-auto">
 						<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>">Accueil</a></li>
 						<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>shop">Shop</a></li>
-						<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>logout">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="">Contact</a></li>
 						<li class="nav-item submenu dropdown">
-						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false">Connexion</a>
-						<ul class="dropdown-menu">
-							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>login">Se connecter</a></li>
-								<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>signup">S'enregistrer</a></li>
-						</ul>
+						<?php if(empty($_SESSION['id'])):?>
+							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">Connexion</a>
+							<ul class="dropdown-menu">
+								<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>login">Se connecter</a></li>
+									<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>signup">S'enregistrer</a></li>
+							</ul>
+							<?php else:?>
+							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false"><?=$_SESSION['username']?></a>
+							<ul class="dropdown-menu">
+								<li class="nav-item"><a class="nav-link" href="">Mon profil</a></li>
+								<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>logout">Se déconnecter</a></li>
+							</ul>
+						<?php endif?>
+						
 						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
