@@ -10,7 +10,7 @@ if (!empty($_GET['sub'])){
 }else{
 	$name = "Proteines"; // si pas de catégorie définie, je décide qu'on affichera la catégorie Proteines
 }
-// creation d'un tableau reprenant toutes les infos d'une sous-catégorie
+// crée un tableau contenant les articles de la catégorie sélectionnée
 $data = array();
 $title = getArticleTitle($name);
 $price = getArticlePrice($name);
@@ -23,5 +23,19 @@ $temptab = ['title' => $title[$cpt],
 array_push($data,$temptab);
 }
 
+// crée un tableau contenant les catégories et leurs sous catégories (pour l'affichage du menu déroulant, pas hardcodé au cas-où une nouvelle catégorie est ajoutée (ou retirée!)
+$dataSub = array();
+foreach($cats as $row){
+	$dataTemp = array();
+	$subcat = getSubCats($row);
+	foreach($subcat as $row2){
+		$temptab2 = ['nameSub' => $row2, 'nbSub' => getNbSubCats($row2)];
+	array_push($dataTemp,$temptab2);
+	}
+	$temptab = ['name' => $row,
+	'nb' => getNbCats($row), 'subcat' =>$dataTemp];
+	array_push($dataSub,$temptab);	
+}
 include 'views/shop.php';
-?>
+							
+							
