@@ -51,4 +51,24 @@ function setUser($id, $login, $email, $password) {
     $reponse->execute([':id' => $id, ':email' => $email, ':password' => $password, ':login' => $login]);
     $reponse->closeCursor();
 }
+
+function getAllUsers(){
+	$response = getBdd()->prepare('SELECT u.username, u.firstname, u.lastname, u.birthdate, a.street, a.house_number, a.zip, a.city, a.country, u.mail, u.role_id, u.date_creation, u.last_connection FROM `user` AS u, adress AS a WHERE u.username = a.username');
+	$response->execute();
+	$users = $response->fetchAll(PDO::FETCH_ASSOC);
+	$response->closeCursor();
+	return $users;
+}
+
+function deleteUser($username){
+	//on supprime d'abord l'adresse (autre table)
+	$response = getBdd()->prepare('DELETE FROM adress WHERE username = :username');
+	$array = array('username' => $username);
+	$response->execute($array);
+	//puis le user
+	$response = getBdd()->prepare('DELETE FROM `user` WHERE username = :username');
+	$response->execute($array);
+	$response->closeCursor();
+	header("Location: edit_users");
+}
 ?>

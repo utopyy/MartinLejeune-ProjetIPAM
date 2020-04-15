@@ -51,11 +51,14 @@
 									<div class="price">
 										<h6><?=$row['price']?>€</h6>
 									</div>
-									<div class="prd-bottom">
+									<div class="prd-bottom">									
+									<?php  //si la personne est connectée et utilisateur (role=1)
+									if(!empty($_SESSION['id']) && $_SESSION['userRole'] == 1):?>
 										<a href="" class="social-info">
 											<span class="ti-bag"></span>
 											<p class="hover-text">Ajouter</p>
 										</a>
+										<?php endif?>
 										<a href="" class="social-info">
 											<span class="lnr lnr-move"></span>
 											<p class="hover-text">Détails</p>

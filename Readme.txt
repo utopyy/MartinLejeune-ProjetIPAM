@@ -21,7 +21,9 @@ Créer une base de données MySQL ayant pour nom "wayprotein" et procéder au re
 INFOS UTILES
 ============
 
-- Si vous ne voulez pas créer un compte, un utilisateur a été créé: login=aaa , password = abc
+- Si vous ne voulez pas créer un compte, 
+un utilisateur a été créé: login=aaa , password = abc
+un admin a été créé: login=admin, password = admin
 
 - Le code a été commenté au mieux pour faciliter votre lecture du code.
 
@@ -30,8 +32,6 @@ INFOS UTILES
 	- "Achats" d'articles (et tout ce qui en découle: commandes, historique, panier, ...)
 	- Administration des utilisateurs et des articles
 	- Modules javascript
-	- Gestion de l'affichage en fonction du type d'utilisateur connecté
 
-- URL Rewriting pas à jour.
 
 

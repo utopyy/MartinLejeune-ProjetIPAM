@@ -22,7 +22,7 @@
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">Administration</a>
 							<ul class="dropdown-menu">
-							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>login">Gestion membres</a></li>
+							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>edit_users">Gestion membres</a></li>
 							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>signup">Gestion commandes</a></li>
 							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>signup">Gestion shop</a></li>
 							</ul>

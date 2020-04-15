@@ -44,19 +44,19 @@
 								<input type="email" class="form-control" id="mail" name="mail" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="coutry" name="country" placeholder="Pays" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prénom'">
+								<input type="text" class="form-control" id="coutry" name="country" placeholder="Pays" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Pays'">
 							</div>
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="city" name="city" placeholder="Ville" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prénom'">
+								<input type="text" class="form-control" id="city" name="city" placeholder="Ville" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ville'">
 							</div>	
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="zip" name="zip" placeholder="Code Postal" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prénom'">
+								<input type="text" class="form-control" id="zip" name="zip" placeholder="Code Postal" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Code Postal'">
 							</div>	
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="street" name="street" placeholder="Rue" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prénom'">
+								<input type="text" class="form-control" id="street" name="street" placeholder="Rue" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Rue'">
 							</div>	
 							<div class="col-md-12 form-group">
-								<input type="text" class="form-control" id="house_number" name="house_number" placeholder="Numéro de maison" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Prénom'">
+								<input type="text" class="form-control" id="house_number" name="house_number" placeholder="Numéro de maison" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Numéro de maison'">
 							</div>								
 							<div class="col-md-12 form-group">
 								<input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Mot de passe'">
