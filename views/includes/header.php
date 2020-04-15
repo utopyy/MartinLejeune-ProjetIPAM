@@ -15,7 +15,19 @@
 					<ul class="nav navbar-nav menu_nav ml-auto">
 						<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>">Accueil</a></li>
 						<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>shop">Shop</a></li>
+						<?php if(empty($_SESSION['id']) || $_SESSION['userRole']!=2):?>
 						<li class="nav-item"><a class="nav-link" href="">Contact</a></li>
+						<?php else:?>
+							<li class="nav-item submenu dropdown">
+							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+							aria-expanded="false">Administration</a>
+							<ul class="dropdown-menu">
+							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>login">Gestion membres</a></li>
+							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>signup">Gestion commandes</a></li>
+							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>signup">Gestion shop</a></li>
+							</ul>
+							</li>
+						<?php endif?>
 						<li class="nav-item submenu dropdown">
 						<?php if(empty($_SESSION['id'])):?>
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -35,9 +47,15 @@
 						
 						</li>
 					</ul>
+					<?php if(!empty($_SESSION['userRole']) && $_SESSION['userRole']==1):?>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="nav-item"><a href="#" class="cart"><span class="ti-bag"></span></a></li>
 					</ul>
+					<?php else:?>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="nav-item"><a href="#" class="cart"><span class="ti-cup"></span></a></li>
+					</ul>
+					<?php endif?>
 				</div>
 			</div>
 		</nav>

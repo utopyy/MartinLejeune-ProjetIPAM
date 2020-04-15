@@ -29,7 +29,7 @@
 								 <span class="number">(<?=$rowSub['nb']?>)</span></a>
 							<ul class="collapse" id="<?=$rowSub['name']?>">
 								<?php foreach($rowSub['subcat'] as $sub):?>
-								<li class="main-nav-list child"><a href="<?=ROOT_PATH?>shop?sub=<?=$sub['nameSub']?>"><?=$sub['nameSub']?><span class="number">(<?=$sub['nbSub']?>)</span></a></li>
+								<li class="main-nav-list child"><a href="<?=ROOT_PATH?>shop?sub=<?=$sub['nameSub']?>"><?=$sub['nameSub']?><span class="number">(<?=$sub['nbSub']?>)</span></a> <?=REQ_TYPE_ID?></li>
 								<?php endforeach?>
 							</ul>
 						</li>

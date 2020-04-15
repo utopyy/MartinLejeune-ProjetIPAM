@@ -24,6 +24,7 @@ if(!empty($_POST)) {
             //Authentification OK
             $_SESSION['id'] = $user['id'];
             $_SESSION['username'] =  $user['username'];
+			$_SESSION['userRole'] = $user['role_id'];
             header("Location: ".ROOT_PATH);
             exit();
         }

@@ -19,9 +19,15 @@ if(!empty($_POST)) {
 				$errorMessage = "Le mail ".$_POST['mail']." existe déjà...";
 			}else{
                 createUser($_POST['username'], $_POST['firstname'], $_POST['lastname'], $_POST['birthdate'], $_POST['mail'], $_POST['password'], $_POST['country'], $_POST['city'], $_POST['zip'], $_POST['street'], $_POST['house_number']);
-            }
+			//ici je connecte directement l'user qui vient de s'inscrire
+			$user = getUserByLogin($_POST['username']);
+            $_SESSION['id'] = $user['id'];
+            $_SESSION['username'] =  $user['username'];
+			$_SESSION['userRole'] = $user['role_id'];
+						echo $_SESSION['id'];
 			header("Location: ".ROOT_PATH);
 			exit();
+			}
         }
     }
     else
