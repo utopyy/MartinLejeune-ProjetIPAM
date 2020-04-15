@@ -15,17 +15,41 @@
 			</div>
 		</div>
 	</section>
-	<table>
+		<section class="list-members">
+		<div class="container">
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">Pseudo</th>
+				<th scope="col">Prénom</th>
+				<th scope="col">Nom</th>
+				<th scope="col">Date de naissance</th>
+				<th scope="col">Rue</th>
+				<th scope="col">No de Maison</th>
+				<th scope="col">Code Postal</th>
+				<th scope="col">Ville</th>
+				<th scope="col">Pays</th>
+				<th scope="col">Mail</th>
+				<th scope="col">Role</th>
+				<th scope="col">Date d'inscription</th>
+				<th scope="col">Dernière connection</th>
+				<th scope="col"></th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody>
 	<?php foreach($users as $user):?>
 		<tr>
 		<?php foreach($user as $row):?>
-				<th><?=$row?></th>
+				<td><?=$row?></th>
 		<?php endforeach?>
-		<th><a id="link_update_member" href="<?=ROOT_PATH?>edit_users?modify<?=$user['username']?>">Modifier</a></th>
-		<th><a id="link_update_member" href="<?=ROOT_PATH?>edit_users?delete=<?=$user['username']?>">Supprimer</a></th>
+		<td><a href="<?=ROOT_PATH?>edit_users?modify<?=$user['username']?>">Modifier</a></td>
+		<td><a href="<?=ROOT_PATH?>edit_users?delete=<?=$user['username']?>">Supprimer</a></td>
 		</tr>
 	<?php endforeach?>
 	</table>
+	</div>
+	</section>
 </body>
 <?php
 $title = "Gestion membres";

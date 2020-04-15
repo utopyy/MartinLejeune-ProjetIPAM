@@ -22,7 +22,7 @@ INFOS UTILES
 ============
 
 - Si vous ne voulez pas créer un compte, 
-un utilisateur a été créé: login=aaa , password = abc
+un utilisateur a été créé: login=user, password = user
 un admin a été créé: login=admin, password = admin
 
 - Le code a été commenté au mieux pour faciliter votre lecture du code.
@@ -30,7 +30,7 @@ un admin a été créé: login=admin, password = admin
 - Pas encore implémenté:
 	- Prévisualisation d'un article
 	- "Achats" d'articles (et tout ce qui en découle: commandes, historique, panier, ...)
-	- Administration des utilisateurs et des articles
+	- Administration des articles
 	- Modules javascript
 
 
