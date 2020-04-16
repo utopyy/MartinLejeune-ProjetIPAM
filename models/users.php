@@ -69,6 +69,5 @@ function deleteUser($username){
 	$response = getBdd()->prepare('DELETE FROM `user` WHERE username = :username');
 	$response->execute($array);
 	$response->closeCursor();
-	header("Location: edit_users");
 }
 ?>

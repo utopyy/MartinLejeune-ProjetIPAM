@@ -18,6 +18,8 @@ unset($user); // destruction de la référence
 if(!empty($_GET['delete'])){
 	if($_SESSION['username']!= $_GET['delete']){
 		deleteUser($_GET['delete']);
+		header("Location: edit_users");
+		exit();
 	}else{
 		$errorMessage = "Vous ne pouvez pas supprimer votre propre compte";
 	}

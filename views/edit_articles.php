@@ -37,6 +37,7 @@
 		<td><a href="<?=ROOT_PATH?>edit_articles?delete=<?=$article['id']?>">Supprimer</a></td>
 		</tr>
 	<?php endforeach?>
+		<a class="primary-btn" href="<?=ROOT_PATH?>add_article">Ajouter un article +</a></td>
 	</table>
 	</div>
 	</section>

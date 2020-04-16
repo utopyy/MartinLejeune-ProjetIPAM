@@ -100,6 +100,12 @@ function deleteArticleById($id){
 	$array = array('id' => $id);
 	$response->execute($array);
 	$response->closeCursor();
-	header("Location: edit_articles");
-}
+}	
+
+function createArticle($title, $description, $price, $category_id, $photo_path){
+		$response = getBdd()->prepare('INSERT INTO article(title, description, price, category_id, photo_path) VALUES (:title, :description, :price, :category_id, :photo_path)');
+	$response->execute([':title' => $title, ':description' => $description, ':price' => $price, ':category_id' => $category_id, ':photo_path' => $photo_path]);
+	$response->closeCursor();
+}	
+
 ?>
