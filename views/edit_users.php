@@ -15,8 +15,8 @@
 			</div>
 		</div>
 	</section>
-		<section class="list-members">
-		<div class="container">
+		<section>
+		<div class="containerAdmin">
 	<table class="table">
 		<thead class="thead-dark">
 			<tr>
@@ -29,7 +29,7 @@
 				<th scope="col">Code Postal</th>
 				<th scope="col">Ville</th>
 				<th scope="col">Pays</th>
-				<th scope="col">Mail</th>
+				<th scope="col">Adresse Mail</th>
 				<th scope="col">Role</th>
 				<th scope="col">Date d'inscription</th>
 				<th scope="col">Dernière connection</th>
