@@ -85,4 +85,21 @@ function getArticlePath($subcat){
 	$response->closeCursor();
 	return $subCat;
 }
+
+function getAllArticles(){
+	$response = getBdd()->prepare('SELECT a.id, a.title, a.description, a.price, c.name as catname, s.name as subname FROM article AS a, category AS c, sub_category AS s WHERE s.id_category = c.id AND s.id = a.category_id');
+	$response->execute();
+	$articles = $response->fetchAll(PDO::FETCH_ASSOC);
+	$response->closeCursor();
+	return $articles;
+}
+
+function deleteArticleById($id){
+	//on supprime d'abord l'adresse (autre table)
+	$response = getBdd()->prepare('DELETE FROM article WHERE id = :id');
+	$array = array('id' => $id);
+	$response->execute($array);
+	$response->closeCursor();
+	header("Location: edit_articles");
+}
 ?>
