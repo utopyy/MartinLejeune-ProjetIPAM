@@ -33,7 +33,7 @@
 		<td><?=$article['title']?></td>
 		<td><?=$article['catname']?></td>
 		<td><?=$article['subname']?></td>		
-		<td><a href="<?=ROOT_PATH?>edit_articles?modify=<?=$article['id']?>">Modifier</a></td>
+		<td><a href="<?=ROOT_PATH?>article/<?=str_replace(" ","-",$article['subname'])?>/<?=str_replace(" ","-",$article['title'])?>">Modifier</a></td>
 		<td><a href="<?=ROOT_PATH?>edit_articles?delete=<?=$article['id']?>">Supprimer</a></td>
 		</tr>
 	<?php endforeach?>

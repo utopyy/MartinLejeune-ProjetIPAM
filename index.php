@@ -1,6 +1,7 @@
 <?php
 session_start();
 define('ROOT_PATH', "/"); //Racine du projet
+
 $request = preg_replace("/".preg_quote(ROOT_PATH, '/')."/", "", $_SERVER['REQUEST_URI'], 1);
 $request = parse_url($request, PHP_URL_PATH); //Parser pour ne pas garder les GET
 $segments = array_filter(explode('/', $request));

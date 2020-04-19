@@ -113,6 +113,12 @@ function getAllArticles(){
 	return $articles;
 }
 
+function updateArticle($oldtitle, $title, $price, $description) {
+    $reponse = getBdd()->prepare('UPDATE article SET title = :title, price = :price, `description` = :description WHERE title = :oldtitle');
+    $reponse->execute([':title' => $title, ':price' => $price, ':description' => $description, ':oldtitle' => $oldtitle]);
+    $reponse->closeCursor();
+}
+
 
 function deleteArticleById($id){
 	//on supprime d'abord l'adresse (autre table)

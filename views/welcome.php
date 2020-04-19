@@ -12,10 +12,12 @@
 							<p>	Avec jusqu'à 75 % de sucre en moins que les produits disponibles en grande surface, ce biscuit vous permet de profiter d'un coup de fouet en milieu d'après-midi sans gâcher vos efforts.
 							Composé d'une délicieuse poudre de cacao et cuit au four avec des éclats de chocolat sucrés, notre Protein Bar apporte 23 g de protéines pour petit plaisir gourmand tous les jours.
 							</p>
+							<?php if(!empty($_SESSION['id']) && $_SESSION['userRole'] == 1):?>
 							<div class="add-bag d-flex align-items-center">
 								<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
 								<span class="add-text text-uppercase">Ajouter au panier</span>
 							</div>
+							<?php endif?>
 						</div>
 					</div>
 					<div class="col-lg-7">
