@@ -10,8 +10,9 @@ if (!count($segments) or $segments[0] == 'index'){
 
 if ($segments[0] == 'article'){
 	$segments[1] = Null;
+	define('ARTICLE_REF', $segments[2] ?? Null);
 	$segments[2] = Null;
-};
+}
 	
 define('REQ_TYPE', $segments[0] ?? Null);
 define('REQ_TYPE_ID', $segments[1] ?? Null);

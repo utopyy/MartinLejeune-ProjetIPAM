@@ -5,8 +5,8 @@ $photo_path = "public/img/logo.png"; //je mets une photo par défaut aux article
 
 if(!empty($_POST)) {
     if(!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['gridRadios'])){
-		createArticle($_POST['title'], $_POST['description'], $_POST['price'], $_POST['gridRadios'], $photo_path);	
-			echo "coueo";
+		$title = str_replace("-", " ", $_POST['title']);
+		createArticle($title, $_POST['description'], $_POST['price'], $_POST['gridRadios'], $photo_path);	
 		header("Location: edit_articles");
 		exit();
 	}else{
