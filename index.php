@@ -7,10 +7,18 @@ $segments = array_filter(explode('/', $request));
 if (!count($segments) or $segments[0] == 'index'){
     $segments[0] = 'welcome';
 }
+
+if ($segments[0] == 'article'){
+	$segments[1] = Null;
+	$segments[2] = Null;
+};
+	
 define('REQ_TYPE', $segments[0] ?? Null);
 define('REQ_TYPE_ID', $segments[1] ?? Null);
 define('REQ_ACTION', $segments[2] ?? Null);
+
 $file = 'controllers/'.REQ_TYPE.(REQ_ACTION ? '-'.REQ_ACTION : '').'.php'; 
+
 if(file_exists($file)){ 
     require $file;
     exit();

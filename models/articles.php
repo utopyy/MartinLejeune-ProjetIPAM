@@ -86,6 +86,25 @@ function getArticlePath($subcat){
 	return $subCat;
 }
 
+function getArticleCategory($subcat){
+	$response = getBdd()->prepare('SELECT s.* FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat');
+	$response->execute([':subcat' => $subcat]);
+	$subCat = array();
+	while ($donnees = $response->fetch()){	
+		array_push($subCat,$donnees['name']);
+	}
+	$response->closeCursor();
+	return $subCat;
+}
+
+function getFullArticle($name,$subcat){
+	$response = getBdd()->prepare('SELECT a.* FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND a.title LIKE :name AND s.name LIKE :subcat');
+	$response->execute([':name' => $name, ':subcat' => $subcat]);
+	$article = $response->fetchAll(PDO::FETCH_ASSOC);
+	$response->closeCursor();
+	return $article;
+}
+
 function getAllArticles(){
 	$response = getBdd()->prepare('SELECT a.id, a.title, a.description, a.price, c.name as catname, s.name as subname FROM article AS a, category AS c, sub_category AS s WHERE s.id_category = c.id AND s.id = a.category_id');
 	$response->execute();
@@ -93,6 +112,7 @@ function getAllArticles(){
 	$response->closeCursor();
 	return $articles;
 }
+
 
 function deleteArticleById($id){
 	//on supprime d'abord l'adresse (autre table)

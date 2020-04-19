@@ -29,7 +29,7 @@
 								 <span class="number">(<?=$rowSub['nb']?>)</span></a>
 							<ul class="collapse" id="<?=$rowSub['name']?>">
 								<?php foreach($rowSub['subcat'] as $sub):?>
-								<li class="main-nav-list child"><a href="<?=ROOT_PATH?>shop?sub=<?=$sub['nameSub']?>"><?=$sub['nameSub']?><span class="number">(<?=$sub['nbSub']?>)</span></a> <?=REQ_TYPE_ID?></li>
+								<li class="main-nav-list child"><a href="<?=ROOT_PATH?>shop/<?=str_replace(" ","-", $sub['nameSub'])?>"><?=$sub['nameSub']?><span class="number">(<?=$sub['nbSub']?>)</span></a></li>
 								<?php endforeach?>
 							</ul>
 						</li>
@@ -56,10 +56,10 @@
 									if(!empty($_SESSION['id']) && $_SESSION['userRole'] == 1):?>
 										<a href="" class="social-info">
 											<span class="ti-bag"></span>
-											<p class="hover-text">Ajouter</p>
+											<p class="hover-text">Panier +</p>
 										</a>
 										<?php endif?>
-										<a href="" class="social-info">
+										<a href="<?=ROOT_PATH?>article/<?=str_replace(" ","-",$row['category'])?>/<?=str_replace(" ","-",$row['title'])?>" class="social-info">
 											<span class="lnr lnr-move"></span>
 											<p class="hover-text">Détails</p>
 										</a>

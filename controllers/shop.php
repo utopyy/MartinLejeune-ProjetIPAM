@@ -6,6 +6,7 @@ $titleCat = "Chercher une catégorie"; // quand aucune catégorie n'est sélecti
 
 if (!empty($_GET['sub'])){
 	$name = $_GET['sub'];
+	$name = str_replace("-", " ",$name);
 	$titleCat = $name;
 }else{
 	$name = "Proteines"; // si pas de catégorie définie, je décide qu'on affichera la catégorie Proteines
@@ -30,11 +31,13 @@ $data = array();
 $title = getArticleTitle($name);
 $price = getArticlePrice($name);
 $path = getArticlePath($name);
+$category = getArticleCategory($name);
 $data = array();
 for($cpt=0;$cpt<count($title);$cpt++){
 	$temptab = ['title' => $title[$cpt],
 	'price' => $price[$cpt],
-	'path' => $path[$cpt],];
+	'path' => $path[$cpt],
+	'category' => $category[$cpt],];
 	array_push($data,$temptab);
 }
 include 'views/shop.php';
