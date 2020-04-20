@@ -16,6 +16,7 @@
 	<script src="<?=ROOT_PATH?>public/js/jquery.magnific-popup.min.js"></script>
 	<script src="<?=ROOT_PATH?>public/js/jquery.sticky.js"></script>
 	<script src="<?=ROOT_PATH?>public/js/jquery.nice-select.min.js"></script>
+	<script src="<?=ROOT_PATH?>public/js/martin.js"></script>
 </head>
 <?php
 if(!empty($errorMessage)){

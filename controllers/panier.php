@@ -4,7 +4,11 @@ require_once('models/panier.php');
 
 if(isset($_GET['title'])){
 	$article = getFullArticle($_GET['title'])[0];
-	ajouterArticle($article['title'],"1", $article['price'], $article['photo_path']);
+	ajouterArticle($article['title'],"1", $article['price'], $article['photo_path'], $article['id']);
+	// on redirige vers la page (cela supprime les get)
+	header('Location: panier');
+	exit();
+
 }
 if(isset($_SESSION['panier'])){
 	$nbArticles=count($_SESSION['panier']['nameId']);
@@ -19,6 +23,7 @@ if(isset($_GET['delete'])){
 	}else{
 		supprimerArticle($_GET['nameArt']);
 	}
+	// on redirige vers la page (cela supprime les get)
 	header('Location: panier');
 	exit();
 }

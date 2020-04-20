@@ -98,7 +98,7 @@ function getArticleCategory($subcat){
 }
 
 function getFullArticle($name){
-	$response = getBdd()->prepare('SELECT a.title, a.description, a.price, a.photo_path, s.name FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND a.title LIKE :name');
+	$response = getBdd()->prepare('SELECT a.id, a.title, a.description, a.price, a.photo_path, s.name FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND a.title LIKE :name');
 	$response->execute([':name' => $name]);
 	$article = $response->fetchAll(PDO::FETCH_ASSOC);
 	$response->closeCursor();

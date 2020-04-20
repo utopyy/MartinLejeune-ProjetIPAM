@@ -96,9 +96,10 @@ ob_start();
                                                                </td>
 								<td>
 								<div class="checkout_btn_inner d-flex align-items-center">
-                                        <a class="gray_btn" href="<?=ROOT_PATH?>panier?delete=all">Effacer </a>
-                                        <a class="primary-btn" href="#">Commander</a>
+                                        <input type='button' class="gray_btn" value='Réinitialiser' onClick='deleteCom()'>
+										<input type='button' class="primary-btn" value='Commander' onClick='validateCom()'>
                                     </div></td>
+									
                             </tr>
                         </tbody>
 						<?php endif?>

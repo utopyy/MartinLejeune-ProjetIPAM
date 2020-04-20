@@ -29,7 +29,7 @@
 				<h6>Categorie: <?=$article['name']?></h6>
 				<?php if(!empty($_SESSION['id']) && $_SESSION['userRole'] == 1):?>
 				<div class="add-bag d-flex align-items-center">
-					<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
+					<a class="add-btn" href="<?=ROOT_PATH?>panier?title=<?=$article['title']?>"><span class="lnr lnr-cross"></span></a>
 					<span class="add-text text-uppercase">Ajouter au panier</span>
 				</div>
 				</br></br>

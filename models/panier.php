@@ -7,11 +7,12 @@ function creationPanier(){
 		$_SESSION['panier']['prixProduit'] = array();
 		$_SESSION['panier']['prixTotalProduit'] = array();
 		$_SESSION['panier']['qtProduit'] = array();
+		$_SESSION['panier']['id'] = array();
 	}
 	return true;
 }
 
-function ajouterArticle($nameId,$qtProduit,$prixProduit,$path){
+function ajouterArticle($nameId,$qtProduit,$prixProduit,$path,$id){
 	//Si le panier existe
 	if(creationPanier()){
 		//Si le produit existe déjà on ajoute seulement la quantité
@@ -27,6 +28,7 @@ function ajouterArticle($nameId,$qtProduit,$prixProduit,$path){
 			array_push($_SESSION['panier']['prixProduit'],$prixProduit);
 			array_push($_SESSION['panier']['path'],$path);
 			array_push($_SESSION['panier']['prixTotalProduit'],$prixProduit);
+			array_push($_SESSION['panier']['id'],$id);
 		}
 	}else{
 		$errorMessage = "Un problème est survenu...";
@@ -41,6 +43,7 @@ function supprimerArticle($nameId){
 		$tmp['prixProduit'] = array();
 		$tmp['path'] = array();
 		$tmp['prixTotalProduit'] = array();
+		$tmp['id'] = array();
 		//Si le produit existe en plusieurs exemplaires on supprime seulement un article
 		echo nbSameArticle($nameId);
 		if(nbSameArticle($nameId)>1){
@@ -55,6 +58,7 @@ function supprimerArticle($nameId){
 				array_push($tmp['qtProduit'],$_SESSION['panier']['qtProduit'][$i]);
 				array_push($tmp['prixProduit'],$_SESSION['panier']['prixProduit'][$i]);
 				array_push($tmp['path'],$_SESSION['panier']['path'][$i]);
+				array_push($tmp['id'], $_SESSION['panier']['id'][$i]);
 				array_push($tmp['prixTotalProduit'], $_SESSION['panier']['prixTotalProduit'][$i]);
 			}
 		}

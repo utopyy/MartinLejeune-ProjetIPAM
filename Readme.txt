@@ -28,7 +28,7 @@ un admin a été créé: login=admin, password = admin
 - Le code a été commenté au mieux pour faciliter votre lecture du code.
 
 - Pas encore implémenté:
-	- "Achats" d'articles (et tout ce qui en découle: commandes, historique, panier, ...)
+	- Lister ses commandes, listing total des commandes pour l'admin
 	- Modules javascript
 	- Stats pour l'admin
 
