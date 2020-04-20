@@ -54,7 +54,7 @@
 									<div class="prd-bottom">									
 									<?php  //si la personne est connectée et utilisateur (role=1)
 									if(!empty($_SESSION['id']) && $_SESSION['userRole'] == 1):?>
-										<a href="" class="social-info">
+										<a href="<?=ROOT_PATH?>panier?title=<?=$row['title']?>" class="social-info">
 											<span class="ti-bag"></span>
 											<p class="hover-text">Panier +</p>
 										</a>

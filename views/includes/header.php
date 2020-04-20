@@ -16,7 +16,7 @@
 						<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>">Accueil</a></li>
 						<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>shop">Shop</a></li>
 						<?php if(empty($_SESSION['id']) || $_SESSION['userRole']!=2):?>
-						<li class="nav-item"><a class="nav-link" href="">Contact</a></li>
+						<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>panier">Panier</a></li>
 						<?php else:?>
 							<li class="nav-item submenu dropdown">
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
