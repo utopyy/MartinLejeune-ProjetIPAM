@@ -1,3 +1,4 @@
+<!-- Role 1 = User, Role  2 = Admin -->
 <header class="header_area sticky-header">
 	<div class="main_menu">
 		<nav class="navbar navbar-expand-lg navbar-light main_box">
@@ -34,24 +35,24 @@
 							aria-expanded="false">Connexion</a>
 							<ul class="dropdown-menu">
 								<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>login">Se connecter</a></li>
-									<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>signup">S'enregistrer</a></li>
+								<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>signup">S'enregistrer</a></li>
 							</ul>
 							<?php else:?>
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false"><?=$_SESSION['username']?></a>
 							<ul class="dropdown-menu">
 								<li class="nav-item"><a class="nav-link" href="">Mon profil</a></li>
+								<?php if($_SESSION['userRole']==1):?>
+								<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>booksList">Mes commandes</a></li>
+								<?php endif?>
 								<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>logout">Se déconnecter</a></li>
 							</ul>
-						<?php endif?>
-						
+						<?php endif?>						
 						</li>
 					</ul>
 					<?php if(!empty($_SESSION['userRole']) && $_SESSION['userRole']==1):?>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="nav-item"><a href="<?=ROOT_PATH?>panier" <class="social-info">
-											<span class="ti-bag"></span>
-										</a></li>
+						<li class="nav-item"><a href="<?=ROOT_PATH?>panier" <class="social-info"><span class="ti-bag"></span></a></li>
 					</ul>							
 					<?php else:?>
 					<ul class="nav navbar-nav navbar-right">

@@ -12,17 +12,17 @@
 	</section>
 <section>
 		<div class="container">	
-				<!-- Prévu en bootstrap pour faire défiler des éléments, ici je n'en affiche qu'un -->
 							</br></br></br>
 							<h2>Commande confirmée!</h2>
 							<h4>Nous avons bien reçu votre commande et celle-ci sera traitée dans les plus brefs délais.</h4>
-							<h5>Votre panier a été réinitialisé, vous pouvez cependant consulter la liste de vos commandes dans votre menu personnel.</h5>
+							<h6>Votre panier a été réinitialisé!</br>Vous pouvez cependant consulter la liste de vos commandes dans votre menu personnel ou 
+							en cliquant sur <a href="<?=ROOT_PATH?>booksList">ce lien</a></h6>
 							</br></br></br>					
 		</div>
 	</section>
 </body>
 <?php
-$title = "Commande confirmée";
+$title = "Commande confirmee";
 $content = ob_get_clean();
 include("includes/template.php");
 ?>

@@ -49,7 +49,7 @@
 								<div class="product-details">
 									<h6><?=$row['title']?></h6>
 									<div class="price">
-										<h6><?=$row['price']?>€</h6>
+										<h6><?=$row['price']?>&euro;</h6>
 									</div>
 									<div class="prd-bottom">									
 									<?php  //si la personne est connectée et utilisateur (role=1)
