@@ -17,32 +17,33 @@
 	<section>
 		<div class="container">	
 			</br></br></br>
-				<?php if($nbBooks['nbCom'] == 0):?>
-					<h2>Vous n'avez pas encore effectue une commande.</h2>
-					<h4>Pour en realiser une, merci d'ajouter des articles dans votre panier puis de confirmer celle-ci.</h4>
-					</br></br></br>	
-				<?php else:?>
-					<table class="table">
-						<thead class="thead-dark">
-							<tr>
-								<th scope="col">Numero de commande</th>
-								<th scope="col">Nb articles</th>
-								<th scope="col">Prix total</th>
-								<th scope="col"></th>
-							</tr>
-						</thead>
-						<tbody>
-						<?php foreach($books as $book):?>
-							<tr>
-								<td><?=$book['noCom']?></td>
-								<td><?=$book['nbArticle']?></td>
-								<td><?=$book['priceTot']?>&euro;</td>		
-								<td><a href="<?=ROOT_PATH?>booksList?idCom=<?=$book['noCom']?>">+</a></td>
-							</tr>
-						<?php endforeach?>
-					</table>
-		</div>	<?php endif?>
-							</br></br></br>
+			<?php if($nbBooks['nbCom'] == 0):?>
+				<h2>Vous n'avez pas encore effectue une commande.</h2>
+				<h4>Pour en realiser une, merci d'ajouter des articles dans votre panier puis de confirmer celle-ci.</h4>
+				</br></br></br>	
+			<?php else:?>
+				<table class="table">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">Numero de commande</th>
+							<th scope="col">Nb articles</th>
+							<th scope="col">Prix total</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php foreach($books as $book):?>
+						<tr>
+							<td><?=$book['noCom']?></td>
+							<td><?=$book['nbArticle']?></td>
+							<td><?=$book['priceTot']?>&euro;</td>		
+							<td><a href="<?=ROOT_PATH?>booksList?idCom=<?=$book['noCom']?>">+</a></td>
+						</tr>
+					<?php endforeach?>
+				</table>
+			<?php endif?>
+			</br></br></br>
+		</div>
 	</section>
 </body>
 <?php

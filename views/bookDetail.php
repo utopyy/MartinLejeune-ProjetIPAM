@@ -56,12 +56,8 @@
                                 </td>
                             </tr>
 							<?php endforeach?>
-                                <td>
-
-                                </td>
-                                <td>
-
-                                </td>
+                                <td></td>
+                                <td></td>
                                 <td>
                                     <h5>Total commande</h5>
                                 </td>
@@ -69,7 +65,6 @@
                                     <h5><?=$priceTot['total']?>&euro;</h5>
                                 </td>
 								<td></td>
-							
                             </tr>
                         </tbody>
                     </table>

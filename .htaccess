@@ -10,5 +10,4 @@ RewriteRule /shop/([a-zA-Z0-9\ \-]+) /shop?sub=$1
 
 
 
-
  

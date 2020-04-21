@@ -25,10 +25,10 @@ INFOS UTILES
 un utilisateur a été créé: login=user, password = user
 un admin a été créé: login=admin, password = admin
 
-- Le code a été commenté au mieux pour faciliter votre lecture du code.
+- Aucune commande n'est enregistrée dans le DUMP SQL, pour vérifier le listing des commandes personnelles d'un utilisateur il faut en réaliser une.
 
 - Pas encore implémenté:
-	- Lister ses commandes, listing total des commandes pour l'admin
+	- Listing total des commandes pour l'admin
 	- Modules javascript
 	- Stats pour l'admin
 

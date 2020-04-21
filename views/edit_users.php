@@ -15,40 +15,40 @@
 			</div>
 		</div>
 	</section>
-		<section>
+	<section>
 		<div class="containerAdmin">
-	<table class="table">
-		<thead class="thead-dark">
-			<tr>
-				<th scope="col">Pseudo</th>
-				<th scope="col">Prénom</th>
-				<th scope="col">Nom</th>
-				<th scope="col">Date de naissance</th>
-				<th scope="col">Rue</th>
-				<th scope="col">No de Maison</th>
-				<th scope="col">Code Postal</th>
-				<th scope="col">Ville</th>
-				<th scope="col">Pays</th>
-				<th scope="col">Adresse Mail</th>
-				<th scope="col">Role</th>
-				<th scope="col">Date d'inscription</th>
-				<th scope="col">Dernière connection</th>
-				<th scope="col"></th>
-				<th scope="col"></th>
-			</tr>
-		</thead>
-		<tbody>
-	<?php foreach($users as $user):?>
-		<tr>
-		<?php foreach($user as $row):?>
-				<td><?=$row?></th>
-		<?php endforeach?>
-		<td><a href="<?=ROOT_PATH?>edit_users?modify<?=$user['username']?>">Modifier</a></td>
-		<td><a href="<?=ROOT_PATH?>edit_users?delete=<?=$user['username']?>">Supprimer</a></td>
-		</tr>
-	<?php endforeach?>
-	</table>
-	</div>
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Pseudo</th>
+						<th scope="col">Prénom</th>
+						<th scope="col">Nom</th>
+						<th scope="col">Date de naissance</th>
+						<th scope="col">Rue</th>
+						<th scope="col">No de Maison</th>
+						<th scope="col">Code Postal</th>
+						<th scope="col">Ville</th>
+						<th scope="col">Pays</th>
+						<th scope="col">Adresse Mail</th>
+						<th scope="col">Role</th>
+						<th scope="col">Date d'inscription</th>
+						<th scope="col">Dernière connection</th>
+						<th scope="col"></th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+				<?php foreach($users as $user):?>
+					<tr>
+					<?php foreach($user as $row):?>
+						<td><?=$row?></th>
+					<?php endforeach?>
+					<td><a href="<?=ROOT_PATH?>edit_users?modify<?=$user['username']?>">Modifier</a></td>
+					<td><a href="<?=ROOT_PATH?>edit_users?delete=<?=$user['username']?>">Supprimer</a></td>
+					</tr>
+				<?php endforeach?>
+			</table>
+		</div>
 	</section>
 </body>
 <?php

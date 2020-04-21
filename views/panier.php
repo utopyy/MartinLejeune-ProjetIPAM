@@ -23,9 +23,9 @@ ob_start();
             <div class="cart_inner">
                 <div class="table-responsive">
                     <table class="table">
-							<?php if($nbArticles==0):?>
-								<h5>Votre panier est vide!</h5>
-							<?php else:?>
+						<?php if($nbArticles==0):?>
+							<h5>Votre panier est vide!</h5>
+						<?php else:?>
                         <thead>
                             <tr>
                                 <th scope="col">Produit</th>
@@ -40,12 +40,12 @@ ob_start();
                             <tr>
                                 <td>
                                     <div class="media">
-									<div class="col-lg-3 col-md-6">
-                                        <div class="single-product">
-                                            <img class="img-fluid" src="<?=$_SESSION['panier']['path'][$i]?>" alt="">
-                                        </div>
+										<div class="col-lg-3 col-md-6">
+											<div class="single-product">
+												<img class="img-fluid" src="<?=$_SESSION['panier']['path'][$i]?>" alt="">
+											</div>
 										</div>
-                                        <div class="media-body">
+										<div class="media-body">
                                             <p><?=$_SESSION['panier']['nameId'][$i]?></p>
                                         </div>
                                     </div>
@@ -63,43 +63,31 @@ ob_start();
                                 </td>
 								<td>
 								<a href="<?=ROOT_PATH?>panier?delete=1&nameArt=<?=$_SESSION['panier']['nameId'][$i]?>" class="social-info">
-											<i class="fa fa-times" aria-hidden="true"></i>
+									<i class="fa fa-times" aria-hidden="true"></i>
 								</a>
 								</td>
                             </tr>
 							<?php endfor;?>
-                                <td>
-
-                                </td>
-                                <td>
-
-                                </td>
+                                <td> </td>
+                                <td></td>
                                 <td>
                                     <h5>Total commande</h5>
                                 </td>
                                 <td>
                                     <h5><?=$montantTotal;?>&euro;</h5>
                                 </td>
-								<td></td>
-							
+								<td></td>							
                             </tr>
                             <tr class="out_button_area">
-                                <td>
-                                </td>
-                                <td>
-
-                                </td>
-                                <td>
-
-                                </td>
-                                <td>
-                                                               </td>
-								<td>
-								<div class="checkout_btn_inner d-flex align-items-center">
-                                        <input type='button' class="gray_btn" value='Réinitialiser' onClick='deleteCom()'>
-										<input type='button' class="primary-btn" value='Commander' onClick='validateCom()'>
-                                    </div></td>
-									
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+								<td><div class="checkout_btn_inner d-flex align-items-center">
+									<input type='button' class="gray_btn" value='Réinitialiser' onClick='deleteCom()'>
+									<input type='button' class="primary-btn" value='Commander' onClick='validateCom()'>
+									</div>
+								</td>	
                             </tr>
                         </tbody>
 						<?php endif?>

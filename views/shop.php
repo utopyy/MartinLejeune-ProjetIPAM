@@ -1,5 +1,5 @@
 <?php ob_start() ?>
-	<body id="category">
+<body id="category">
 	<!-- Bannière de page, pas dans le template c'est voulu -->
 	<section class="banner-area organic-breadcrumb">
 		<div class="container">

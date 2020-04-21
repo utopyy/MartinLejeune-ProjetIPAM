@@ -4,9 +4,8 @@
 			<div class="col-lg-3  col-md-6 col-sm-6">
 				<div class="single-footer-widget">
 					<h6>A propos de nous</h6>
-					<p>
-						Nous sommes l'un des leaders de la nutrition sportive, offrant une large gamme de produits de qualité dont des protéines, vitamines, aliments hyper protéinés et des vêtements conçus pour la performance.
-					</p>
+					<p>Nous sommes l'un des leaders de la nutrition sportive, offrant une large gamme de produits de qualité dont des protéines, 
+					vitamines, aliments hyper protéinés et des vêtements conçus pour la performance.</p>
 				</div>
 			</div>
 			<div class="col-lg-4  col-md-6 col-sm-6">
@@ -24,7 +23,7 @@
 								<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
 							</div>
 						</div>
-					</form>
+						</form>
 					</div>
 				</div>
 			</div>

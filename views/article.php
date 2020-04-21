@@ -18,12 +18,12 @@
 	<!-- article -->
 	<div class ="container">
 		<div class="owl-item active">				
-					<!-- affichage pour les users/visiteurs -->
+			<!-- affichage pour les users/visiteurs -->
 			<div>
 				<img class="img-fluid" src="<?=ROOT_PATH.$article['photo_path']?>" alt="">
 			</div>
 			</br>
-				<h6><?=$article['price']?>€</h6>
+				<h6><?=$article['price']?>&euro;</h6>
 				<h4><?=$article['title']?></h4>
 				<h5><?=$article['description']?></h5>
 				<h6>Categorie: <?=$article['name']?></h6>

@@ -15,31 +15,32 @@
 			</div>
 		</div>
 	</section>
-		<section>
+	<section>
 		<div class="containerAdmin">
-	<table class="table">
-		<thead class="thead-dark">
-			<tr>
-				<th scope="col">Titre</th>
-				<th scope="col">Categorie</th>
-				<th scope="col">Sous-categorie</th>
-				<th scope="col"></th>
-				<th scope="col"></th>
-			</tr>
-		</thead>
-		<tbody>
-	<?php foreach($articles as $article):?>
-		<tr>
-		<td><?=$article['title']?></td>
-		<td><?=$article['catname']?></td>
-		<td><?=$article['subname']?></td>		
-		<td><a href="<?=ROOT_PATH?>article/<?=str_replace(" ","-",$article['subname'])?>/<?=str_replace(" ","-",$article['title'])?>">Modifier</a></td>
-		<td><a href="<?=ROOT_PATH?>edit_articles?delete=<?=$article['id']?>">Supprimer</a></td>
-		</tr>
-	<?php endforeach?>
-		<a class="primary-btn" href="<?=ROOT_PATH?>add_article">Ajouter un article +</a></td>
-	</table>
-	</div>
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Titre</th>
+						<th scope="col">Categorie</th>
+						<th scope="col">Sous-categorie</th>
+						<th scope="col"></th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach($articles as $article):?>
+						<tr>
+							<td><?=$article['title']?></td>
+							<td><?=$article['catname']?></td>
+							<td><?=$article['subname']?></td>		
+							<td><a href="<?=ROOT_PATH?>article/<?=str_replace(" ","-",$article['subname'])?>/<?=str_replace(" ","-",$article['title'])?>">Modifier</a></td>
+							<td><a href="<?=ROOT_PATH?>edit_articles?delete=<?=$article['id']?>">Supprimer</a></td>
+						</tr>
+					<?php endforeach?>
+					<a class="primary-btn" href="<?=ROOT_PATH?>add_article">Ajouter un article +</a></td>
+				</tbody>
+			</table>
+		</div>
 	</section>
 </body>
 <?php
