@@ -31,13 +31,15 @@ CREATE TABLE `adress` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `un_log` (`username`),
   CONSTRAINT `adress_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 /*Data for the table `adress` */
 
 insert  into `adress`(`id`,`country`,`city`,`zip`,`street`,`house_number`,`username`) values 
 (1,'France','Paris','0000','Joncs','3','user'),
-(2,'Belgique','Nivelles','1400','Paquette','4','admin');
+(2,'Belgique','Nivelles','1400','Paquette','4','admin'),
+(29,'fe','ef','z','fe','fe','ok'),
+(30,'fe','efze','efze','fe','efzf','user2');
 
 /*Table structure for table `article` */
 
@@ -53,13 +55,13 @@ CREATE TABLE `article` (
   PRIMARY KEY (`id`),
   KEY `category_id` (`category_id`),
   CONSTRAINT `article_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `sub_category` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=latin1;
 
 /*Data for the table `article` */
 
 insert  into `article`(`id`,`title`,`description`,`price`,`category_id`,`photo_path`) values 
-(1,'DISQUE MUSCULATION ATHLITECH FONTE 5kg','Fonte compatible avec les barres GO Sport. Diametre : 2.8 cm Poids : 5 kg ',7.5,1,'public/img/mat/p1.jpg'),
-(2,'DISQUE MUSCULATION ATHLITECH FONTE 5kg','Fonte compatible avec les barres GO Sport. Diametre : 2.8 cm Poids : 10 kg',15,1,'public/img/mat/p2.jpg'),
+(1,'DISQUE MUSCULATION ATHLITECH FONTE 5KG','Fonte compatible avec les barres GO Sport. Diametre : 2.8 cm Poids : 5 kg ',15,1,'public/img/mat/p1.jpg'),
+(2,'DISQUE MUSCULATION ATHLITECH FONTE 10KG','Fonte compatible avec les barres GO Sport. Diametre : 2.8 cm Poids : 10 kg ',15,1,'public/img/mat/p2.jpg'),
 (3,'PLAGE MIXTE SANS JUMBO FLYING DISC ASSORTED','Ils sont grands, colorés, très sûrs et trop amusants pour être posés. La conception unique comprend un tube extérieur en plastique recouvert de mousse recouvert d\'un tissu intérieur extensible. L\'ensemble comprend 3 disques volants graphiques de couleurs ',2.99,1,'public/img/mat/p3.jpg'),
 (4,'HALTERES MUSCULATION ATHLITECH HALTERE 10 KG','Pour bien commencer la musculation chez soi. Idéal pour muscler le haut du corps : épaules, biceps, triceps, dorsaux et pectoraux. Compatible avec les barres GO Sport. Composition : 4 disques de 1 kg, 2 disques de 2 kg, 2 stops disques pour des barres de ',19,2,'public/img/mat/p4.jpg'),
 (5,'HALTERES ADULTE ATHLITECH HALTERES 2X5 KG','Pour bien commencer la musculation chez soi. Idéal pour muscler le haut du corps : épaules, biceps, triceps, dorsaux et pectoraux. ',25.99,2,'public/img/mat/p5.jpg'),
@@ -126,9 +128,15 @@ CREATE TABLE `book` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `book_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Data for the table `book` */
+
+insert  into `book`(`id`,`user_id`) values 
+(8,1),
+(10,1),
+(11,1),
+(9,39);
 
 /*Table structure for table `book_article` */
 
@@ -144,9 +152,17 @@ CREATE TABLE `book_article` (
   KEY `item_id` (`item_id`),
   CONSTRAINT `book_article_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`),
   CONSTRAINT `book_article_ibfk_2` FOREIGN KEY (`item_id`) REFERENCES `article` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1;
 
 /*Data for the table `book_article` */
+
+insert  into `book_article`(`id`,`book_id`,`item_id`,`price`) values 
+(17,8,42,41.99),
+(18,9,41,35.99),
+(19,9,41,35.99),
+(20,10,41,35.99),
+(21,11,42,41.99),
+(22,11,42,41.99);
 
 /*Table structure for table `category` */
 
@@ -206,10 +222,10 @@ insert  into `sub_category`(`id`,`name`,`id_category`) values
 (7,'Pulls',2),
 (8,'Joggins et Bas',2),
 (9,'Shorts',2),
-(10,'T-Shirts et Hauts',2),
+(10,'T Shirts et Hauts',2),
 (11,'Proteines',3),
 (12,'Aliments et Snacks',3),
-(13,'Créatine',3),
+(13,'Creatine',3),
 (14,'Acides amines',3),
 (15,'Vitamines et Mineraux',3);
 
@@ -232,13 +248,15 @@ CREATE TABLE `user` (
   UNIQUE KEY `un_username` (`username`),
   KEY `role_id` (`role_id`),
   CONSTRAINT `user_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 /*Data for the table `user` */
 
 insert  into `user`(`id`,`username`,`firstname`,`lastname`,`birthdate`,`mail`,`password`,`role_id`,`date_creation`,`last_connection`) values 
 (1,'user','Michel','Sardou','1984-04-02','michmich@gmail.com','$2y$10$iDdcRk4QBKFa/ylDFg/cYukYJXa5aKHKlpuP/BJ3adFYRhdPT9MK2',1,'2020-04-15','2020-04-15'),
-(2,'admin','Michel','Angelo','1995-04-07','mian@gmail.com','$2y$10$/k8qcRfaLl5PJCo41jNc7uDazYpyD06Kt7hn7GkM6zKcNCe1cc74a',2,'2020-04-15','2020-04-15');
+(2,'admin','Michel','Angelo','1995-04-07','mian@gmail.com','$2y$10$/k8qcRfaLl5PJCo41jNc7uDazYpyD06Kt7hn7GkM6zKcNCe1cc74a',2,'2020-04-15','2020-04-15'),
+(38,'ok','ok','ok','2020-04-01','ok@gm.co','$2y$10$Ba1f0IsAGoGRipiyBdOw3OHj.AP/pb9zPvVw/4ZMneHAXjdpQKP9u',1,'2020-04-21','2020-04-21'),
+(39,'user2','user2','user2','2020-04-06','okdz@gmail.co','$2y$10$z4pHbtBPbSgTyopuP9pqnOCYPSbscW4bs1CKyZFk1RKsyDxTIFiPO',1,'2020-04-22','2020-04-22');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
