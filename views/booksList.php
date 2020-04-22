@@ -17,15 +17,23 @@
 	<section>
 		<div class="container">	
 			</br></br></br>
-			<?php if($nbBooks['nbCom'] == 0):?>
-				<h2>Vous n'avez pas encore effectue une commande.</h2>
-				<h4>Pour en realiser une, merci d'ajouter des articles dans votre panier puis de confirmer celle-ci.</h4>
-				</br></br></br>	
+			<?php if($nbBooks['nbCom'] == 0 ):?>
+				<?php if($_SESSION['userRole']==1):?>
+					<h2>Vous n'avez pas encore effectue une commande.</h2>
+					<h4>Pour en realiser une, merci d'ajouter des articles dans votre panier puis de confirmer celle-ci.</h4>
+					</br></br></br>	
+				<?php elseif($_SESSION['userRole']==2):?>
+					<h2>Aucun client n'a encore effectué de commande.</h2>
+					<h4>Attendez qu'une commande soit fait pour avoir accès au listing et aux statistiques.</h4>
+				<?php endif?>
 			<?php else:?>
 				<table class="table">
 					<thead class="thead-dark">
 						<tr>
 							<th scope="col">Numero de commande</th>
+							<?php if($_SESSION['userRole']==2):?>
+							<th scope="col">Auteur</th>
+							<?php endif?>
 							<th scope="col">Nb articles</th>
 							<th scope="col">Prix total</th>
 							<th scope="col"></th>
@@ -35,6 +43,9 @@
 					<?php foreach($books as $book):?>
 						<tr>
 							<td><?=$book['noCom']?></td>
+							<?php if($_SESSION['userRole']==2):?>
+							<td><?=$book['nomCli']?></td>
+							<?php endif?>
 							<td><?=$book['nbArticle']?></td>
 							<td><?=$book['priceTot']?>&euro;</td>		
 							<td><a href="<?=ROOT_PATH?>booksList?idCom=<?=$book['noCom']?>">+</a></td>

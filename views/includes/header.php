@@ -24,7 +24,7 @@
 							aria-expanded="false">Administration</a>
 							<ul class="dropdown-menu">
 							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>edit_users">Gestion membres</a></li>
-							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>edit_books">Gestion commandes</a></li>
+							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>booksList">Gestion commandes</a></li>
 							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>edit_articles">Gestion shop</a></li>
 							</ul>
 							</li>

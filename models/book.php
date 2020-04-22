@@ -34,10 +34,28 @@ function nbBooksByUser($userId){
 	return $nb;
 }
 
+// Nombre total de commandes en db
+function nbBooksTot(){
+	$response = getBdd()->prepare('SELECT COUNT(*) as nbCom FROM book');
+	$response->execute();
+	$nb = $response->fetch();
+	$response->closeCursor(); 
+	return $nb;
+}
+
 // Toutes les commandes de l'utilisateur
 function booksByUser($userId){
 	$response = getBdd()->prepare('SELECT b.id AS noCom,CAST(SUM(ba.price) AS DECIMAL(10,2)) AS priceTot, COUNT(ba.id) AS nbArticle FROM book AS b, book_article AS ba WHERE b.id = ba.book_id AND b.user_id = :user_id GROUP BY(b.id)');
 	$response->execute([':user_id' => $userId]);
+	$books = $response->fetchAll(PDO::FETCH_ASSOC);
+	$response->closeCursor();
+	return $books;
+}
+
+// Toutes les commandes en db
+function booksTot(){
+	$response = getBdd()->prepare('SELECT u.username AS nomCli, b.id AS noCom,CAST(SUM(ba.price) AS DECIMAL(10,2)) AS priceTot, COUNT(ba.id) AS nbArticle FROM book AS b, book_article AS ba, `user` AS u WHERE b.id = ba.book_id AND u.id = b.user_id GROUP BY(b.id) ORDER BY(nomCli)');
+	$response->execute();
 	$books = $response->fetchAll(PDO::FETCH_ASSOC);
 	$response->closeCursor();
 	return $books;
