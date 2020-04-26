@@ -132,6 +132,16 @@ function createArticle($title, $description, $price, $category_id, $photo_path){
 		$response = getBdd()->prepare('INSERT INTO article(title, description, price, category_id, photo_path) VALUES (:title, :description, :price, :category_id, :photo_path)');
 	$response->execute([':title' => $title, ':description' => $description, ':price' => $price, ':category_id' => $category_id, ':photo_path' => $photo_path]);
 	$response->closeCursor();
-}	
+}
+
+function getBestSellers(){
+	$response = getBdd()->prepare('SELECT a.title AS title, COUNT(ba.item_id) AS amount FROM article AS a, book_article AS ba WHERE a.id = ba.item_id GROUP BY ba.item_id ORDER BY amount DESC LIMIT 2');
+	$response->execute();
+	$result = $response->fetchAll(PDO::FETCH_KEY_PAIR|PDO::FETCH_GROUP);
+	$response->closeCursor();
+	return $result;
+}
+
+	
 
 ?>

@@ -17,11 +17,6 @@ $(document).ready(function(){
     $('select').niceSelect();
 
 
-    $('.navbar-nav li.dropdown').hover(function() {
-    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-    }, function() {
-    $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
-    });
 
     $('.img-pop-up').magnificPopup({
         type: 'image',
@@ -45,56 +40,7 @@ $(document).ready(function(){
 		============================*/
 			$(".sticky-header").sticky();
 
-    /*=================================
-    Javascript for banner area carousel
-    ==================================*/
-    $(".active-banner-slider").owlCarousel({
-        items:1,
-        autoplay:false,
-        autoplayTimeout: 5000,
-        loop:true,
-        nav:true,
-        navText:["<img src='img/banner/prev.png'>","<img src='img/banner/next.png'>"],
-        dots:false
-    });
-
-    /*=================================
-    Javascript for product area carousel
-    ==================================*/
-    $(".active-product-area").owlCarousel({
-        items:1,
-        autoplay:false,
-        autoplayTimeout: 5000,
-        loop:true,
-        nav:true,
-        navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
-        dots:false
-    });
-
-    /*=================================
-    Javascript for single product area carousel
-    ==================================*/
-    $(".s_Product_carousel").owlCarousel({
-      items:1,
-      autoplay:false,
-      autoplayTimeout: 5000,
-      loop:true,
-      nav:false,
-      dots:true
-    });
-    
-    /*=================================
-    Javascript for exclusive area carousel
-    ==================================*/
-    $(".active-exclusive-product-slider").owlCarousel({
-        items:1,
-        autoplay:false,
-        autoplayTimeout: 5000,
-        loop:true,
-        nav:true,
-        navText:["<img src='img/product/prev.png'>","<img src='img/product/next.png'>"],
-        dots:false
-    });
+ 
 
     //--------- Accordion Icon Change ---------//
 
@@ -178,9 +124,6 @@ $(document).ready(function(){
 
 
 
-    $(document).ready(function() {
-        $('#mc_embed_signup').find('form').ajaxChimp();
-    });   
 
 
 
@@ -231,16 +174,6 @@ $(document).ready(function(){
         initClock('js-countdown', countdown);
 
   };
-
-
-
-      $('.quick-view-carousel-details').owlCarousel({
-          loop: true,
-          dots: true,
-          items: 1,
-      })
-
-
 
     //----- Active No ui slider --------//
 

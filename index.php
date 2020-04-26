@@ -21,6 +21,7 @@ define('REQ_ACTION', $segments[2] ?? Null);
 
 $file = 'controllers/'.REQ_TYPE.(REQ_ACTION ? '-'.REQ_ACTION : '').'.php'; 
 
+
 if(file_exists($file)){ 
     require $file;
     exit();

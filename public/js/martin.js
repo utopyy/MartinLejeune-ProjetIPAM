@@ -10,3 +10,5 @@ function deleteCom(){
 		window.location.href = "panier?delete=all";
 	}
 }
+
+

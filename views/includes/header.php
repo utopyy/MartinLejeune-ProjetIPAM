@@ -26,6 +26,7 @@
 							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>edit_users">Gestion membres</a></li>
 							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>booksList">Gestion commandes</a></li>
 							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>edit_articles">Gestion shop</a></li>
+							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>stats">Statistiques</a></li>
 							</ul>
 							</li>
 						<?php endif?>
