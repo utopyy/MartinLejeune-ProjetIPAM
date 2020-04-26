@@ -9,7 +9,7 @@
 					<nav class="d-flex align-items-center">
 						<a href="<?=ROOT_PATH?>">Accueil<span class="lnr lnr-arrow-right"></span></a>
 						<a href="<?=ROOT_PATH?>shop">Shop<span class="lnr lnr-arrow-right"></span></a>
-						<a href="#">Détail article</a>
+						<a href="#">Detail article</a>
 					</nav>
 				</div>
 			</div>

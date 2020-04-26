@@ -42,7 +42,7 @@
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false"><?=$_SESSION['username']?></a>
 							<ul class="dropdown-menu">
-								<li class="nav-item"><a class="nav-link" href="">Mon profil</a></li>
+								<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>profil">Mon profil</a></li>
 								<?php if($_SESSION['userRole']==1):?>
 								<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>booksList">Mes commandes</a></li>
 								<?php endif?>

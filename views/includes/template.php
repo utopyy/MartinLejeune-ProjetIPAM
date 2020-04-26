@@ -15,7 +15,7 @@
 	<script src="<?=ROOT_PATH?>public/js/main.js"></script>
 	<script src="<?=ROOT_PATH?>public/js/jquery.magnific-popup.min.js"></script>
 	<script src="<?=ROOT_PATH?>public/js/jquery.sticky.js"></script>
-	<?php if($title="Statistiques"):?>
+	<?php if(REQ_TYPE=="stats"):?>
 	<script src="<?=ROOT_PATH?>public/js/googleChart.js"></script>
 	<script src="<?=ROOT_PATH?>public/js/chartLoader.js"></script>
 	<?php endif?>

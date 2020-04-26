@@ -60,6 +60,15 @@ function getAllUsers(){
 	return $users;
 }
 
+function getFullUser($id){
+	$response = getBdd()->prepare('SELECT u.username, u.firstname, u.lastname, u.birthdate, a.street, a.house_number, a.zip, a.city, a.country, u.mail, u.role_id, u.date_creation, u.last_connection FROM `user` AS u, adress AS a WHERE u.username = a.username AND u.id = :id');
+	$response->execute([':id' => $id]);
+	$user = $response->fetchAll(PDO::FETCH_ASSOC);
+	$response->closeCursor();
+	return $user[0];
+	
+}
+
 function deleteUser($username){
 	//on supprime d'abord l'adresse (autre table)
 	$response = getBdd()->prepare('DELETE FROM adress WHERE username = :username');
