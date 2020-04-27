@@ -1,0 +1,87 @@
+Projet:
+1) Analyse USE CASE ET UML
+2) Créer la DB
+3)Faire la base bootstrap du site
+4) Implémenter les articles dans la bdd
+5) Etablir connexion DB - Site
+6) Implémenter sign in
+7) empecher user de mettre 2x la meme adresse
+8) Modifier date création
+9) Implémentation adresse
+10) Charger les articles sur le site
+11) catégories avec un espace ne fonctionnent pas - réparé!
+12) affichage shop par défaut 
+13) login ok
+14) Implémentation session/routeur ok
+15) Implémenter modèle MVC
+16) modifier photo pour sign in
+17) fichier users.php : refaire proprement les méthodes : les adapter à ma bdd
+18) config php pour parametrer rapidement la connexion db etc
+19) check le code before review
+20) check doc : diagramme bdd
+21) probleme affichage sidebar article
+22) afficher nom de l'utilisateur en haut à droite lors de la navigation sur le site
+23) Boutton déconnexion
+24) refaire dump_url : avec users présents
+25) préparer le readme
+26) adapter l'affichage selon le fait qu'on soit connecté ou pas
+27) Si inscription : on passe en statut connexion!
+28) Traiter affichage d'articles en fonction du status de l'user
+29) administrer les user
+30) design admin user
+31) dump mysql mis à jour
+32) Delete article
+33) ajout article
+34) prévisualiser article
+35) modifier article
+36) visualiser panier
+36) ajout panier en ligne (ajouter un article dedans)
+37) pouvoir supprimer un article (ajouter une colonne)
+38) calculer le prix
+39) ajouter les articles identiques sur la meme ligne
+40) Transformer panier en MVC
+41) adapter le caddie (navbar, accès only user)
+42) valider une commande
+43) visualiser son historique de commandes
+44) Visualiser l'ensemble des commandes
+45) graphique pour l'admin des articles les plus vendus etc
+46) visualiser son profil
+47) Modifier ses données
+48) Admin redirigé vers modification user (réinitialisation du mot de passe, changer l'adresse mail, mettre le role admin)
+49) si user supprimé (on désactive l'user :> boolean db, au lieu de delete adresse etc)
+50) idem avec article
+=============
+
+Restant: 
+
+49) -Les URL : controller qui vérifie: redirection bonne page ou welcome
+
+51) modification/creation aerticle : réussir à faire un combo box (et implémenter modif article:changer de categorie) + (https://www.youtube.com/watch?v=ZofAbz3hFt0)
+53) mettre à jour dernière connection
+54) bouton ajouter panier welcome (user)
+56) apres un ajout dans le panier: fenetre confirmation javascript puis rester dans le shop
+55) ajouter confirmation pour supprimer les éléments(article, user,confirmer etc etc etc)
+57) reduire taille image prévisu article
+60) ne pas ajouter un article dont le nom existe déjà sauf si il est en status supprimé
+61) Footer newsletter!
+62) url des articles en minuscules
+
+59) photo pour article:  javascript!! (https://bootsnipp.com/snippets/4Mm5R) (envoyer la photo directement dans le bon répertoire)
+52) Listing commandes total, users, article : appeler javascript pour mettre un nombre de coms max par page ( et trier par champ) : https://www.creative-tim.com/product/fresh-bootstrap-table?partner=114912
+53) fusionner un max de views/controllers
+
+(!!!) Améliorer graphique
+Implémenter encore un peu de js (niveau alertes et formulaire il y a moyen de faire qlq chose de sympa)
+
+========
+Avant dernier push
+- Indenter le code
+- Refaire dump mysql
+- Check erreurs/warning console
+- Review code complet (pas oublié mon javascript) => tout comprendre à 100%!
+- Différence entre require_once / require (à recheck pour être sûr)
+- Index a été modifié plusieurs fois par le prof: retourner sur discord pour s'assurer d'avoir compris toutes les modifs
+
+
+
+
