@@ -33,7 +33,7 @@
           L'adresse indiquée ci-dessous sera celle de livraison de vos prochaines commandes.
         </div>
         <h3>Infos personnelles</h3>        
-        <form class="form-horizontal" action="profil" method="POST">
+        <form class="form-horizontal" action="profil?admin=<?=$user['username']?>" method="POST">
           <div class="form-group">
             <label class="col-lg-3 control-label">Prenom:</label>
             <div class="col-lg-8">
@@ -88,6 +88,21 @@
               <input class="form-control" type="text" name="country" value="<?=$user['country']?>">
             </div>
 			<br/>
+			<?php if($_SESSION['userRole']==2):?>		  
+           <div class="form-check">
+				<input class="form-check-input" type="radio" name="role_radio" id="userradio" value="1" <?php if($user['role_id']==1):?>checked<?php endif?>>
+				  <label class="form-check-label" for="userradio">
+					Utilisateur
+				  </label>
+				</div>
+				<div class="form-check">
+				  <input class="form-check-input" type="radio" name="role_radio" id="adminradio" value="2" <?php if($user['role_id']==2):?>checked<?php endif?>>
+				  <label class="form-check-label" for="adminradio">
+					Administrateur
+				  </label>
+				</div>
+		 <?php endif?>
+			<br/>
 			<h6>Si vous ne souhaitez pas changer de mot de passe, ne pas remplir les prochains champs</h6>
           </div>
           <div class="form-group">
@@ -102,16 +117,17 @@
             <div class="col-md-8">
               <input class="form-control" name="confirm_pswd" type="password">
             </div>
-          </div>
+			</div>
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="submit" class="btn btn-primary" value="Sauvegarder">
+              <input type="submit" class="btn btn-primary" value="Sauvegarder" onClick='confirmProfil()'>
               <span></span>
-              <input type="reset" class="btn btn-default" value="Annuler">
+              <input id="reset" type="reset" class="btn btn-default" value="Annuler">
             </div>
           </div>
         </form>
+			
       </div>
   </div>
 </div>

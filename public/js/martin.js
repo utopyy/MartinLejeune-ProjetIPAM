@@ -11,4 +11,9 @@ function deleteCom(){
 	}
 }
 
+function confirmProfil(){
+	if (confirm("Sauvegarder les modifications?")){
+		window.location.href = "profil";
+	}
+}
 

@@ -43,8 +43,8 @@
 					<?php foreach($user as $row):?>
 						<td><?=$row?></th>
 					<?php endforeach?>
-					<td><a href="<?=ROOT_PATH?>edit_users?modify<?=$user['username']?>">Modifier</a></td>
-					<td><a href="<?=ROOT_PATH?>edit_users?delete=<?=$user['username']?>">Supprimer</a></td>
+					<td><a href="<?=ROOT_PATH?>profil?admin=<?=$user['username']?>">Modifier</a></td>
+					<td><a href="<?=ROOT_PATH?>edit_users?delete=<?=$user['username']?>" onclick="return confirm('Supprimer le compte <?=$user['username']?>?');">Supprimer</a></td>
 					</tr>
 				<?php endforeach?>
 			</table>

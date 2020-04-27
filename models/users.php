@@ -1,6 +1,14 @@
 <?php
 require_once 'models/db.php';
 
+function getUserId($username){
+	$reponse = getBdd()->prepare('SELECT id FROM `user` WHERE username LIKE :username');
+    $reponse->execute([':username' => $username]);
+    $id = $reponse->fetch();
+    $reponse->closeCursor();
+    return $id[0];
+}
+
 function getUserById($id) {
     $reponse = getBdd()->prepare('SELECT * FROM USER WHERE id = :id');
     $reponse->execute([':id' => $id]);
@@ -38,10 +46,10 @@ function createUserAdresse($country, $city, $zip, $street, $house_number, $usern
 		$response->closeCursor();
 }	
 	
-function updateUser($mail, $country, $city, $zip, $street, $house_number, $username) {
+function updateUser($mail, $country, $city, $zip, $street, $house_number, $role_id, $username) {
 	updateUserAdress($username, $country, $city, $zip, $street, $house_number);
-    $reponse = getBdd()->prepare('UPDATE USER SET mail = :mail WHERE username = :username');
-    $reponse->execute([':mail' => $mail, ':username' => $username]);
+    $reponse = getBdd()->prepare('UPDATE USER SET role_id = :role_id, mail = :mail WHERE username = :username');
+    $reponse->execute([':role_id' => $role_id, ':mail' => $mail, ':username' => $username]);
     $reponse->closeCursor();
 }
 

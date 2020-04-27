@@ -34,7 +34,7 @@
 							<td><?=$article['catname']?></td>
 							<td><?=$article['subname']?></td>		
 							<td><a href="<?=ROOT_PATH?>article/<?=str_replace(" ","-",$article['subname'])?>/<?=str_replace(" ","-",$article['title'])?>">Modifier</a></td>
-							<td><a href="<?=ROOT_PATH?>edit_articles?delete=<?=$article['id']?>">Supprimer</a></td>
+							<td><a href="<?=ROOT_PATH?>edit_articles?delete=<?=$article['id']?>" onclick="return confirm('Supprimer l\'article <?=$article['title']?>?');">Supprimer</a></td>
 						</tr>
 					<?php endforeach?>
 					<a class="primary-btn" href="<?=ROOT_PATH?>add_article">Ajouter un article +</a></td>
