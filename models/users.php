@@ -2,7 +2,7 @@
 require_once 'models/db.php';
 
 function getUserId($username){
-	$reponse = getBdd()->prepare('SELECT id FROM `user` WHERE username LIKE :username');
+	$reponse = getBdd()->prepare('SELECT id FROM `user` WHERE username LIKE :username AND `delete` != 1');
     $reponse->execute([':username' => $username]);
     $id = $reponse->fetch();
     $reponse->closeCursor();
@@ -10,7 +10,7 @@ function getUserId($username){
 }
 
 function getUserById($id) {
-    $reponse = getBdd()->prepare('SELECT * FROM USER WHERE id = :id');
+    $reponse = getBdd()->prepare('SELECT * FROM USER WHERE id = :id AND `delete` != 1');
     $reponse->execute([':id' => $id]);
     $user = $reponse->fetch();
     $reponse->closeCursor();
@@ -18,7 +18,7 @@ function getUserById($id) {
 }
 
 function getMailFromUser($mail){
-	$response = getBdd()->prepare('SELECT * FROM USER WHERE mail = :mail');
+	$response = getBdd()->prepare('SELECT * FROM USER WHERE mail = :mail AND `delete` != 1');
 	$response->execute([':mail' => $mail]);
 	$mail = $response->fetch();
 	$response->closeCursor();
@@ -26,7 +26,7 @@ function getMailFromUser($mail){
 }
 
 function getUserByLogin($login) {
-    $reponse = getBdd()->prepare('SELECT * FROM USER WHERE username = :login');
+    $reponse = getBdd()->prepare('SELECT * FROM USER WHERE username = :login AND `delete` != 1');
     $reponse->execute([':login' => $login]);
     $user = $reponse->fetch();
     $reponse->closeCursor();
@@ -67,7 +67,7 @@ function updatePassword($username, $password){
 }
 
 function getAllUsers(){
-	$response = getBdd()->prepare('SELECT u.username, u.firstname, u.lastname, u.birthdate, a.street, a.house_number, a.zip, a.city, a.country, u.mail, u.role_id, u.date_creation, u.last_connection FROM `user` AS u, adress AS a WHERE u.username = a.username');
+	$response = getBdd()->prepare('SELECT u.username, u.firstname, u.lastname, u.birthdate, a.street, a.house_number, a.zip, a.city, a.country, u.mail, u.role_id, u.date_creation, u.last_connection FROM `user` AS u, adress AS a WHERE u.username = a.username AND u.delete != 1');
 	$response->execute();
 	$users = $response->fetchAll(PDO::FETCH_ASSOC);
 	$response->closeCursor();
@@ -75,7 +75,7 @@ function getAllUsers(){
 }
 
 function getFullUser($id){
-	$response = getBdd()->prepare('SELECT u.username, u.firstname, u.lastname, u.birthdate, a.street, a.house_number, a.zip, a.city, a.country, u.mail, u.role_id, u.date_creation, u.last_connection FROM `user` AS u, adress AS a WHERE u.username = a.username AND u.id = :id');
+	$response = getBdd()->prepare('SELECT u.username, u.firstname, u.lastname, u.birthdate, a.street, a.house_number, a.zip, a.city, a.country, u.mail, u.role_id, u.date_creation, u.last_connection FROM `user` AS u, adress AS a WHERE u.username = a.username AND u.id = :id AND u.delete != 1');
 	$response->execute([':id' => $id]);
 	$user = $response->fetchAll(PDO::FETCH_ASSOC);
 	$response->closeCursor();
@@ -85,12 +85,11 @@ function getFullUser($id){
 
 function deleteUser($username){
 	//on supprime d'abord l'adresse (autre table)
-	$response = getBdd()->prepare('DELETE FROM adress WHERE username = :username');
-	$array = array('username' => $username);
-	$response->execute($array);
+	$response = getBdd()->prepare('UPDATE adress SET `delete` = 1 WHERE username like :username');
+	$response->execute([':username' => $username]);
 	//puis le user
-	$response = getBdd()->prepare('DELETE FROM `user` WHERE username = :username');
-	$response->execute($array);
+	$response = getBdd()->prepare('UPDATE `user` SET `delete` = 1 WHERE username like :username');
+	$response->execute([':username' => $username]);
 	$response->closeCursor();
 }
 ?>

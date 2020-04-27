@@ -3,7 +3,7 @@ require_once 'models/db.php';
 
 // Calculer le nombre d'articles dans une catégorie
 function getNbCats($cat){
-	$response = getBdd()->prepare('SELECT COUNT(*) FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND c.name LIKE :cat');
+	$response = getBdd()->prepare('SELECT COUNT(*) FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND c.name LIKE :cat AND a.delete != 1');
 	$response->execute([':cat' => $cat]);
 	$nbCat = $response->fetch();
 	$response->closeCursor();
@@ -12,7 +12,7 @@ function getNbCats($cat){
 
 // Calculer le nombre d'articles dans une sous catégorie
 function getNbSubCats($subcat){
-	$response = getBdd()->prepare('SELECT COUNT(*) FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat');
+	$response = getBdd()->prepare('SELECT COUNT(*) FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat AND a.delete != 1');
 	$response->execute([':subcat' => $subcat]);
 	$nbArticles = $response->fetch();
 	$response->closeCursor();
@@ -43,7 +43,7 @@ function getSubCats($cat){
 }
 
 function getArticleTitle($subcat){
-	$response = getBdd()->prepare('SELECT a.* FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat');
+	$response = getBdd()->prepare('SELECT a.* FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat  AND `delete` != 1');
 	$response->execute([':subcat' => $subcat]);
 	$subCat = array();
 	while ($donnees = $response->fetch()){	
@@ -54,7 +54,7 @@ function getArticleTitle($subcat){
 }
 
 function getArticlePrice($subcat){
-	$response = getBdd()->prepare('SELECT a.* FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat');
+	$response = getBdd()->prepare('SELECT a.* FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat  AND `delete` != 1');
 	$response->execute([':subcat' => $subcat]);
 	$subCat = array();
 	while ($donnees = $response->fetch()){	
@@ -65,7 +65,7 @@ function getArticlePrice($subcat){
 }
 
 function getArticleDesc($subcat){
-	$response = getBdd()->prepare('SELECT a.* FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat');
+	$response = getBdd()->prepare('SELECT a.* FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat  AND `delete` != 1');
 	$response->execute([':subcat' => $subcat]);
 	$subCat = array();
 	while ($donnees = $response->fetch()){	
@@ -76,7 +76,7 @@ function getArticleDesc($subcat){
 }
 
 function getArticlePath($subcat){
-	$response = getBdd()->prepare('SELECT a.* FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat');
+	$response = getBdd()->prepare('SELECT a.* FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND s.name LIKE :subcat  AND `delete` != 1');
 	$response->execute([':subcat' => $subcat]);
 	$subCat = array();
 	while ($donnees = $response->fetch()){	
@@ -98,7 +98,7 @@ function getArticleCategory($subcat){
 }
 
 function getFullArticle($name){
-	$response = getBdd()->prepare('SELECT a.id, a.title, a.description, a.price, a.photo_path, s.name FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND a.title LIKE :name');
+	$response = getBdd()->prepare('SELECT a.id, a.title, a.description, a.price, a.photo_path, s.name FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND a.title LIKE :name AND `delete` != 1');
 	$response->execute([':name' => $name]);
 	$article = $response->fetchAll(PDO::FETCH_ASSOC);
 	$response->closeCursor();
@@ -106,7 +106,7 @@ function getFullArticle($name){
 }
 
 function getAllArticles(){
-	$response = getBdd()->prepare('SELECT a.id, a.title, a.description, a.price, c.name as catname, s.name as subname FROM article AS a, category AS c, sub_category AS s WHERE s.id_category = c.id AND s.id = a.category_id');
+	$response = getBdd()->prepare('SELECT a.id, a.title, a.description, a.price, c.name as catname, s.name as subname FROM article AS a, category AS c, sub_category AS s WHERE s.id_category = c.id AND s.id = a.category_id AND `delete` != 1');
 	$response->execute();
 	$articles = $response->fetchAll(PDO::FETCH_ASSOC);
 	$response->closeCursor();
@@ -121,10 +121,8 @@ function updateArticle($oldtitle, $title, $price, $description) {
 
 
 function deleteArticleById($id){
-	//on supprime d'abord l'adresse (autre table)
-	$response = getBdd()->prepare('DELETE FROM article WHERE id = :id');
-	$array = array('id' => $id);
-	$response->execute($array);
+	$response = getBdd()->prepare('UPDATE article SET `delete` = 1 WHERE id = :id');
+	$response->execute([':id' => $id]);
 	$response->closeCursor();
 }	
 
@@ -134,6 +132,7 @@ function createArticle($title, $description, $price, $category_id, $photo_path){
 	$response->closeCursor();
 }
 
+// Je fais le choix d'afficher aussi les articles qui ont été supprimé, l'idée ici est de garder un historique de ses (meilleures) ventes, je ne vois donc pas d'intéret à les retirer
 function getBestSellers(){
 	$response = getBdd()->prepare('SELECT a.title AS title, COUNT(ba.item_id) AS amount FROM article AS a, book_article AS ba WHERE a.id = ba.item_id GROUP BY ba.item_id ORDER BY amount DESC LIMIT 2');
 	$response->execute();
