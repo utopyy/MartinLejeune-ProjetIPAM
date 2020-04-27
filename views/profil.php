@@ -33,59 +33,59 @@
           L'adresse indiquée ci-dessous sera celle de livraison de vos prochaines commandes.
         </div>
         <h3>Infos personnelles</h3>        
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" action="profil" method="POST">
           <div class="form-group">
             <label class="col-lg-3 control-label">Prenom:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="<?=$user['firstname']?>" readonly>
+              <input class="form-control" type="text" name="firstname" value="<?=$user['firstname']?>" readonly>
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Nom:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="<?=$user['lastname']?>" readonly>
+              <input class="form-control" type="text" name="lastname" value="<?=$user['lastname']?>" readonly>
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Date de naissance:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="date" value="<?=$user['birthdate']?>" readonly>
+              <input class="form-control" type="date" name="birthdate" value="<?=$user['birthdate']?>" readonly>
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="email" value="<?=$user['mail']?>">
+              <input class="form-control" type="email" name="mail" value="<?=$user['mail']?>">
             </div>
           </div>
 		  <div class="form-group">
             <label class="col-lg-3 control-label">Rue:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="<?=$user['street']?>">
+              <input class="form-control" type="text" name="street" value="<?=$user['street']?>">
             </div>
           </div>
 		  <div class="form-group">
             <label class="col-lg-3 control-label">No de maison:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="<?=$user['house_number']?>">
+              <input class="form-control" type="text" name="nohouse" value="<?=$user['house_number']?>">
             </div>
           </div>
 		  		  <div class="form-group">
             <label class="col-lg-3 control-label">Code postal:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="<?=$user['zip']?>">
+              <input class="form-control" type="text" name="zip" value="<?=$user['zip']?>">
             </div>
           </div>
 		  <div class="form-group">
             <label class="col-lg-3 control-label">Ville:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="<?=$user['city']?>">
+              <input class="form-control" type="text" name="city" value="<?=$user['city']?>">
             </div>
           </div>
 		  <div class="form-group">
             <label class="col-lg-3 control-label">Pays:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="<?=$user['country']?>">
+              <input class="form-control" type="text" name="country" value="<?=$user['country']?>">
             </div>
 			<br/>
 			<h6>Si vous ne souhaitez pas changer de mot de passe, ne pas remplir les prochains champs</h6>
@@ -93,20 +93,20 @@
           <div class="form-group">
             <label class="col-md-3 control-label">Nouveau mot de passe:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password">
+              <input class="form-control" name="password" type="password">
             </div>
           </div>
 
           <div class="form-group">
             <label class="col-md-3 control-label">Confirmer le mot de passe:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password">
+              <input class="form-control" name="confirm_pswd" type="password">
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Sauvegarder">
+              <input type="submit" class="btn btn-primary" value="Sauvegarder">
               <span></span>
               <input type="reset" class="btn btn-default" value="Annuler">
             </div>

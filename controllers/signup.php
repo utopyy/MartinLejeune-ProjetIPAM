@@ -24,7 +24,6 @@ if(!empty($_POST)) {
             $_SESSION['id'] = $user['id'];
             $_SESSION['username'] =  $user['username'];
 			$_SESSION['userRole'] = $user['role_id'];
-						echo $_SESSION['id'];
 			header("Location: ".ROOT_PATH);
 			exit();
 			}

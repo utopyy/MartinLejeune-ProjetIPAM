@@ -38,18 +38,24 @@ function createUserAdresse($country, $city, $zip, $street, $house_number, $usern
 		$response->closeCursor();
 }	
 	
-// a modifier lors de l'update USER
-function setUser($id, $login, $email, $password) {
-    $user = getUserById($id);
-    $reponse = getBdd()->prepare('UPDATE USER SET login = :login, email = :email, password = :password WHERE id = :id');
-    if($password){
-        $password = password_hash($password, PASSWORD_DEFAULT);
-    }
-    else {
-        $password = $user['password'];
-    }
-    $reponse->execute([':id' => $id, ':email' => $email, ':password' => $password, ':login' => $login]);
+function updateUser($mail, $country, $city, $zip, $street, $house_number, $username) {
+	updateUserAdress($username, $country, $city, $zip, $street, $house_number);
+    $reponse = getBdd()->prepare('UPDATE USER SET mail = :mail WHERE username = :username');
+    $reponse->execute([':mail' => $mail, ':username' => $username]);
     $reponse->closeCursor();
+}
+
+function updateUserAdress($username, $country, $city, $zip, $street, $house_number){
+	$response = getBdd()->prepare('UPDATE adress SET country = :country, city = :city, zip = :zip, street = :street, house_number = :house_number WHERE username = :username');
+	$response->execute([':country' => $country, ':city' => $city, ':zip' => $zip, ':street' => $street, ':house_number' => $house_number, ':username' => $username]);
+	$response->closeCursor();	
+} 
+
+function updatePassword($username, $password){
+	$password = password_hash($password, PASSWORD_DEFAULT);
+	$response = getBdd()->prepare('UPDATE USER SET password = :password WHERE username = :username');
+	$response->execute([':password' => $password, ':username' => $username]);
+	$response->closeCursor();
 }
 
 function getAllUsers(){
