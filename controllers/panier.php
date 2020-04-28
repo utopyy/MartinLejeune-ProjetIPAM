@@ -2,6 +2,10 @@
 require_once('models/articles.php');
 require_once('models/panier.php');
 
+if($_SESSION['id']!=1){
+    header("Location: welcome");
+    exit();
+}
 if(isset($_GET['title'])){
 	$article = getFullArticle($_GET['title'])[0];
 	ajouterArticle($article['title'],"1", $article['price'], $article['photo_path'], $article['id']);

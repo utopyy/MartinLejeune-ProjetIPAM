@@ -1,6 +1,9 @@
 <?php
 require_once('models/book.php');
-
+if(empty($_SESSION['id'])){
+	header('Location: welcome');
+	exit();
+}
 if(!empty($_GET['idCom'])){
 	$book = getBook($_GET['idCom']);
 	$priceTot = getPriceBook($_GET['idCom']);

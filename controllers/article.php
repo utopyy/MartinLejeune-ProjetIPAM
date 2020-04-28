@@ -24,7 +24,6 @@ $article = $articleTab[0]; //extraction du tableau
 	updateArticle($_GET['name'], $title, $price, $description);
 	header("Location: edit_articles");
 	exit();
-
 }
 include 'views/article.php';
 ?>

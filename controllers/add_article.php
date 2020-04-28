@@ -1,6 +1,9 @@
 <?php
 require_once 'models/articles.php';
-
+if($_SESSION['userRole']!=2){
+	header('Location: welcome');
+	exit();
+}
 $photo_path = "public/img/logo.png"; //je mets une photo par défaut aux articles
 
 if(!empty($_POST)) {

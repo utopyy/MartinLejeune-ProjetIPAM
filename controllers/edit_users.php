@@ -1,5 +1,10 @@
 <?php
 require 'models/users.php';
+
+if($_SESSION['id']!=2){
+	header('Location: welcome');
+	exit();
+}
 $users = getAllUsers();
 
 // On transforme l'id_role de l'user pour qu'il soit plus explicite

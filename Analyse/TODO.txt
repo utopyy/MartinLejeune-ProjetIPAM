@@ -50,11 +50,10 @@ Projet:
 48) Admin redirigé vers modification user (réinitialisation du mot de passe, changer l'adresse mail, mettre le role admin)
 49) si user supprimé (on désactive l'user :> boolean db, au lieu de delete adresse etc)
 50) idem avec article
+51) Les URL : controller qui vérifie: redirection bonne page ou welcome
 =============
 
 Restant: 
-
-49) -Les URL : controller qui vérifie: redirection bonne page ou welcome
 
 51) modification/creation aerticle : réussir à faire un combo box (et implémenter modif article:changer de categorie) + (https://www.youtube.com/watch?v=ZofAbz3hFt0)
 53) mettre à jour dernière connection

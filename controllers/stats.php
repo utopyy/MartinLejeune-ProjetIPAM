@@ -1,7 +1,7 @@
 <?php
-require_once 'models/articles.php';
-
-$data = getBestSellers();
+if($_SESSION['id']!=2){
+    header("Location: welcome");
+    exit();
+}
 include 'views/stats.php';
-print_r($data);
 ?>

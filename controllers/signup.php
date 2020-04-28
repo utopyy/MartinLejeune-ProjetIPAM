@@ -1,6 +1,10 @@
 <?php
 require_once 'models/users.php';
 
+if(!empty($_SESSION['id'])){
+    header("Location: ".ROOT_PATH);
+    exit();
+}
 if(!empty($_POST)) {
     if(!empty($_POST['username']) && !empty($_POST['firstname']) && !empty($_POST['lastname']) && !empty($_POST['birthdate']) && !empty($_POST['mail']) && !empty($_POST['password']) && !empty($_POST['confirm_password']))
     {

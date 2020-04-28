@@ -2,6 +2,12 @@
 require_once('models/book.php');
 require_once('models/panier.php');
 
+//si un admin ou un membre non connecté essaie d'accéder à la page de confirmation
+if($_SESSION['userRole'] != 1){
+	header('Location: welcome');
+	exit();
+}
+
 if(count($_SESSION['panier']['nameId'])==0){
 	header('Location: panier');
 	exit();
