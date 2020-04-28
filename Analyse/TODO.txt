@@ -51,21 +51,24 @@ Projet:
 49) si user supprimé (on désactive l'user :> boolean db, au lieu de delete adresse etc)
 50) idem avec article
 51) Les URL : controller qui vérifie: redirection bonne page ou welcome
+52) modification aerticle : réussir à faire un combo box (et implémenter modif article:changer de categorie)
 =============
 
 Restant: 
 
-51) modification/creation aerticle : réussir à faire un combo box (et implémenter modif article:changer de categorie) + (https://www.youtube.com/watch?v=ZofAbz3hFt0)
+51) creation aerticle : réussir à faire un combo box
+62) url des articles en minuscules
+59) photo pour article:  javascript!! (https://bootsnipp.com/snippets/4Mm5R) (envoyer la photo directement dans le bon répertoire)
+57) reduire taille image prévisu article
+60) ne pas ajouter un article dont le nom existe déjà sauf si il est en status supprimé 
+61) ne pas créer un user si il existe déjà (meme en compte supprimé!)
+
 53) mettre à jour dernière connection
 54) bouton ajouter panier welcome (user)
 56) apres un ajout dans le panier: fenetre confirmation javascript puis rester dans le shop
 55) ajouter confirmation pour supprimer les éléments(article, user,confirmer etc etc etc)
-57) reduire taille image prévisu article
-60) ne pas ajouter un article dont le nom existe déjà sauf si il est en status supprimé
 61) Footer newsletter!
-62) url des articles en minuscules
 
-59) photo pour article:  javascript!! (https://bootsnipp.com/snippets/4Mm5R) (envoyer la photo directement dans le bon répertoire)
 52) Listing commandes total, users, article : appeler javascript pour mettre un nombre de coms max par page ( et trier par champ) : https://www.creative-tim.com/product/fresh-bootstrap-table?partner=114912
 53) fusionner un max de views/controllers
 
@@ -80,7 +83,11 @@ Avant dernier push
 - Review code complet (pas oublié mon javascript) => tout comprendre à 100%!
 - Différence entre require_once / require (à recheck pour être sûr)
 - Index a été modifié plusieurs fois par le prof: retourner sur discord pour s'assurer d'avoir compris toutes les modifs
+- Update readme
 
+
+Readme: "Un article supprimé reste dans la db (champ delete = 1), comme les utilisateurs, un nouvel article peut être recréé avec le même nom que l'article "supprimé". 
+Si vous modifiez le status d'un article supprimé, merci de vérifier qu'un autre article portant le même nom n'a pas été créé entre temps et au besoin, modifier le nom de l'ancien ou du nouvel article."
 
 
 

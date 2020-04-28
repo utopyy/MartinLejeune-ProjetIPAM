@@ -19,7 +19,7 @@ define('REQ_TYPE', $segments[0] ?? Null);
 define('REQ_TYPE_ID', $segments[1] ?? Null);
 define('REQ_ACTION', $segments[2] ?? Null);
 
-$file = 'controllers/'.REQ_TYPE.(REQ_ACTION ? '-'.REQ_ACTION : '').'.php'; 
+$file = 'controllers/'.REQ_TYPE.(REQ_ACTION ? '_'.REQ_ACTION : '').'.php'; 
 
 
 if(file_exists($file)){ 

@@ -23,9 +23,9 @@
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">Administration</a>
 							<ul class="dropdown-menu">
-							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>edit_users">Gestion membres</a></li>
+							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>edit/all/users">Gestion membres</a></li>
 							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>booksList">Gestion commandes</a></li>
-							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>edit_articles">Gestion shop</a></li>
+							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>edit/all/articles">Gestion shop</a></li>
 							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>stats">Statistiques</a></li>
 							</ul>
 							</li>

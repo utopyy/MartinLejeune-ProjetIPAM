@@ -98,7 +98,7 @@ function getArticleCategory($subcat){
 }
 
 function getFullArticle($name){
-	$response = getBdd()->prepare('SELECT a.id, a.title, a.description, a.price, a.photo_path, s.name FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND a.title LIKE :name AND `delete` != 1');
+	$response = getBdd()->prepare('SELECT a.id, a.title, a.description, a.price, a.photo_path, s.name as subName, c.name as catName FROM sub_category AS s, category AS c, article AS a WHERE s.id_category = c.id AND a.category_id = s.id AND a.title LIKE :name AND `delete` != 1');
 	$response->execute([':name' => $name]);
 	$article = $response->fetchAll(PDO::FETCH_ASSOC);
 	$response->closeCursor();
@@ -113,9 +113,9 @@ function getAllArticles(){
 	return $articles;
 }
 
-function updateArticle($oldtitle, $title, $price, $description) {
-    $reponse = getBdd()->prepare('UPDATE article SET title = :title, price = :price, `description` = :description WHERE title = :oldtitle');
-    $reponse->execute([':title' => $title, ':price' => $price, ':description' => $description, ':oldtitle' => $oldtitle]);
+function updateArticle($oldtitle, $title, $price, $description, $subcat) {
+    $reponse = getBdd()->prepare('UPDATE article SET title = :title, price = :price, `description` = :description, category_id = (SELECT id FROM sub_category WHERE `name` LIKE :subcat) WHERE title = :oldtitle');
+    $reponse->execute([':title' => $title, ':price' => $price, ':description' => $description, ':oldtitle' => $oldtitle, ':subcat' => $subcat]);
     $reponse->closeCursor();
 }
 

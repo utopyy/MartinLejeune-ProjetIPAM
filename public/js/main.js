@@ -1,5 +1,5 @@
-
 $(document).ready(function(){
+	
 	"use strict";
 
 	var window_width 	 = $(window).width(),
@@ -12,36 +12,13 @@ $(document).ready(function(){
 	$(".fullscreen").css("height", window_height)
     $(".fitscreen").css("height", fitscreen);
 
-  //------- Active Nice Select --------//
-
-    $('select').niceSelect();
-
-
-
-    $('.img-pop-up').magnificPopup({
-        type: 'image',
-        gallery:{
-        enabled:true
-        }
-    });
-
-    // Search Toggle
-    $("#search_input_box").hide();
-    $("#search").on("click", function () {
-        $("#search_input_box").slideToggle();
-        $("#search_input").focus();
-    });
-    $("#close_search").on("click", function () {
-        $('#search_input_box').slideUp(500);
-    });
-
+ 
     /*==========================
 		javaScript for sticky header
 		============================*/
 			$(".sticky-header").sticky();
 
- 
-
+			
     //--------- Accordion Icon Change ---------//
 
     $('.collapse').on('shown.bs.collapse', function(){

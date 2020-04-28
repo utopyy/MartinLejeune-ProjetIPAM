@@ -57,4 +57,4 @@ Extra :
 - Laisser un commentaire sur le site
 - Recevoir un mail quand un nouvel article est ajouté
 - Ajouter des sous-catégories (ok)
-- Possibilité de choisir la quantité d'un article
+- Possibilité de choisir la quantité d'un (ok)
