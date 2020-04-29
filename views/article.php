@@ -38,7 +38,7 @@
 				<div class="col-md-9 personal-info">
 						<br/></br/>
 						<h3>Modifier l'article</h3>
-						<form class="form-horizontal" action="<?=ROOT_PATH?>article?cat=<?=$article['subName']?>&name=<?=$article['title']?>" method="POST" id="contactForm">
+						<form class="form-horizontal" action="<?=ROOT_PATH?>article?cat=<?=strtolower($article['subName'])?>&name=<?=strtolower($article['title'])?>" method="POST" id="contactForm">
 							<div class="form-group">
 								<label class="col-lg-3 control-label">Titre:</label>
 								<div class="col-lg-8">
@@ -84,7 +84,7 @@
 											<option <?php if($article['subName']=="Vitamines et Mineraux"):?> selected="selected"<?php endif?> value="Vitamines et Mineraux" data-option="c">Vitamines et Mineraux</option>
 											</select>
 											
-									</div>		
+									</div>	
 								</div>
 							</div>							
 							 <div class="form-group">

@@ -22,7 +22,7 @@
 				<div class="col-lg-6">
 					<h2>Formulaire de création d'article</h1>
 					</br>
-					<form action="add_article" method="POST">
+					<form action="<?=ROOT_PATH?>add/new/article" method="POST">
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<label for="inputTitle">Titre</label>
@@ -36,74 +36,36 @@
 							<label for="inputDesc">Description</label>
 							<textarea class="form-control" id="inputDesc" name="description" rows="3"></textarea>
 						</div>
-					</div>
-					<fieldset class="form-group">
-						<div class="row">
-							<legend class="col-form-label col-sm-2 pt-0">Catégorie</legend>
-							<div class="col-sm-10">
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="1">
-									<label class="form-check-label" for="1">Disques</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="2">
-									<label class="form-check-label" for="2">Halteres</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="3">
-									<label class="form-check-label" for="3">Medecine Ball</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="4">
-									<label class="form-check-label" for="4">Accessoires</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="5">
-									<label class="form-check-label" for="5">Bancs de muscu</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="6">
-									<label class="form-check-label" for="6">Vestes et gilets</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="7">
-									<label class="form-check-label" for="7">Pulls</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="8">
-									<label class="form-check-label" for="8">Joggins et Bas</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="9">
-									<label class="form-check-label" for="9">Shorts</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="10">
-									<label class="form-check-label" for="10">T-Shorts et hauts</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="11">
-									<label class="form-check-label" for="11">Proteines</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="12">
-									<label class="form-check-label" for="12">Aliments et Snacks</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="13">
-									<label class="form-check-label" for="13">Créatine</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="14">
-									<label class="form-check-label" for="14">Acides Amines</label>
-								</div>
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="radio" name="gridRadios" value="15">
-									<label class="form-check-label" for="15">Vitamines et Mineraux</label>
-								</div>
-							</div>
 						</div>
-					</fieldset>
+					<div class="form-group">
+								<label class="col-lg-3 control-label">Categorie:</label>
+									<div class="form-control">
+										<select name="categorieSel" id="categorieSel" onchange="giveSelection(this.value)">
+										    <option selected = "selected" disabled >Categorie</option>
+											<option value="a">Materiel</option>
+											<option value="b">Vetements</option>
+											<option value="c">Nutrition</option>
+										</select>
+										<select name="subcatSel" id="subcatSel">
+											<option value="Disques" data-option="a">Disques</option>
+											<option value="Halteres" data-option="a">Halteres</option>
+											<option value="Medecine Ball" data-option="a">Medecine Ball</option>
+											<option value="Accessoires" data-option="a">Accessoires</option>
+											<option value="Bancs de musculation" data-option="a">Bancs de musculation</option>
+											<option value="Vestes et Gilets" data-option="b">Vestes et Gilets</option>
+											<option value="Pulls" data-option="b">Pulls</option>
+											<option value="Joggins et Bas" data-option="b">Joggins et Bas</option>
+											<option value="Shorts" data-option="b">Shorts</option>
+											<option value="Tshirts et Hauts" data-option="b">Tshirts et Hauts</option>
+											<option value="Proteines" data-option="c">Proteines</option>
+											<option value="Aliments et Snacks" data-option="c">Aliments et Snacks</option>
+											<option value="Creatine" data-option="c">Creatine</option>
+											<option value="Acides amines" data-option="c">Acides amines</option>
+											<option value="Vitamines et Mineraux" data-option="c">Vitamines et Mineraux</option>
+											</select>									
+									</div>		
+							</div>							
+					
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<button type="submit" class="btn btn-primary">Créer l'article</button>
@@ -114,6 +76,7 @@
 			</div>
 		</div>
 	</section>
+	<script src="<?=ROOT_PATH?>public/js/linkedSelect.js"></script>
 </body>
 <?php
 $title = "Ajouter un article";

@@ -21,7 +21,7 @@ include 'views/article.php';
 		$subcat = $_POST['subcatSel'];
 		
 	updateArticle($_GET['name'], $title, $price, $description, $subcat);
-	header('Location: article/'.$_GET['cat'].'/'.str_replace(" ", "-", $title));
+	header('Location: article/'.strtolower(str_replace(" ", "-",($_POST['subcatSel']))).'/'.strtolower(str_replace(" ", "-", $title)));
 	exit();
 }
 ?>

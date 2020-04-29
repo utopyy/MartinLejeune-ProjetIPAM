@@ -114,7 +114,7 @@ function getAllArticles(){
 }
 
 function updateArticle($oldtitle, $title, $price, $description, $subcat) {
-    $reponse = getBdd()->prepare('UPDATE article SET title = :title, price = :price, `description` = :description, category_id = (SELECT id FROM sub_category WHERE `name` LIKE :subcat) WHERE title = :oldtitle');
+    $reponse = getBdd()->prepare('UPDATE article SET title = :title, price = :price, `description` = :description, category_id = (SELECT id FROM sub_category WHERE `name` LIKE :subcat) WHERE title = :oldtitle AND `delete` != 1');
     $reponse->execute([':title' => $title, ':price' => $price, ':description' => $description, ':oldtitle' => $oldtitle, ':subcat' => $subcat]);
     $reponse->closeCursor();
 }
@@ -126,9 +126,9 @@ function deleteArticleById($id){
 	$response->closeCursor();
 }	
 
-function createArticle($title, $description, $price, $category_id, $photo_path){
-		$response = getBdd()->prepare('INSERT INTO article(title, description, price, category_id, photo_path) VALUES (:title, :description, :price, :category_id, :photo_path)');
-	$response->execute([':title' => $title, ':description' => $description, ':price' => $price, ':category_id' => $category_id, ':photo_path' => $photo_path]);
+function createArticle($title, $description, $price, $category, $photo_path){
+		$response = getBdd()->prepare('INSERT INTO article(title, description, price, category_id, photo_path) VALUES (:title, :description, :price, (SELECT id FROM sub_category WHERE `name` LIKE :category), :photo_path)');
+	$response->execute([':title' => $title, ':description' => $description, ':price' => $price, ':category' => $category, ':photo_path' => $photo_path]);
 	$response->closeCursor();
 }
 

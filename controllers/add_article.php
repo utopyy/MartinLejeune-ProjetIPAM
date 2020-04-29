@@ -7,10 +7,10 @@ if($_SESSION['userRole']!=2){
 $photo_path = "public/img/logo.png"; //je mets une photo par défaut aux articles
 
 if(!empty($_POST)) {
-    if(!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['gridRadios'])){
+    if(!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['subcatSel'])){
 		$title = str_replace("-", " ", $_POST['title']);
-		createArticle($title, $_POST['description'], $_POST['price'], $_POST['gridRadios'], $photo_path);	
-		header("Location: edit_articles");
+		createArticle($title, $_POST['description'], $_POST['price'], $_POST['subcatSel'], $photo_path);	
+		header("Location: ".ROOT_PATH."edit/all/articles");
 		exit();
 	}else{
     //Ici on va prévenir l'utilisateur qu'il manque quelque chose
