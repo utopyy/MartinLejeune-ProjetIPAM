@@ -141,6 +141,14 @@ function getBestSellers(){
 	return $result;
 }
 
+function exists($title){
+	$response = getBdd()->prepare('SELECT COUNT(*) FROM article WHERE title LIKE :title');
+	$response->execute([':title' => $title]);
+	$result = $response->fetch();
+	$response->closeCursor();
+	return $result[0];
+}
+
 	
 
 ?>

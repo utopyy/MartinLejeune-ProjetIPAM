@@ -17,3 +17,14 @@ function confirmProfil(){
 	}
 }
 
+function check_image_mime($tmpname){
+	$finfo = finfo_open(FILEINFO_MIME_TYPE);
+	$mtype = finfo_file($finfo, $tmpname);
+	if(strpos($mtype, 'image/') === 0){
+finfo_close($finfo);
+		return true;
+	} else {
+finfo_close($finfo);
+		return false;
+	}
+}

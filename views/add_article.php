@@ -22,7 +22,7 @@
 				<div class="col-lg-6">
 					<h2>Formulaire de création d'article</h1>
 					</br>
-					<form action="<?=ROOT_PATH?>add/new/article" method="POST">
+					<form action="<?=ROOT_PATH?>add/new/article" method="POST" enctype="multipart/form-data">
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<label for="inputTitle">Titre</label>
@@ -38,39 +38,39 @@
 						</div>
 						</div>
 					<div class="form-group">
-								<label class="col-lg-3 control-label">Categorie:</label>
-									<div class="form-control">
-										<select name="categorieSel" id="categorieSel" onchange="giveSelection(this.value)">
-										    <option selected = "selected" disabled >Categorie</option>
-											<option value="a">Materiel</option>
-											<option value="b">Vetements</option>
-											<option value="c">Nutrition</option>
-										</select>
-										<select name="subcatSel" id="subcatSel">
-											<option value="Disques" data-option="a">Disques</option>
-											<option value="Halteres" data-option="a">Halteres</option>
-											<option value="Medecine Ball" data-option="a">Medecine Ball</option>
-											<option value="Accessoires" data-option="a">Accessoires</option>
-											<option value="Bancs de musculation" data-option="a">Bancs de musculation</option>
-											<option value="Vestes et Gilets" data-option="b">Vestes et Gilets</option>
-											<option value="Pulls" data-option="b">Pulls</option>
-											<option value="Joggins et Bas" data-option="b">Joggins et Bas</option>
-											<option value="Shorts" data-option="b">Shorts</option>
-											<option value="Tshirts et Hauts" data-option="b">Tshirts et Hauts</option>
-											<option value="Proteines" data-option="c">Proteines</option>
-											<option value="Aliments et Snacks" data-option="c">Aliments et Snacks</option>
-											<option value="Creatine" data-option="c">Creatine</option>
-											<option value="Acides amines" data-option="c">Acides amines</option>
-											<option value="Vitamines et Mineraux" data-option="c">Vitamines et Mineraux</option>
-											</select>									
-									</div>		
-							</div>							
-					
+						<label class="col-lg-3 control-label">Categorie:</label>
+						<div class="form-control">
+							<select name="categorieSel" id="categorieSel" onchange="giveSelection(this.value)">
+								<option selected = "selected" disabled >Categorie</option>
+								<option value="a">Materiel</option>
+								<option value="b">Vetements</option>
+								<option value="c">Nutrition</option>
+							</select>
+							<select name="subcatSel" id="subcatSel">
+								<option value="Disques" data-option="a">Disques</option>
+								<option value="Halteres" data-option="a">Halteres</option>
+								<option value="Medecine Ball" data-option="a">Medecine Ball</option>
+								<option value="Accessoires" data-option="a">Accessoires</option>
+								<option value="Bancs de musculation" data-option="a">Bancs de musculation</option>
+								<option value="Vestes et Gilets" data-option="b">Vestes et Gilets</option>
+								<option value="Pulls" data-option="b">Pulls</option>
+								<option value="Joggins et Bas" data-option="b">Joggins et Bas</option>
+								<option value="Shorts" data-option="b">Shorts</option>
+								<option value="Tshirts et Hauts" data-option="b">Tshirts et Hauts</option>
+								<option value="Proteines" data-option="c">Proteines</option>
+								<option value="Aliments et Snacks" data-option="c">Aliments et Snacks</option>
+								<option value="Creatine" data-option="c">Creatine</option>
+								<option value="Acides amines" data-option="c">Acides amines</option>
+								<option value="Vitamines et Mineraux" data-option="c">Vitamines et Mineraux</option>
+							</select>									
+						</div>		
+					</div>							
+					<input type="file" name="image" class="text-center center-block file-upload">
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<button type="submit" class="btn btn-primary">Créer l'article</button>
 						</div>
-					</div>
+					</div>		
 					</form>
 				</div>
 			</div>

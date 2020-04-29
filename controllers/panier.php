@@ -2,7 +2,7 @@
 require_once('models/articles.php');
 require_once('models/panier.php');
 
-if($_SESSION['id']!=1){
+if($_SESSION['userRole']!=1){
     header("Location: welcome");
     exit();
 }

@@ -154,8 +154,6 @@ $(document).ready(function(){
 
     //----- Active No ui slider --------//
 
-
-
     $(function(){
 
         if(document.getElementById("price-range")){

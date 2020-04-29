@@ -53,17 +53,16 @@ Projet:
 51) Les URL : controller qui vérifie: redirection bonne page ou welcome
 52) modification aerticle : réussir à faire un select (js) (et implémenter modif article:changer de categorie)
 53) creation aerticle : réussir à faire un select (js)
-62) url des articles en minuscules
-
+54) url des articles en minuscules
+55) ne pas ajouter un article dont le nom existe déjà (meme en status supprimé)
+56) nom des articles créés en majuscule
 =============
 
 Restant: 
 
-60) ne pas ajouter un article dont le nom existe déjà sauf si il est en status supprimé (ignore case)
-61) nom des articles créés en majuscule
 59) photo pour article:  javascript!! (https://bootsnipp.com/snippets/4Mm5R) (envoyer la photo directement dans le bon répertoire)
 57) reduire taille image prévisu article
-61) ne pas créer un user si il existe déjà (meme en compte supprimé!)
+61) ne pas créer un user si il existe déjà (meme en status supprimé!)
 
 53) mettre à jour dernière connection
 54) bouton ajouter panier welcome (user)
@@ -71,6 +70,7 @@ Restant:
 56) apres un ajout dans le panier: fenetre confirmation javascript puis rester dans le shop
 55) ajouter confirmation pour supprimer les éléments(article, user,confirmer etc etc etc)
 61) Footer newsletter!
+62) validation formulaire javascript (pas d'espaces extra)
 
 
 52) Listing commandes total, users, article : appeler javascript pour mettre un nombre de coms max par page ( et trier par champ) : https://www.creative-tim.com/product/fresh-bootstrap-table?partner=114912
