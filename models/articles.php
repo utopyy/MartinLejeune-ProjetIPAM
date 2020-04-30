@@ -113,9 +113,9 @@ function getAllArticles(){
 	return $articles;
 }
 
-function updateArticle($oldtitle, $title, $price, $description, $subcat) {
-    $reponse = getBdd()->prepare('UPDATE article SET title = :title, price = :price, `description` = :description, category_id = (SELECT id FROM sub_category WHERE `name` LIKE :subcat) WHERE title = :oldtitle AND `delete` != 1');
-    $reponse->execute([':title' => $title, ':price' => $price, ':description' => $description, ':oldtitle' => $oldtitle, ':subcat' => $subcat]);
+function updateArticle($oldtitle, $title, $price, $description, $subcat, $photo_path) {
+    $reponse = getBdd()->prepare('UPDATE article SET title = :title, price = :price, `description` = :description, photo_path = :photo_path, category_id = (SELECT id FROM sub_category WHERE `name` LIKE :subcat) WHERE title = :oldtitle AND `delete` != 1');
+    $reponse->execute([':title' => $title, ':price' => $price, ':description' => $description, ':photo_path' => $photo_path, ':oldtitle' => $oldtitle, ':subcat' => $subcat]);
     $reponse->closeCursor();
 }
 

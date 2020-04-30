@@ -56,7 +56,7 @@
 								<option value="Pulls" data-option="b">Pulls</option>
 								<option value="Joggins et Bas" data-option="b">Joggins et Bas</option>
 								<option value="Shorts" data-option="b">Shorts</option>
-								<option value="Tshirts et Hauts" data-option="b">Tshirts et Hauts</option>
+								<option value="T Shirts et Hauts" data-option="b">T Shirts et Hauts</option>
 								<option value="Proteines" data-option="c">Proteines</option>
 								<option value="Aliments et Snacks" data-option="c">Aliments et Snacks</option>
 								<option value="Creatine" data-option="c">Creatine</option>
@@ -65,7 +65,7 @@
 							</select>									
 						</div>		
 					</div>							
-					<input type="file" name="image" class="text-center center-block file-upload">
+					<input type="file" name="image" class="text-center center-block file-upload" accept="image/*">
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<button type="submit" class="btn btn-primary">Créer l'article</button>

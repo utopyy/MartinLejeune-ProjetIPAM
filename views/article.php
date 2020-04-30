@@ -38,7 +38,7 @@
 				<div class="col-md-9 personal-info">
 						<br/></br/>
 						<h3>Modifier l'article</h3>
-						<form class="form-horizontal" action="<?=ROOT_PATH?>article?cat=<?=strtolower($article['subName'])?>&name=<?=strtolower($article['title'])?>" method="POST" id="contactForm">
+						<form class="form-horizontal" action="<?=ROOT_PATH?>article?cat=<?=strtolower($article['subName'])?>&name=<?=strtolower($article['title'])?>" method="POST" id="contactForm" enctype="multipart/form-data">
 							<div class="form-group">
 								<label class="col-lg-3 control-label">Titre:</label>
 								<div class="col-lg-8">
@@ -76,7 +76,7 @@
 											<option <?php if($article['subName']=="Pulls"):?> selected="selected"<?php endif?> value="Pulls" data-option="b">Pulls</option>
 											<option <?php if($article['subName']=="Joggins et Bas"):?> selected="selected"<?php endif?> value="Joggins et Bas" data-option="b">Joggins et Bas</option>
 											<option <?php if($article['subName']=="Shorts"):?> selected="selected"<?php endif?> value="Shorts" data-option="b">Shorts</option>
-											<option <?php if($article['subName']=="T Shirts et Hauts"):?> selected="selected"<?php endif?> value="Tshirts et Hauts" data-option="b">Tshirts et Hauts</option>
+											<option <?php if($article['subName']=="T Shirts et Hauts"):?> selected="selected"<?php endif?> value="T Shirts et Hauts" data-option="b">T Shirts et Hauts</option>
 											<option <?php if($article['subName']=="Proteines"):?> selected="selected"<?php endif?> value="Proteines" data-option="c">Proteines</option>
 											<option <?php if($article['subName']=="Aliments et Snacks"):?> selected="selected"<?php endif?> value="Aliments et Snacks" data-option="c">Aliments et Snacks</option>
 											<option <?php if($article['subName']=="Creatine"):?> selected="selected"<?php endif?> value="Creatine" data-option="c">Creatine</option>
@@ -86,7 +86,13 @@
 											
 									</div>	
 								</div>
-							</div>							
+							</div>	
+							<div class="form-group">
+								<label class="col-lg-3 control-label">Photo:</label>
+								<div class="col-lg-8">
+									<input type="file" name="image" class="text-center center-block file-upload" accept="image/*">
+								</div>
+							</div>
 							 <div class="form-group">
 							 	<div class="col-lg-8">
 									<button type="submit" class="btn btn-primary">Modifier l'article</button>
@@ -99,7 +105,7 @@
 				</div>
 <hr/>
 	</div>
-	</div>
+	
 	<script src="<?=ROOT_PATH?>public/js/linkedSelect.js"></script>
 </body>
 <?php
