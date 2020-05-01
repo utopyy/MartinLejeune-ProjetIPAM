@@ -46,8 +46,12 @@
 								<?php if($_SESSION['userRole']==1):?>
 								<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>booksList">Mes commandes</a></li>
 								<?php endif?>
+								<?php if(isset($_SESSION['panier']) && count($_SESSION['panier']['nameId'])!=0):?>
+								<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>logout" onclick="return confirm('Votre panier va être supprimé');">Se déconnecter</a></li>								
+								<?php else:?>
 								<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>logout">Se déconnecter</a></li>
-							</ul>
+								<?php endif?>
+							</ul> 
 						<?php endif?>						
 						</li>
 					</ul>

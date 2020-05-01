@@ -63,6 +63,7 @@ Projet:
 61) ne pas créer un user si il existe déjà (meme en status supprimé!)
 62) ettre à jour dernière connection
 63) bouton ajouter panier welcome (user)
+64) si déconnection avec panier pas valider mettre une alerte
 =============
 
 Restant: 
@@ -70,13 +71,10 @@ Restant:
 57) reduire taille image prévisu article
 
 
-62) si déconnection avec panier pas valider mettre une alerte
-56) apres un ajout dans le panier: fenetre confirmation javascript puis rester dans le shop
 55) ajouter confirmation pour supprimer les éléments(article, user,confirmer etc etc etc)
 61) Footer newsletter!
 62) validation formulaire javascript (pas d'espaces extra)
-61) sanitizes input
-
+62) check panier model/controller : functions inutiles?
 
 52) Listing commandes total, users, article : appeler javascript pour mettre un nombre de coms max par page ( et trier par champ) : https://www.creative-tim.com/product/fresh-bootstrap-table?partner=114912
 53) fusionner un max de views/controllers
