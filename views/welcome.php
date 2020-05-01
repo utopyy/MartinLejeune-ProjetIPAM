@@ -8,13 +8,13 @@
 				<div class="row single-slide">
 					<div class="col-lg-5">
 						<div class="banner-content">
-							<h1>Whey New <br>Collection!</h1>
-							<p>	Avec jusqu'à 75 % de sucre en moins que les produits disponibles en grande surface, ce biscuit vous permet de profiter d'un coup de fouet en milieu d'après-midi sans gâcher vos efforts.
-							Composé d'une délicieuse poudre de cacao et cuit au four avec des éclats de chocolat sucrés, notre Protein Bar apporte 23 g de protéines pour petit plaisir gourmand tous les jours.
-							</p>
+							<h1>BarProt New <br>Collection!</h1>
+							<h4><?=$articleName;?></h4>
+							<h6><?=$articlePrice;?>&euro;</h6>
+							<p><?=$articleDesc;?></p>
 							<?php if(!empty($_SESSION['id']) && $_SESSION['userRole'] == 1):?>
 							<div class="add-bag d-flex align-items-center">
-								<a class="add-btn" href=""><span class="lnr lnr-cross"></span></a>
+								<a class="add-btn" href="<?=ROOT_PATH?>panier?title=<?=$articleName?>"><span class="lnr lnr-cross"></span></a>
 								<span class="add-text text-uppercase">Ajouter au panier</span>
 							</div>
 							<?php endif?>
@@ -22,7 +22,7 @@
 					</div>
 					<div class="col-lg-7">
 						<div class="banner-img">
-							<img class="img-fluid" src="<?=ROOT_PATH?>public/img/banner-img.png" alt="">
+							<img class="img-fluid" src="<?=$articlePhoto?>" alt="">
 						</div>
 					</div>
 				</div>			

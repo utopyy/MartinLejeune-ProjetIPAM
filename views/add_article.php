@@ -25,20 +25,20 @@
 					<form action="<?=ROOT_PATH?>add/new/article" method="POST" enctype="multipart/form-data">
 					<div class="form-row">
 						<div class="form-group col-md-6">
-							<label for="inputTitle">Titre</label>
+							<label for="inputTitle">Titre:</label>
 							<input type="text" class="form-control" name="title" id="inputTitle">
 						</div>
-						<div class="form-group col-md-6">
-							<label for="inputPrice">Prix</label>
+						<div class="form-group col-md-6:">
+							<label for="inputPrice">Prix:</label>
 							<input type="number" step="0.01" min="0" class="form-control" name="price" id="inputPrice">
 						</div>
-						<div class="form-group col-md-6">
-							<label for="inputDesc">Description</label>
+						<div class="form-group col-md-6:">
+							<label for="inputDesc">Description:</label>
 							<textarea class="form-control" id="inputDesc" name="description" rows="3"></textarea>
 						</div>
 						</div>
 					<div class="form-group">
-						<label class="col-lg-3 control-label">Categorie:</label>
+						<label class="control-label">Categorie:</label>
 						<div class="form-control">
 							<select name="categorieSel" id="categorieSel" onchange="giveSelection(this.value)">
 								<option selected = "selected" disabled >Categorie</option>
@@ -64,8 +64,13 @@
 								<option value="Vitamines et Mineraux" data-option="c">Vitamines et Mineraux</option>
 							</select>									
 						</div>		
-					</div>							
-					<input type="file" name="image" class="text-center center-block file-upload" accept="image/*">
+					</div>		
+					<div class="form-group">
+						<label class="control-label">Photo:</label>
+						<div>
+							<input type="file" name="image" class="text-center center-block file-upload" accept="image/*">
+						</div>
+					</div>					
 					<div class="form-group row">
 						<div class="col-sm-10">
 							<button type="submit" class="btn btn-primary">Créer l'article</button>

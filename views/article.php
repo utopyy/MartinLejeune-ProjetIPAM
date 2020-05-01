@@ -36,7 +36,12 @@
 				<!-- affichage pour l'admin : modification d'article -->
 				<?php if(!empty($_SESSION['id']) && $_SESSION['userRole'] == 2):?>
 				<div class="col-md-9 personal-info">
-						<br/></br/>
+					<br/></br/>
+					<div class="alert alert-info alert-dismissable">
+					  <a class="panel-close close" data-dismiss="alert">×</a> 
+					  <i class="fa fa-coffee"></i>
+					  La photo doit être au format (jpeg, pjpeg ou png) et sa hauteur identique à sa largeur.
+					</div>
 						<h3>Modifier l'article</h3>
 						<form class="form-horizontal" action="<?=ROOT_PATH?>article?cat=<?=strtolower($article['subName'])?>&name=<?=strtolower($article['title'])?>" method="POST" id="contactForm" enctype="multipart/form-data">
 							<div class="form-group">

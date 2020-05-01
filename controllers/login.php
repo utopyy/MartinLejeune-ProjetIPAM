@@ -25,6 +25,7 @@ if(!empty($_POST)) {
             $_SESSION['id'] = $user['id'];
             $_SESSION['username'] =  $user['username'];
 			$_SESSION['userRole'] = $user['role_id'];
+			updateLastConnection($user['username']);
             header("Location: ".ROOT_PATH);
             exit();
         }

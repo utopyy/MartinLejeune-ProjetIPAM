@@ -58,20 +58,24 @@ Projet:
 56) nom des articles créés en majuscule
 57) photo pour article: (envoyer la photo directement dans le bon répertoire)
 58) modif image: supprimer image d'avant et recréer une nouvelle
+59) correction update/creation article
+60) sanitize update article
+61) ne pas créer un user si il existe déjà (meme en status supprimé!)
+62) ettre à jour dernière connection
+63) bouton ajouter panier welcome (user)
 =============
 
 Restant: 
 
 57) reduire taille image prévisu article
-61) ne pas créer un user si il existe déjà (meme en status supprimé!)
 
-53) mettre à jour dernière connection
-54) bouton ajouter panier welcome (user)
+
 62) si déconnection avec panier pas valider mettre une alerte
 56) apres un ajout dans le panier: fenetre confirmation javascript puis rester dans le shop
 55) ajouter confirmation pour supprimer les éléments(article, user,confirmer etc etc etc)
 61) Footer newsletter!
 62) validation formulaire javascript (pas d'espaces extra)
+61) sanitizes input
 
 
 52) Listing commandes total, users, article : appeler javascript pour mettre un nombre de coms max par page ( et trier par champ) : https://www.creative-tim.com/product/fresh-bootstrap-table?partner=114912
@@ -95,5 +99,7 @@ Avant dernier push
 Readme: "Un article supprimé reste dans la db (champ delete = 1), comme les utilisateurs, un nouvel article peut être recréé avec le même nom que l'article "supprimé". 
 Si vous modifiez le status d'un article supprimé, merci de vérifier qu'un autre article portant le même nom n'a pas été créé entre temps et au besoin, modifier le nom de l'ancien ou du nouvel article."
 
+"Les images sont redimensionnées et peuvent être de mauvaise qualité, pour bien faire il faudrait qu'une image possède (en db) une photo pour sa prévisualitation et une photo pour sa miniature"
+" Des images de même largeur et hauteur sont disponibles dans un le dossier public>img>imgs_test dans le cas où vous voudriez tester l'ajout ou la modification d'une image liée à un article."
 
 

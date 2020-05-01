@@ -10,7 +10,7 @@ function getUserId($username){
 }
 
 function getUserById($id) {
-    $reponse = getBdd()->prepare('SELECT * FROM USER WHERE id = :id AND `delete` != 1');
+    $reponse = getBdd()->prepare('SELECT * FROM USER WHERE id = :id');
     $reponse->execute([':id' => $id]);
     $user = $reponse->fetch();
     $reponse->closeCursor();
@@ -90,6 +90,12 @@ function deleteUser($username){
 	//puis le user
 	$response = getBdd()->prepare('UPDATE `user` SET `delete` = 1 WHERE username like :username');
 	$response->execute([':username' => $username]);
+	$response->closeCursor();
+}
+
+function updateLastConnection($username){
+	$response = getBdd()->prepare('UPDATE `user` set last_connection = :date WHERE username LIKE :username');
+	$response->execute([':date' => date('Y-m-d'), ':username' => $username]);
 	$response->closeCursor();
 }
 ?>

@@ -16,14 +16,18 @@ if(!empty($_POST)) {
 			$typefichier = $_FILES ['image'] ['type'];
 			$types_fichiers_autorises = array ('image/gif', 'image/jpeg', 'image/pjpeg', 'image/png');
 			if(in_array($typefichier, $types_fichiers_autorises)){
-				$img = $_FILES['image']['name'];
-				$newName = rand(1,1000); // creation d'un nombre aleatoire
-				$newName = $newName.time(); // ajout de .time() pour le rendre unique
-				$newName = $newName.".jpg"; // ajout de l'extension jpg 
-				move_uploaded_file($_FILES['image']['tmp_name'], "public/img/upload/".$newName);
-				createArticle($title, $_POST['description'], $_POST['price'], $_POST['subcatSel'], "public/img/upload/".$newName);	
-				header("Location: ".ROOT_PATH."edit/all/articles");
-				exit();
+				$img = $_FILES['image']['tmp_name'];
+				if(getimagesize($img)[0] == getimagesize($img)[1]){
+					$newName = rand(1,1000); // creation d'un nombre aleatoire
+					$newName = $newName.time(); // ajout de .time() pour le rendre unique
+					$newName = $newName.".jpg"; // ajout de l'extension jpg 
+					move_uploaded_file($_FILES['image']['tmp_name'], "public/img/upload/".$newName);
+					createArticle($title, $_POST['description'], $_POST['price'], $_POST['subcatSel'], "public/img/upload/".$newName);	
+					header("Location: ".ROOT_PATH."edit/all/articles");
+					exit();
+				}else{
+					$errorMessage = "La largeur et la hauteur de l'image ne sont pas les mêmes";
+				}
 			}else{
 				$errorMessage = "Le fichier n'a pas été uploadé ou n'est pas un format d'image valide";
 			}
