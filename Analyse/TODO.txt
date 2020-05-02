@@ -67,6 +67,8 @@ Projet:
 65) ajouter confirmation pour supprimer les éléments(article, user,confirmer etc etc etc)
 66) validation formulaire (pas d'espaces extra/accents spéciaux)
 67) maximum de taille pour les noms (je dois rename les autre en db)
+68) check panier model/controller : functions inutiles?
+
 =============
 
 Restant: 

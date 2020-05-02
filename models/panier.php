@@ -71,24 +71,6 @@ function supprimerArticle($nameId){
 	}
 }
 
-function modifierQTeArticle($nameId,$qtProduit){
-   //Si le panier existe
-   if (creationPanier()){
-		//Si la quantité est positive on modifie sinon on supprime l'article
-		if ($qtProduit > 0){
-         //Recherche du produit dans le panier
-			$positionProduit = array_search($nameId,  $_SESSION['panier']['nameId']);
-			if ($positionProduit != false){
-				$_SESSION['panier']['qtProduit'][$positionProduit] = $qtProduit ;
-			}
-		}else{
-		supprimerArticle($nameId);
-		}
-	}else{
-	$errorMessage = "Un problème est survenu...";
-	}
-}
-
 function montantTotal(){
    $total=0;
    for($i =0;$i<count($_SESSION['panier']['nameId']); $i++)

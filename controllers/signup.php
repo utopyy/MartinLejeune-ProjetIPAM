@@ -12,7 +12,10 @@ if(!empty($_POST)) {
         if($_POST['password'] != $_POST['confirm_password']){
             $errorMessage = "Votre mot de passe et votre mot de passe de confirmation ne correspondent pas...";
         }
-        else {          
+        else {  
+			if(strlen($_POST['username'])>12){
+				$errorMessage = "Votre nom d'utilisateur ne peut pas faire plus de 12 catactères"
+			}
             //vérifier que le login ou l'adresse mail n'existe pas
             $user = getUserByLogin(clearText($_POST['username']));
 			$mail = getMailFromUser($_POST['mail']);
