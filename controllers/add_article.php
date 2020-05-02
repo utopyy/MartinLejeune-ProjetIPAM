@@ -9,8 +9,11 @@ if($_SESSION['userRole']!=2){
 if(!empty($_POST)) {
     if(!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['categorieSel'])){
 		$title = strtoupper(clearText(str_replace("-", " ", $_POST['title'])));
+		if(strlen($title)>20){
+			$errorMessage = "Le nom de l'article ne peut pas dépasser 20 caractères";
+		}
 		// On vérifie si l'article n'existe pas déjà, pour les stats on va empecher de créer un article ayant le meme nom qu'un article supprimé)
-		if(exists($title)){
+		else if(exists($title)){
 			$errorMessage = "Un article portant ce nom existe déjà ou a été supprimé, veuillez changer de nom";
 		}else{			
 			$typefichier = $_FILES ['image'] ['type'];

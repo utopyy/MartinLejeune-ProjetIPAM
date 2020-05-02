@@ -20,7 +20,10 @@ if(!empty($_GET['error'])){
     case "dimension":
         $errorMessage = "Largeur et hauteur de l'image sont différentes";
         break;
-    default:
+	case "taille":
+		$errorMessage = "Le titre de l'article ne peut pas dépasser 20 caractères";
+		break;
+	default:
        $errorMessage = "Erreur";
 	} 
 }
@@ -41,8 +44,14 @@ if(empty($_POST)){
 	$title = strtoupper(clearText(str_replace("-", " ", $_POST['title'])));
 	$oldtitle = $_GET['name']; // j'ai fait passer l'ancien nom de l'article en get pour récupérer ses données
 	$articleTab = getFullArticle($oldtitle);
+	$subName = strtolower(str_replace(" ", "-", $articleTab[0]['subName']));
+	$oldtitleSanit = strtolower(str_replace(" ", "-", $oldtitle));
+	if(strlen($title)>20){
+		header('Location: article/'.$subName.'/'.$oldtitleSanit.'?error=taille');
+		exit();
+	}
 	if(exists($title) && $title!=strtoupper(str_replace("-", " ", $oldtitle))){ // si le titre existe déjà on recharge le controller avec un $_get error de type : title
-		header('Location: article/'.strtolower(str_replace(" ", "-", $articleTab[0]['subName'])).'/'.strtolower(str_replace(" ", "-", $oldtitle)).'?error=title');
+		header('Location: article/'.$subName.'/'.$oldtitleSanit.'?error=title&cat='.$oldtitle);
 		exit();
 	}else{
 		$photo_path = $articleTab[0]['photo_path'];
@@ -63,11 +72,11 @@ if(empty($_POST)){
 				$photo_path = "public/img/upload/".$newName;
 				move_uploaded_file($_FILES['image']['tmp_name'], $photo_path);
 			}else{
-				header('Location: article/'.strtolower(str_replace(" ", "-", $articleTab[0]['subName'])).'/'.strtolower(str_replace(" ", "-", $oldtitle)).'?error=dimension');
+				header('Location: article/'.$subName.'/'.$oldtitleSanit.'?error=dimension');
 				exit();
 			}
 		}else{
-			header('Location: article/'.strtolower(str_replace(" ", "-", $articleTab[0]['subName'])).'/'.strtolower(str_replace(" ", "-", $oldtitle)).'?error=format');
+			header('Location: article/'.$subName.'/'.$oldtitleSanit.'?error=format');
 			exit();
 		}
 	}

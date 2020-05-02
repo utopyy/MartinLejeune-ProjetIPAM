@@ -66,12 +66,12 @@ Projet:
 64) si déconnection avec panier pas valider mettre une alerte
 65) ajouter confirmation pour supprimer les éléments(article, user,confirmer etc etc etc)
 66) validation formulaire (pas d'espaces extra/accents spéciaux)
+67) maximum de taille pour les noms (je dois rename les autre en db)
 =============
 
 Restant: 
 
 
-58) maximum de taille pour les noms (je dois rename les autre en db)
 62) check panier model/controller : functions inutiles?
 52) Listing commandes total, users, article : appeler javascript pour mettre un nombre de coms max par page ( et trier par champ) : https://www.creative-tim.com/product/fresh-bootstrap-table?partner=114912
 53) fusionner un max de views/controllers
@@ -80,6 +80,7 @@ Restant:
 (!!!) Améliorer graphique
 57) reduire taille image prévisu article
 61) Footer newsletter! (si temps + implémentation en db)
+xx) Favicon
 
 ========
 Avant dernier push

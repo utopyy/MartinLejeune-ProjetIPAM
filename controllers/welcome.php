@@ -1,7 +1,7 @@
 <?php
 require_once 'models/articles.php';
 
-$articleName = "BAR PROTEIN FOODSPRING";
+$articleName = "BAR PROTEIN";
 $articleTab = getFullArticle($articleName);
 //$articlePhoto = $articleTab[0]['photo_path'];
 $articlePhoto = ROOT_PATH.'public/img/articleWelcome/banner-img.png'; //photo par défaut, remplacer cette ligne par la ligne 6 si changement d'article (juste du visuel ici)
