@@ -14,7 +14,7 @@ if(!empty($_POST)) {
         }
         else {          
             //vérifier que le login ou l'adresse mail n'existe pas
-            $user = getUserByLogin($_POST['username']);
+            $user = getUserByLogin(clearText($_POST['username']));
 			$mail = getMailFromUser($_POST['mail']);
             if($user){
                 $errorMessage = "Le login ".$_POST['username']." existe déjà...";
@@ -22,9 +22,9 @@ if(!empty($_POST)) {
             else if($mail){
 				$errorMessage = "Le mail ".$_POST['mail']." existe déjà...";
 			}else{
-                createUser($_POST['username'], $_POST['firstname'], $_POST['lastname'], $_POST['birthdate'], $_POST['mail'], $_POST['password'], $_POST['country'], $_POST['city'], $_POST['zip'], $_POST['street'], $_POST['house_number']);
+                createUser(clearText($_POST['username']), trim($_POST['firstname']), trim($_POST['lastname']), $_POST['birthdate'], 
+				trim($_POST['mail']), $_POST['password'], trim($_POST['country']), trim($_POST['city']), trim($_POST['zip']), trim($_POST['street']), trim($_POST['house_number']));
 			//ici je connecte directement l'user qui vient de s'inscrire
-			$user = getUserByLogin($_POST['username']);
             $_SESSION['id'] = $user['id'];
             $_SESSION['username'] =  $user['username'];
 			$_SESSION['userRole'] = $user['role_id'];
@@ -40,4 +40,16 @@ if(!empty($_POST)) {
     }
 }
 include 'views/signup.php';
+
+function clearText($str){
+$str = trim($str);
+$old_chars = array('Š', 'š', 'Ž', 'ž', 'À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Æ', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ñ', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ø', 'Ù',
+					'Ú', 'Û', 'Ü', 'Ý', 'à', 'á', 'â', 'ã', 'ä', 'å', 'æ', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ð', 'ñ', 'ò', 'ó', 'ô', 'õ',
+					'ö', 'ø', 'ù', 'ú', 'û', 'ý', 'ÿ');
+$new_chars = array('S', 's', 'Z', 'z', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'C', 'E', 'E', 'E', 'E', 'I', 'I', 'I', 'I', 'N', 'O', 'O', 'O', 'O', 'O', 'O', 'U',
+					'U', 'U', 'U', 'Y', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'o', 'n', 'o', 'o', 'o', 'o',
+					'o', 'o', 'u', 'u', 'u', 'y', 'y');
+$safe_str = strtr($str, array_combine($old_chars, $new_chars));
+return $safe_str;
+}
 ?>

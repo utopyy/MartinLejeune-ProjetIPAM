@@ -13,7 +13,7 @@
 					<h6>Newsletter</h6>
 					<p>Restez informes grace a nos newsletters</p>
 					<div class="" id="mc_embed_signup">
-						<form target="_blank" novalidate="true" action="#"
+						<form target="#" novalidate="true" action="#"
 						method="get" class="form-inline">
 						<div class="d-flex flex-row">
 							<input class="form-control" name="EMAIL" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"

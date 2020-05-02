@@ -1,6 +1,7 @@
 <?php
 require_once('models/articles.php');
 
+
 //Si un user tente d'écrire monprojet.test/article: probleme (car aucun article passé dans l'url)
 if(empty(ARTICLE_REF) && empty($_GET['name'])){
 	header('Location: shop');
@@ -37,7 +38,7 @@ if(empty($_POST)){
 	}
 // Si dans la page article on veut modifier un article (traitement puis on refresh la page)
 }else{
-	$title = strtoupper(str_replace("-", " ", $_POST['title']));
+	$title = strtoupper(clearText(str_replace("-", " ", $_POST['title'])));
 	$oldtitle = $_GET['name']; // j'ai fait passer l'ancien nom de l'article en get pour récupérer ses données
 	$articleTab = getFullArticle($oldtitle);
 	if(exists($title) && $title!=strtoupper(str_replace("-", " ", $oldtitle))){ // si le titre existe déjà on recharge le controller avec un $_get error de type : title
@@ -73,5 +74,17 @@ if(empty($_POST)){
 	updateArticle($oldtitle, $title, $price, $description, $subcat, $photo_path);
 	header('Location: article/'.strtolower(str_replace(" ", "-",($_POST['subcatSel']))).'/'.strtolower(str_replace(" ", "-", $title)));
 	exit();
+}
+
+function clearText($str){
+$str = trim($str);
+$old_chars = array('Š', 'š', 'Ž', 'ž', 'À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Æ', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ñ', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ø', 'Ù',
+					'Ú', 'Û', 'Ü', 'Ý', 'à', 'á', 'â', 'ã', 'ä', 'å', 'æ', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ð', 'ñ', 'ò', 'ó', 'ô', 'õ',
+					'ö', 'ø', 'ù', 'ú', 'û', 'ý', 'ÿ');
+$new_chars = array('S', 's', 'Z', 'z', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'C', 'E', 'E', 'E', 'E', 'I', 'I', 'I', 'I', 'N', 'O', 'O', 'O', 'O', 'O', 'O', 'U',
+					'U', 'U', 'U', 'Y', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'o', 'n', 'o', 'o', 'o', 'o',
+					'o', 'o', 'u', 'u', 'u', 'y', 'y');
+$safe_str = strtr($str, array_combine($old_chars, $new_chars));
+return $safe_str;
 }
 ?>

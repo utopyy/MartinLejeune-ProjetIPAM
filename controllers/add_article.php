@@ -8,7 +8,7 @@ if($_SESSION['userRole']!=2){
 
 if(!empty($_POST)) {
     if(!empty($_POST['title']) && !empty($_POST['description']) && !empty($_POST['price']) && !empty($_POST['categorieSel'])){
-		$title = strtoupper(str_replace("-", " ", $_POST['title']));
+		$title = strtoupper(clearText(str_replace("-", " ", $_POST['title'])));
 		// On vérifie si l'article n'existe pas déjà, pour les stats on va empecher de créer un article ayant le meme nom qu'un article supprimé)
 		if(exists($title)){
 			$errorMessage = "Un article portant ce nom existe déjà ou a été supprimé, veuillez changer de nom";
@@ -38,4 +38,16 @@ if(!empty($_POST)) {
 	}	
 }
 include 'views/add_article.php';
+
+function clearText($str){
+$str = trim($str);
+$old_chars = array('Š', 'š', 'Ž', 'ž', 'À', 'Á', 'Â', 'Ã', 'Ä', 'Å', 'Æ', 'Ç', 'È', 'É', 'Ê', 'Ë', 'Ì', 'Í', 'Î', 'Ï', 'Ñ', 'Ò', 'Ó', 'Ô', 'Õ', 'Ö', 'Ø', 'Ù',
+					'Ú', 'Û', 'Ü', 'Ý', 'à', 'á', 'â', 'ã', 'ä', 'å', 'æ', 'ç', 'è', 'é', 'ê', 'ë', 'ì', 'í', 'î', 'ï', 'ð', 'ñ', 'ò', 'ó', 'ô', 'õ',
+					'ö', 'ø', 'ù', 'ú', 'û', 'ý', 'ÿ');
+$new_chars = array('S', 's', 'Z', 'z', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'C', 'E', 'E', 'E', 'E', 'I', 'I', 'I', 'I', 'N', 'O', 'O', 'O', 'O', 'O', 'O', 'U',
+					'U', 'U', 'U', 'Y', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'c', 'e', 'e', 'e', 'e', 'i', 'i', 'i', 'i', 'o', 'n', 'o', 'o', 'o', 'o',
+					'o', 'o', 'u', 'u', 'u', 'y', 'y');
+$safe_str = strtr($str, array_combine($old_chars, $new_chars));
+return $safe_str;
+}
 ?>
