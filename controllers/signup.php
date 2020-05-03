@@ -13,21 +13,20 @@ if(!empty($_POST)) {
             $errorMessage = "Votre mot de passe et votre mot de passe de confirmation ne correspondent pas...";
         }
         else {  
-			if(strlen($_POST['username'])>12){
-				$errorMessage = "Votre nom d'utilisateur ne peut pas faire plus de 12 catactères"
-			}
             //vérifier que le login ou l'adresse mail n'existe pas
             $user = getUserByLogin(clearText($_POST['username']));
 			$mail = getMailFromUser($_POST['mail']);
             if($user){
                 $errorMessage = "Le login ".$_POST['username']." existe déjà...";
-            }
-            else if($mail){
+            }else if($mail){
 				$errorMessage = "Le mail ".$_POST['mail']." existe déjà...";
+			}else if((strlen($_POST['username'])>12)){
+				$errorMessage = "Votre nom d'utilisateur ne peut pas faire plus de 12 catactères";
 			}else{
                 createUser(clearText($_POST['username']), trim($_POST['firstname']), trim($_POST['lastname']), $_POST['birthdate'], 
 				trim($_POST['mail']), $_POST['password'], trim($_POST['country']), trim($_POST['city']), trim($_POST['zip']), trim($_POST['street']), trim($_POST['house_number']));
 			//ici je connecte directement l'user qui vient de s'inscrire
+			$user = getUserByLogin(clearText($_POST['username']));
             $_SESSION['id'] = $user['id'];
             $_SESSION['username'] =  $user['username'];
 			$_SESSION['userRole'] = $user['role_id'];

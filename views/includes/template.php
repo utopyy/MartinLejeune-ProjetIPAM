@@ -9,7 +9,6 @@
 	<link rel="stylesheet" href="<?=ROOT_PATH?>public/css/themify-icons.css">
 	<link rel="stylesheet" href="<?=ROOT_PATH?>public/css/linearicons.css">
 	<link rel="stylesheet" href="<?=ROOT_PATH?>public/css/font-awesome.min.css">
-	<link href="assets/css/fresh-bootstrap-table.css" rel="stylesheet" />
 	
 
 	<script type="text/javascript" src="<?=ROOT_PATH?>public/js/jquery-3.4.1.js"></script>

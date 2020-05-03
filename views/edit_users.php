@@ -17,13 +17,13 @@
 	</section>
 	<section>
 		<div class="containerAdmin">
-			<center><h2>Listing users</h2></center>
+			<center><h2>Listing utilisateurs</h2></center>
 			<br/>
 			<div class="fresh-table full-color-orange">
 			<div class="toolbar">
 			</br>
 			<table class="table divTable" id="empTable">
-				<thead class="thead-dark">
+				<thead>
 					<tr>
 						<td><center>Pseudo</center></td>
 						<td><center>Prenom</center></td>

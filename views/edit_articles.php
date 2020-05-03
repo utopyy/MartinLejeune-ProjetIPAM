@@ -15,7 +15,6 @@
 		</div>
 	</section>
 	<section>
-
 		<div class="containerAdmin">
 			<center><h2>Listing articles</h2></center>
 			<br/><br/>

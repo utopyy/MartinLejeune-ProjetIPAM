@@ -1,5 +1,5 @@
 <?php ob_start() ?>
-<body>
+<body id="category">
 	<!-- Bannière de page, pas dans le template c'est voulu -->
 	<section class="banner-area organic-breadcrumb">
 		<div class="container">
@@ -15,8 +15,10 @@
 		</div>
 	</section>
 	<section>
-		<div class="container">	
-			</br></br></br>
+		<div class="containerAdmin">	
+			<center><h2>Listing commandes</h2></center>
+			<br/><br/>
+		
 			<?php if($nbBooks['nbCom'] == 0 ):?>
 				<?php if($_SESSION['userRole']==1):?>
 					<h2>Vous n'avez pas encore effectue une commande.</h2>
@@ -27,35 +29,43 @@
 					<h4>Attendez qu'une commande soit fait pour avoir accès au listing et aux statistiques.</h4>
 				<?php endif?>
 			<?php else:?>
-				<table class="table">
-					<thead class="thead-dark">
+			<div class="toolbar">
+				<br/>
+				<table class="table divTable" id="empTable">
+					<thead>
 						<tr>
-							<th scope="col">Numero de commande</th>
+							<td><center>No commande</center></td>
 							<?php if($_SESSION['userRole']==2):?>
-							<th scope="col">Auteur</th>
+							<td><center>Auteur</center></td>
 							<?php endif?>
-							<th scope="col">Nb articles</th>
-							<th scope="col">Prix total</th>
-							<th scope="col"></th>
+							<td><center>Nb articles</center></td>
+							<td><center>Prix total</center></td>
+							<td></td>
 						</tr>
 					</thead>
 					<tbody>
 					<?php foreach($books as $book):?>
 						<tr>
-							<td><?=$book['noCom']?></td>
+							<td><center><?=$book['noCom']?></td>
 							<?php if($_SESSION['userRole']==2):?>
-							<td><?=$book['nomCli']?></td>
+							<td><center><?=$book['nomCli']?></td>
 							<?php endif?>
-							<td><?=$book['nbArticle']?></td>
-							<td><?=$book['priceTot']?>&euro;</td>		
-							<td><a href="<?=ROOT_PATH?>booksList?idCom=<?=$book['noCom']?>">+</a></td>
+							<td><center><?=$book['nbArticle']?></td>
+							<td><center><?=$book['priceTot']?>&euro;</td>		
+							<td><center><a href="<?=ROOT_PATH?>booksList?idCom=<?=$book['noCom']?>" <class="social-info"><span class="ti-zoom-in"></span></a></td>
 						</tr>
 					<?php endforeach?>
 				</table>
+				</div>
 			<?php endif?>
 			</br></br></br>
 		</div>
 	</section>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#empTable').dataTable();
+		});
+	</script>
 </body>
 <?php
 $title = "Details commandes";
