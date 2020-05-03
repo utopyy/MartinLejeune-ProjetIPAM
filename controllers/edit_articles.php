@@ -1,9 +1,6 @@
 <?php
-require 'models/articles.php';
-if($_SESSION['id']!=2){
-	header('Location: welcome');
-	exit();
-}
+require_once 'models/articles.php';
+
 $articles = getAllArticles();
 
 if(!empty($_GET['delete'])){

@@ -73,15 +73,12 @@ Projet:
 
 Restant: 
 
-
-62) check panier model/controller : functions inutiles?
 52) Listing commandes total, users, article : appeler javascript pour mettre un nombre de coms max par page ( et trier par champ) : https://www.creative-tim.com/product/fresh-bootstrap-table?partner=114912
 53) fusionner un max de views/controllers
 54) global db? (voir discord juju)
 
 (!!!) Améliorer graphique
 57) reduire taille image prévisu article
-61) Footer newsletter! (si temps + implémentation en db)
 xx) Favicon
 
 ========

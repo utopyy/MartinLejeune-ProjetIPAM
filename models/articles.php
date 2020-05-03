@@ -106,7 +106,7 @@ function getFullArticle($name){
 }
 
 function getAllArticles(){
-	$response = getBdd()->prepare('SELECT a.id, a.title, a.description, a.price, c.name as catname, s.name as subname FROM article AS a, category AS c, sub_category AS s WHERE s.id_category = c.id AND s.id = a.category_id AND `delete` != 1');
+	$response = getBdd()->prepare('SELECT a.id, a.title, a.photo_path, a.description, a.price, c.name as catname, s.name as subname FROM article AS a, category AS c, sub_category AS s WHERE s.id_category = c.id AND s.id = a.category_id AND `delete` != 1');
 	$response->execute();
 	$articles = $response->fetchAll(PDO::FETCH_ASSOC);
 	$response->closeCursor();
