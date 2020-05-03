@@ -17,16 +17,15 @@
 	<section>
 		<div class="containerAdmin">	
 			<center><h2>Listing commandes</h2></center>
-			<br/><br/>
-		
+			<br/><br/>		
 			<?php if($nbBooks['nbCom'] == 0 ):?>
 				<?php if($_SESSION['userRole']==1):?>
 					<h2>Vous n'avez pas encore effectue une commande.</h2>
 					<h4>Pour en realiser une, merci d'ajouter des articles dans votre panier puis de confirmer celle-ci.</h4>
 					</br></br></br>	
 				<?php elseif($_SESSION['userRole']==2):?>
-					<h2>Aucun client n'a encore effectué de commande.</h2>
-					<h4>Attendez qu'une commande soit fait pour avoir accès au listing et aux statistiques.</h4>
+					<h2>Aucun client n'a encore effectue de commande.</h2>
+					<h4>Attendez qu'une commande soit faite pour avoir acces au listing et aux statistiques.</h4>
 				<?php endif?>
 			<?php else:?>
 			<div class="toolbar">

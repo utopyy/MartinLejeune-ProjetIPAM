@@ -1,5 +1,5 @@
 <?php
-require 'models/users.php';
+require_once 'models/users.php';
 
 if($_SESSION['id']!=2){
 	header('Location: welcome');

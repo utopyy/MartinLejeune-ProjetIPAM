@@ -1,11 +1,14 @@
 <?php
 require_once ('models/articles.php');
+require_once ('models/book.php');
 require_once ('models/db.php');
 
 if($_SESSION['id']!=2){
     header("Location: welcome");
     exit();
 }
+$nbComs = nbBooksTot();
+if($nbComs[0] != 0){
 if(!empty($_POST)){
 	$limit = $_POST['nb'];
 }else{
@@ -46,5 +49,6 @@ $response->execute();
 }
 
 $response -> closeCursor();
+}
 include 'views/stats.php';
 ?>

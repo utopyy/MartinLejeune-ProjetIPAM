@@ -1,5 +1,5 @@
 <?php
-require 'models/articles.php';
+require_once 'models/articles.php';
 
 $cats = getCats();
 $titleCat = "Chercher une catégorie"; // quand aucune catégorie n'est sélectionnée

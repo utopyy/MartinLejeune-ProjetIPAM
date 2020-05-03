@@ -15,7 +15,13 @@
 		</div>
 	</section>
 	<section class="container">
+	<?php if($nbComs[0] == 0 ):?>
+		<h2>Aucun client n'a encore effectue de commande.</h2>
+		<h4>Attendez qu'une commande soit faite pour avoir acces au listing et aux statistiques.</h4>
+		<br/><br/>
+		<?php else:?>
 		<div class="chart1"><h3>Articles les plus vendus</h3><br/>
+			<!-- Graphique 1 -->
 			<canvas id="myChart" width="1000" height="600"></canvas>
 			<script>var ctx = document.getElementById('myChart').getContext('2d');
 					var chart = new Chart(ctx, {
@@ -59,6 +65,7 @@
 			</form>
 			<hr>
 		</div>
+		<!-- Graphique 2 -->
 		<div class="chart2">
 			<h3>Ventes par categorie</h3><br/>
 			<canvas id="myChart2" width="1000" height="600"></canvas>
@@ -80,6 +87,7 @@
 			</script>
 			<br/><hr>
 		</div>	
+		<!-- Graphique 3 -->
 		<div class="chart3">
 			<h3>Ventes par sous-categories</h3><br/>
 			<canvas id="myChart3" width="1000" height="600"></canvas>
@@ -100,7 +108,8 @@
 					});
 			</script>
 			<br/>
-		</div>			
+		</div>
+	<?php endif?>		
 	</section>
 </body>
 <?php

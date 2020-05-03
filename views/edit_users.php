@@ -1,6 +1,6 @@
 <?php ob_start() ?>
 <body id="category">
-	<!-- Bannière de page, pas dans le template c'est voulu -->
+	<!-- Bannière de page -->
 	<section class="banner-area organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">

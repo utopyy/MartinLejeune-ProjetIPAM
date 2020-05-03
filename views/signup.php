@@ -1,6 +1,5 @@
 <?php ob_start() ?>
-	<body id="category">
-	<!-- Bannière de page, pas dans le template c'est voulu -->
+<body id="category">
 	<section class="banner-area organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -14,7 +13,6 @@
 			</div>
 		</div>
 	</section>
-	<!--================ Box enregistrement =================-->
 	<section class="login_box_area section_gap">
 		<div class="container">
 			<div class="row">

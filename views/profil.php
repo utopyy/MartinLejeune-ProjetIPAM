@@ -1,6 +1,6 @@
 <?php ob_start()?>
 <body id="category">
-	<!-- Bannière de page, pas dans le template c'est voulu -->
+	<!-- Bannière de page-->
 	<section class="banner-area organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -19,13 +19,10 @@
     <h1>Profil</h1>
   	<hr>
 	<div class="row">
-      <!-- left column -->
       <div class="col-md-3">
         <div class="col-sm-10"><h3><?=$user['username']?></h3></div>
 		<div class="col-sm-12">Date de création: <?=$user['date_creation']?></div>
       </div>
-      
-      <!-- edit form column -->
       <div class="col-md-9 personal-info">
         <div class="alert alert-info alert-dismissable">
           <a class="panel-close close" data-dismiss="alert">×</a> 
@@ -111,7 +108,6 @@
               <input class="form-control" name="password" type="password">
             </div>
           </div>
-
           <div class="form-group">
             <label class="col-md-3 control-label">Confirmer le mot de passe:</label>
             <div class="col-md-8">

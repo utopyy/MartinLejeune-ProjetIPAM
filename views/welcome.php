@@ -1,10 +1,8 @@
 <?php ob_start() ?>
 <body>
-	<!-- Bannière de page, pas dans le template c'est voulu -->
 	<section class="banner-area">
 		<div class="container">
 			<div class="row fullscreen align-items-center justify-content-start">	
-				<!-- Prévu en bootstrap pour faire défiler des éléments, ici je n'en affiche qu'un -->
 				<div class="row single-slide">
 					<div class="col-lg-5">
 						<div class="banner-content">

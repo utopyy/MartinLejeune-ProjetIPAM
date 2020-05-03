@@ -1,6 +1,6 @@
 <?php ob_start() ?>
 <body id="category">
-	<!-- Bannière de page, pas dans le template c'est voulu -->
+	<!-- Bannière de page -->
 	<section class="banner-area organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -54,7 +54,7 @@
 									<div class="prd-bottom">									
 									<?php  //si la personne est connectée et utilisateur (role=1)
 									if(!empty($_SESSION['id']) && $_SESSION['userRole'] == 1):?>
-										<a href="<?=ROOT_PATH?>panier?title=<?=$row['title']?>" class="social-info">
+										<a href="<?=ROOT_PATH?>panier?title=<?=$row['title']?>&cat=<?=$row['category']?>" class="social-info">
 											<span class="ti-bag"></span>
 											<p class="hover-text">Panier +</p>
 										</a>

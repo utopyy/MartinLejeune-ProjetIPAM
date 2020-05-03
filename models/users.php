@@ -26,7 +26,7 @@ function getMailFromUser($mail){
 }
 
 function getUserByLogin($login) {
-    $reponse = getBdd()->prepare('SELECT * FROM USER WHERE username = :login AND `delete` != 1');
+    $reponse = getBdd()->prepare('SELECT * FROM USER WHERE username = :login');
     $reponse->execute([':login' => $login]);
     $user = $reponse->fetch();
     $reponse->closeCursor();

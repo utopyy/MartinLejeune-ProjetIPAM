@@ -18,14 +18,10 @@
 		<div class="containerAdmin">
 			<center><h2>Listing articles</h2></center>
 			<br/><br/>
-								<a href="<?=ROOT_PATH?>add/new/article" class="btn btn-outline-success">Ajouter un article +</a>
+			<a href="<?=ROOT_PATH?>add/new/article" class="btn btn-outline-success">Ajouter un article +</a>
 			<div class="fresh-table full-color-orange">
-    <!--    Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange
-            Available colors only for the toolbar: toolbar-color-blue, toolbar-color-azure, toolbar-color-green, toolbar-color-red, toolbar-color-orange
-    -->
-
-        <div class="toolbar">
-		<br/>
+				<div class="toolbar">
+					<br/>
 					<table class="table divTable" id="empTable">
 						<thead>
 							<tr>					
@@ -52,10 +48,10 @@
 						<?php endforeach ?>
 						</tbody>
 					</table>
-					</div>
-					</div>
-					</div>
-					<br/>
+				</div>
+			</div>			
+		</div>
+		<br/>
 	</section>
 	<script type="text/javascript">
 		$(document).ready(function(){

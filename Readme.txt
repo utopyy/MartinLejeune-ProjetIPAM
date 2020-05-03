@@ -3,6 +3,15 @@ VERSION PHP
 ===========
 Le projet fonctionne avec la version 7.3.4 de php.
 
+==============
+VERSION JQUERY
+==============
+Le projet fonctionne avec la version 3.4.1 de jquery.
+
+=================
+VERSION BOOTSTRAP
+=================
+Le projet fonctionne avec la version v4.1.3 de bootstrap.
 
 ================
 CONFIGURATION DB
@@ -17,20 +26,26 @@ PASSDB : mot de passe de l'utilisateur utilisé pour la connexion à la db.
 
 Créer une base de données MySQL ayant pour nom "wayprotein" et procéder au restore du dump du fichier wayprotein.sql accessible à la racine du répertoire.
 
-============
-INFOS UTILES
-============
+=============
+COMPTES CREES
+=============
+*Utilisateurs
+login: user, mdp: user
+login: user2, mdp: user2
+login: user3, mdp: user3
+login: user4, mdp: user4 (compte sans commandes réalisées)
 
-- Si vous ne voulez pas créer un compte, 
-un utilisateur a été créé: login=user, password = user
-un admin a été créé: login=admin, password = admin
+*Administrateur
+login: admin, mdp: admin
 
-- Aucune commande n'est enregistrée dans le DUMP SQL, pour vérifier le listing des commandes personnelles d'un utilisateur il faut en réaliser une.
+===============
+INFOS PRATIQUES
+===============
+- Un article supprimé reste dans la db (champ delete = 1), idem pour les utilisateurs.
+- Des images de même largeur et hauteur sont disponibles dans un le dossier public>img>imgs_for_test dans le cas où vous voudriez tester l'ajout ou la modification d'une image liée à un article.
+(Si l'image upload n'est pas de même largeur/hauteur, l'article ne peut pas être créé/modifié)
 
-- Pas encore implémenté:
-	- Listing total des commandes pour l'admin
-	- Modules javascript
-	- Stats pour l'admin
+
 
 
 
