@@ -1,5 +1,5 @@
 <?php ob_start() ?>
-<body>
+<body id="category">
 	<section class="banner-area organic-breadcrumb">
 		<div class="container">
 			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
@@ -17,9 +17,8 @@
 	<section>
 
 		<div class="containerAdmin">
-			<br/></br>
 			<center><h2>Listing articles</h2></center>
-			<br/>
+			<br/><br/>
 								<a href="<?=ROOT_PATH?>add/new/article" class="btn btn-outline-success">Ajouter un article +</a>
 			<div class="fresh-table full-color-orange">
     <!--    Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange
@@ -44,12 +43,12 @@
 						<?php foreach($articles as $article):?>
 							<tr>
 								<td><center><img src=<?=ROOT_PATH.$article['photo_path']?> height="100px" width="100px"></center></td>
-								<td style="font-size:16px;"><center><br/><?=$article['title']?></center></td>
-								<td style="font-size:16px;"><center><br/><?=$article['price']?>&euro;</center></td>
-								<td style="font-size:16px;"><center><br/><?=$article['catname']?></center></td>
-								<td style="font-size:16px;"><center><br/><?=$article['subname']?></center></td>
-								<td><br/><a href="<?=ROOT_PATH?>article/<?=str_replace(" ","-",$article['subname'])?>/<?=str_replace(" ","-",$article['title'])?>" <class="social-info"><span class="ti-brush"></span></a>
-								<td><br/><a href="<?=ROOT_PATH?>edit_articles?delete=<?=$article['id']?>" onclick="return confirm('Supprimer l\'article <?=$article['title']?>?')" <class="social-info"><span class="ti-trash"></span></a>							
+								<td class="tableCustomTd"><center><br/><?=$article['title']?></center></td>
+								<td class="tableCustomTd"><center><br/><?=$article['price']?>&euro;</center></td>
+								<td class="tableCustomTd"><center><br/><?=$article['catname']?></center></td>
+								<td class="tableCustomTd"><center><br/><?=$article['subname']?></center></td>
+								<td><br/><a href="<?=ROOT_PATH?>article/<?=str_replace(" ","-",$article['subname'])?>/<?=str_replace(" ","-",$article['title'])?>" <class="social-info"><span class="ti-brush"></span></a></td>
+								<td><br/><a href="<?=ROOT_PATH?>edit_articles?delete=<?=$article['id']?>" onclick="return confirm('Supprimer l\'article <?=$article['title']?>?')" <class="social-info"><span class="ti-trash"></span></a></td>						
 							</tr>
 						<?php endforeach ?>
 						</tbody>

@@ -17,39 +17,52 @@
 	</section>
 	<section>
 		<div class="containerAdmin">
-			<table class="table">
+			<center><h2>Listing users</h2></center>
+			<br/>
+			<div class="fresh-table full-color-orange">
+			<div class="toolbar">
+			</br>
+			<table class="table divTable" id="empTable">
 				<thead class="thead-dark">
 					<tr>
-						<th scope="col">Pseudo</th>
-						<th scope="col">Prénom</th>
-						<th scope="col">Nom</th>
-						<th scope="col">Date de naissance</th>
-						<th scope="col">Rue</th>
-						<th scope="col">No de Maison</th>
-						<th scope="col">Code Postal</th>
-						<th scope="col">Ville</th>
-						<th scope="col">Pays</th>
-						<th scope="col">Adresse Mail</th>
-						<th scope="col">Role</th>
-						<th scope="col">Date d'inscription</th>
-						<th scope="col">Dernière connection</th>
-						<th scope="col"></th>
-						<th scope="col"></th>
+						<td><center>Pseudo</center></td>
+						<td><center>Prenom</center></td>
+						<td><center>Nom</center></td>
+						<td><center>Date de naissance</center></td>
+						<td><center>Rue</center></td>
+						<td><center>No de Maison</center></td>
+						<td><center>Code Postal</center></td>
+						<td><center>Ville</center></td>
+						<td><center>Pays</center></td>
+						<td><center>Adresse Mail</center></td>
+						<td><center>Role</center></td>
+						<td><center>Date d'inscription</center></td>
+						<td><center>Derniere connection</center></td>
+						<td></td>
+						<td></td>
 					</tr>
 				</thead>
 				<tbody>
 				<?php foreach($users as $user):?>
 					<tr>
 					<?php foreach($user as $row):?>
-						<td><?=$row?></th>
+						<td class="tableCustomTd"><?=$row?></td>
 					<?php endforeach?>
-					<td><a href="<?=ROOT_PATH?>profil?admin=<?=$user['username']?>">Modifier</a></td>
-					<td><a href="<?=ROOT_PATH?>edit_users?delete=<?=$user['username']?>" onclick="return confirm('Supprimer le compte <?=$user['username']?>?');">Supprimer</a></td>
+					<td><a href="<?=ROOT_PATH?>profil?admin=<?=$user['username']?>" <class="social-info"><span class="ti-brush"></span></a></td>
+					<td><a href="<?=ROOT_PATH?>edit_users?delete=<?=$user['username']?>" onclick="return confirm('Supprimer le compte <?=$user['username']?>?');" <class="social-info"><span class="ti-trash"></span></a></td>
 					</tr>
 				<?php endforeach?>
 			</table>
 		</div>
+		</div>
+		</div>
+		</br>
 	</section>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#empTable').dataTable();
+		});
+	</script>
 </body>
 <?php
 $title = "Gestion membres";
