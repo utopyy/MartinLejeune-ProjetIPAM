@@ -4,6 +4,7 @@ define('PORT', "3306");
 define('DBNAME',"wayprotein");
 define('ROOTDB',"root");
 define('PASSDB',"");
+
 	function getBdd(){
 	try
     {

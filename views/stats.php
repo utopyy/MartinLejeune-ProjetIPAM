@@ -1,55 +1,112 @@
-<?php
-$connect = mysqli_connect("localhost","root","","wayprotein");
-$query = "SELECT a.title AS title, COUNT(ba.item_id) AS amount FROM article AS a, book_article AS ba WHERE a.id = ba.item_id GROUP BY ba.item_id ORDER BY amount DESC LIMIT 5";
-$result = mysqli_query($connect, $query);
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8"/>
-	<title>Statistiques</title>
-<script src="<?=ROOT_PATH?>public/js/googleChart.js"></script>
-	<script type="text/javascript">
-		google.charts.load('current', {'packages':['corechart']});
-		google.charts.setOnLoadCallback(drawChart); 
-		function drawChart() {
-			var data = google.visualization.arrayToDataTable([
-			['Article', 'Amount'],
-			<?php
-			while($row = mysqli_fetch_array($result))
-			{
-				echo "['".$row["title"]."', ".$row["amount"]."],";
-			}
-			?>
-		]);
-			var options ={
-				title:'Coucou'
-			};
-			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-			chart.draw(data, options);
-		}
-	</script></head>
-	<body>
-		<!-- Bannière de page, pas dans le template c'est voulu -->
-		<section class="banner-area organic-breadcrumb">
-			<div class="container">
-				<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
-					<div class="col-first">
-						<h1>Magasin WayProt</h1>
-						<nav class="d-flex align-items-center">
-							<a href="<?=ROOT_PATH?>">Accueil<span class="lnr lnr-arrow-right"></span></a>
-							<a href="<?=ROOT_PATH?>shop">Shop<span class="lnr lnr-arrow-right"></span></a>
-							<a href="#">Détail article</a>
-						</nav>
-					</div>
+<?php ob_start()?>
+<body id="category">
+	<section class="banner-area organic-breadcrumb">
+		<div class="container">
+			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+				<div class="col-first">
+					<h1>Magasin WayProt</h1>
+					<nav class="d-flex align-items-center">
+						<a href="<?=ROOT_PATH?>">Accueil<span class="lnr lnr-arrow-right"></span></a>
+						<a href="<?=ROOT_PATH?>shop">Shop<span class="lnr lnr-arrow-right"></span></a>
+						<a href="#">Statistiques commandes</a>
+					</nav>
 				</div>
 			</div>
-		</section>
-		<section>
-			<div style="width:900px;">
-				<h3 align="center">Graphique</h3>
-				<br />
-				<div id="piechart" style="width: 900px; height:500px;"></div>
-	  </section>
-	</body>
+		</div>
+	</section>
+	<section class="container">
+		<div class="chart1"><h3>Articles les plus vendus</h3><br/>
+			<canvas id="myChart" width="1000" height="600"></canvas>
+			<script>var ctx = document.getElementById('myChart').getContext('2d');
+					var chart = new Chart(ctx, {
+						type: 'bar',
+						data: {
+							labels: <?php echo json_encode($json); ?>,
+							datasets: [{
+								backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+								data: <?php echo json_encode($json2); ?>,
+							}]
+						},
+						options: {
+							legend: { display: false },
+							title: {
+								display: true,
+								text: 'Top <?=$limit?> : Toutes categories',
+							},
+							scales: {
+							 yAxes: [{
+								 ticks: {
+									 beginAtZero:true
+								 }
+							 }]
+						 },
+						 responsive: false
+						}
+					});
+			</script>
+			<br/>
+			<form action="<?=ROOT_PATH?>stats" method="POST">
+				<div class="form-row">
+					<div class="form-group col-md-6:">
+						<input type="number" step="1" min="2" max="20" class="form-control" name="nb" id="inputNb" placeholder="Nb elements" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Nb elements'">
+					</div>
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<button type="submit" class="btn btn-primary">Ok</button>
+						</div>
+					</div>	
+				</div>
+			</form>
+			<hr>
+		</div>
+		<div class="chart2">
+			<h3>Ventes par categorie</h3><br/>
+			<canvas id="myChart2" width="1000" height="600"></canvas>
+			<script>var ctx = document.getElementById('myChart2').getContext('2d');
+					var chart = new Chart(ctx, {
+						type: 'doughnut',
+						data: {
+							labels: <?php echo json_encode($json3); ?>,
+							datasets: [{
+								backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+								data: <?php echo json_encode($json4); ?>,
+							}]
+						},
+						options: {
+							legend: { display: true },
+						 responsive: false
+						}
+					});
+			</script>
+			<br/><hr>
+		</div>	
+		<div class="chart3">
+			<h3>Ventes par sous-categories</h3><br/>
+			<canvas id="myChart3" width="1000" height="600"></canvas>
+			<script>var ctx = document.getElementById('myChart3').getContext('2d');
+					var chart = new Chart(ctx, {
+						type: 'doughnut',
+						data: {
+							labels: <?php echo json_encode($json5); ?>,
+							datasets: [{
+								backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+								data: <?php echo json_encode($json6); ?>,
+							}]
+						},
+						options: {
+							legend: { display: true },
+						 responsive: false
+						}
+					});
+			</script>
+			<br/>
+		</div>			
+	</section>
+</body>
+<?php
+$title="Commandes statistiques";
+$content=ob_get_clean();
+include 'includes/template.php';?>
+
+
 

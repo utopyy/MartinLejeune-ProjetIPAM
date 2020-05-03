@@ -20,7 +20,7 @@
 		<div class="owl-item active">				
 			<!-- affichage pour les users/visiteurs -->
 			<div>
-				<img class="img-fluid" src="<?=ROOT_PATH.$article['photo_path']?>" alt="">
+				<img class="resizePrevu" src="<?=ROOT_PATH.$article['photo_path']?>" alt="">
 			</div>
 			</br>
 				<h6><?=$article['price']?>&euro;</h6>

@@ -16,9 +16,10 @@
 					<ul class="nav navbar-nav menu_nav ml-auto">
 						<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>">Accueil</a></li>
 						<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>shop">Shop</a></li>
-						<?php if(empty($_SESSION['id']) || $_SESSION['userRole']!=2):?>
-						<li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-						<?php else:?>
+						<?php if(isset($_SESSION['userRole']) && $_SESSION['userRole']==1):?>
+							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>panier">Panier</a></li>
+						<?php endif?>
+						<?php if(isset($_SESSION['userRole']) && $_SESSION['userRole']==2):?>
 							<li class="nav-item submenu dropdown">
 							<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">Administration</a>
@@ -26,7 +27,7 @@
 							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>edit/all/users">Gestion membres</a></li>
 							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>booksList">Gestion commandes</a></li>
 							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>edit/all/articles">Gestion shop</a></li>
-							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>stats">Statistiques</a></li>
+							<li class="nav-item"><a class="nav-link" href="<?=ROOT_PATH?>stats">Statistiques ventes</a></li>
 							</ul>
 							</li>
 						<?php endif?>
@@ -57,7 +58,7 @@
 					</ul>
 					<?php if(!empty($_SESSION['userRole']) && $_SESSION['userRole']==1):?>
 					<ul class="nav navbar-nav navbar-right">
-						<li class="nav-item"><a href="<?=ROOT_PATH?>panier" <class="social-info"><span class="ti-bag"></span></a></li>
+						<li class="nav-item"><a href="#" <class="social-info"><span class="ti-bag"></span></a></li>
 					</ul>							
 					<?php else:?>
 					<ul class="nav navbar-nav navbar-right">

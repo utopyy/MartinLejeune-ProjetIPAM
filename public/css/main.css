@@ -22,6 +22,11 @@
   user-select: none;
 }
 
+.resizePrevu {
+  width:960px;
+  height:960px;
+}
+
 .tableCustomTd{
 font-size:16px;
 }

@@ -132,15 +132,6 @@ function createArticle($title, $description, $price, $category, $photo_path){
 	$response->closeCursor();
 }
 
-// Je fais le choix d'afficher aussi les articles qui ont été supprimé, l'idée ici est de garder un historique de ses (meilleures) ventes, je ne vois donc pas d'intéret à les retirer
-function getBestSellers(){
-	$response = getBdd()->prepare('SELECT a.title AS title, COUNT(ba.item_id) AS amount FROM article AS a, book_article AS ba WHERE a.id = ba.item_id GROUP BY ba.item_id ORDER BY amount DESC LIMIT 2');
-	$response->execute();
-	$result = $response->fetchAll(PDO::FETCH_KEY_PAIR|PDO::FETCH_GROUP);
-	$response->closeCursor();
-	return $result;
-}
-
 function exists($title){
 	$response = getBdd()->prepare('SELECT COUNT(*) FROM article WHERE title LIKE :title');
 	$response->execute([':title' => $title]);

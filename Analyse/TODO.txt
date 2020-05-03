@@ -68,18 +68,12 @@ Projet:
 66) validation formulaire (pas d'espaces extra/accents spéciaux)
 67) maximum de taille pour les noms (je dois rename les autre en db)
 68) check panier model/controller : functions inutiles?
+69) Listing commandes total, users, article : appeler javascript pour mettre un nombre de coms max par page ( et trier par champ) 
+70) Favicon
+71) reduire taille image prévisu article
+72) Améliorer graphique
 
-=============
-
-Restant: 
-
-52) Listing commandes total, users, article : appeler javascript pour mettre un nombre de coms max par page ( et trier par champ) : https://www.creative-tim.com/product/fresh-bootstrap-table?partner=114912
-53) fusionner un max de views/controllers
-54) global db? (voir discord juju)
-
-(!!!) Améliorer graphique
-57) reduire taille image prévisu article
-xx) Favicon
+TERMINE!
 
 ========
 Avant dernier push
@@ -90,8 +84,9 @@ Avant dernier push
 - Différence entre require_once / require (à recheck pour être sûr)
 - Index a été modifié plusieurs fois par le prof: retourner sur discord pour s'assurer d'avoir compris toutes les modifs
 - Update readme
-
-
+- Ajout d'image XxX
+- Clean and populate db
+:
 Readme: "Un article supprimé reste dans la db (champ delete = 1), comme les utilisateurs, un nouvel article peut être recréé avec le même nom que l'article "supprimé". 
 Si vous modifiez le status d'un article supprimé, merci de vérifier qu'un autre article portant le même nom n'a pas été créé entre temps et au besoin, modifier le nom de l'ancien ou du nouvel article."
 
